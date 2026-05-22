@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Lily Dykstra</title>
+  <meta name="description" content="Projects by Lily Dykstra — UX design, fabrication, hardware engineering, and creative technology." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" /></noscript>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">LILY DYKSTRA</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="nav-dropdown">
+          <a href="projects.html">Projects <span class="dropdown-arrow">▾</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="projects.html">All Projects</a></li>
+            <li><a href="projects/zoo.html">Cheyenne Mountain Zoo Redesign</a></li>
+            <li><a href="projects/shelf.html">Wood + Acrylic Shelf</a></li>
+            <li><a href="projects/greenhouse.html">Automated Greenhouse</a></li>
+            <li><a href="projects/lamps.html">Lamp-mania</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══ PROJECTS HERO ═══ -->
+  <div class="projects-hero">
+    <div class="container">
+      <div class="fade-up">
+        <h1>My Work</h1>
+        <div class="divider divider-left" style="margin-top:0.75rem; margin-bottom:1rem;"></div>
+        <p style="font-size:1.1rem; max-width:52ch;">A mix of UX design, fabrication, and creative engineering.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PROJECTS GRID ═══ -->
+  <section style="background:var(--white);">
+    <div class="container">
+
+      <!-- Filter bar -->
+      <div class="filter-bar fade-up">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ux">UX / UI</button>
+        <button class="filter-btn" data-filter="fabrication">Fabrication</button>
+        <button class="filter-btn" data-filter="hardware">Hardware &amp; Engineering</button>
+        <button class="filter-btn" data-filter="design">Design</button>
+      </div>
+
+      <div class="projects-grid stagger">
+
+        <!-- Zoo Redesign -->
+        <div class="project-card" data-tags="ux">
+          <div class="project-card-img">
+            <!-- SWAP IMAGE: zoo-card.jpg -->
+            <div class="project-card-img-placeholder" style="background:linear-gradient(160deg,#FAD9D5,#F9ECE9);">
+              Cheyenne Mountain Zoo
+            </div>
+            <!-- <img src="photos/zoo-card.jpg" alt="Cheyenne Mountain Zoo Redesign" /> -->
+          </div>
+          <div class="project-card-body">
+            <span class="tag tag-ux">UX / UI</span>
+            <h3>Cheyenne Mountain Zoo Redesign</h3>
+            <p>A full redesign of the Cheyenne Mountain Zoo ticketing experience. Focused on improving user satisfaction and reducing friction in the purchase flow.</p>
+          </div>
+          <div class="project-card-footer">
+            <a href="projects/zoo.html" class="btn btn-ghost">View Project →</a>
+          </div>
+        </div>
+
+        <!-- Wood + Acrylic Shelf -->
+        <div class="project-card" data-tags="fabrication">
+          <div class="project-card-img">
+            <!-- SWAP IMAGE: shelf-card.jpg -->
+            <div class="project-card-img-placeholder" style="background:linear-gradient(160deg,#FAF0CC,#F5DFA0);">
+              Wood + Acrylic Shelf
+            </div>
+            <!-- <img src="photos/shelf-card.jpg" alt="Wood + Acrylic Shelf" /> -->
+          </div>
+          <div class="project-card-body">
+            <span class="tag tag-fab">Fabrication</span>
+            <h3>Wood + Acrylic Shelf</h3>
+            <p>A shelf inspired by Shiro Kuramata's exploration of transparency and weightlessness. Built using acrylic welding and woodshop techniques.</p>
+          </div>
+          <div class="project-card-footer">
+            <a href="projects/shelf.html" class="btn btn-ghost">View Project →</a>
+          </div>
+        </div>
+
+        <!-- Automated Greenhouse -->
+        <div class="project-card" data-tags="hardware">
+          <div class="project-card-img">
+            <!-- SWAP IMAGE: greenhouse-card.jpg -->
+            <div class="project-card-img-placeholder" style="background:linear-gradient(160deg,#C8E6C3,#D8EDD5);">
+              Automated Greenhouse
+            </div>
+            <!-- <img src="photos/greenhouse-card.jpg" alt="Automated Greenhouse" /> -->
+          </div>
+          <div class="project-card-body">
+            <span class="tag tag-hw">Hardware &amp; Engineering</span>
+            <h3>Automated Greenhouse</h3>
+            <p>A sensor-driven greenhouse using temperature, humidity, and soil moisture data to automate watering and lighting for optimal plant health.</p>
+          </div>
+          <div class="project-card-footer">
+            <a href="projects/greenhouse.html" class="btn btn-ghost">View Project →</a>
+          </div>
+        </div>
+
+        <!-- Lamp-mania -->
+        <div class="project-card" data-tags="fabrication design">
+          <div class="project-card-img">
+            <!-- SWAP IMAGE: lamps-card.jpg -->
+            <div class="project-card-img-placeholder" style="background:linear-gradient(160deg,#DDD5EE,#EAE4F5);">
+              Lamp-mania
+            </div>
+            <!-- <img src="photos/lamps-card.jpg" alt="Lamp-mania" /> -->
+          </div>
+          <div class="project-card-body">
+            <div style="display:flex; gap:0.4rem; flex-wrap:wrap;">
+              <span class="tag tag-fab">Fabrication</span>
+              <span class="tag tag-design">Design</span>
+            </div>
+            <h3>Lamp-mania</h3>
+            <p>A fabrication exploration using diverse materials and methods to experiment with form, light diffusion, and structural technique.</p>
+          </div>
+          <div class="project-card-footer">
+            <a href="projects/lamps.html" class="btn btn-ghost">View Project →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">LILY DYKSTRA</a>
+          <p>Creative Technology &amp; Design Engineer based in the US. Open to UX, product design, and creative technology roles.</p>
+          <div class="social-links" style="margin-top:1rem;">
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-link" aria-label="GitHub">GH</a>
+            <a href="mailto:lilykatdykstra@gmail.com" class="social-link" aria-label="Email">✉</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">All Projects</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Projects</h4>
+          <ul>
+            <li><a href="projects/zoo.html">Zoo Redesign</a></li>
+            <li><a href="projects/shelf.html">Wood + Acrylic Shelf</a></li>
+            <li><a href="projects/greenhouse.html">Automated Greenhouse</a></li>
+            <li><a href="projects/lamps.html">Lamp-mania</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Lily Dykstra. All rights reserved.</span>
+        <span>lilykatdykstra@gmail.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

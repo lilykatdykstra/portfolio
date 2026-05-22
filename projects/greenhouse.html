@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automated Greenhouse — Lily Dykstra</title>
+  <meta name="description" content="A sensor-driven automated greenhouse project by Lily Dykstra." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" /></noscript>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">LILY DYKSTRA</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li class="nav-dropdown">
+          <a href="../projects.html">Projects <span class="dropdown-arrow">▾</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../projects.html">All Projects</a></li>
+            <li><a href="zoo.html">Cheyenne Mountain Zoo Redesign</a></li>
+            <li><a href="shelf.html">Wood + Acrylic Shelf</a></li>
+            <li><a href="greenhouse.html">Automated Greenhouse</a></li>
+            <li><a href="lamps.html">Lamp-mania</a></li>
+          </ul>
+        </li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO BANNER ═══ -->
+  <div class="project-hero-banner">
+    <!-- SWAP IMAGE: greenhouse-hero.jpg -->
+    <div class="project-hero-placeholder" style="background:linear-gradient(160deg,#C5DEC2 0%,#D5EDD1 50%,#E5F3E4 100%);">
+      Automated Greenhouse
+    </div>
+    <!-- <img src="../photos/greenhouse-hero.jpg" alt="Automated Greenhouse Hero" /> -->
+  </div>
+
+  <!-- ═══ PROJECT HEADER ═══ -->
+  <div class="container">
+    <div class="project-header fade-up">
+      <a href="../projects.html" class="back-link">← All Projects</a>
+      <span class="tag tag-hw">Hardware &amp; Engineering</span>
+      <h1>Automated Greenhouse</h1>
+    </div>
+  </div>
+
+  <!-- ═══ PROJECT BODY ═══ -->
+  <div class="project-body">
+    <div class="container">
+      <div class="project-layout">
+
+        <!-- Main Content -->
+        <main class="project-main">
+
+          <section class="fade-up">
+            <h2>Overview</h2>
+            <p>
+              A fully automated miniature greenhouse that uses real-time sensor data to maintain optimal growing conditions for plants — without requiring manual intervention. The system continuously monitors temperature, humidity, and soil moisture, then triggers watering pumps and grow lights automatically based on predefined thresholds.
+            </p>
+            <p>
+              Built as an end-to-end hardware and software project, the greenhouse combines physical enclosure design, sensor integration, microcontroller programming, and a simple data dashboard for monitoring environmental conditions over time.
+            </p>
+          </section>
+
+          <section class="fade-up">
+            <h2>Problem Statement</h2>
+            <p>
+              For plant hobbyists, students, and researchers, maintaining a consistent growing environment is time-consuming and easy to get wrong. Inconsistent watering, temperature swings, and poor light schedules are the most common causes of plant stress or death. The goal was to build a low-cost, reliable system that removes guesswork and manual labor from plant care.
+            </p>
+            <ul>
+              <li>Manual watering leads to over- or under-watering — the most common plant killer</li>
+              <li>Temperature and humidity fluctuations stress plants and reduce yield</li>
+              <li>Grow light schedules are frequently disrupted by forgetting to toggle switches</li>
+              <li>No easy way to track environmental history for troubleshooting or learning</li>
+            </ul>
+          </section>
+
+          <section class="fade-up">
+            <h2>System Design &amp; Engineering</h2>
+            <p>
+              The system is built around a Raspberry Pi microcontroller connected to three sensor types: a DHT22 temperature/humidity sensor, capacitive soil moisture sensors (one per planting zone), and a light intensity sensor. Outputs include a submersible water pump, a relay-controlled LED grow light strip, and a small cooling fan.
+            </p>
+            <p>
+              The control logic runs in Python. Each sensor polls at a configurable interval (default: every 5 minutes). When soil moisture falls below threshold, the pump runs for a calculated duration based on pot volume. The grow light follows a programmable day/night schedule. All readings are logged to a CSV and visualized in a browser-based dashboard.
+            </p>
+            <ul>
+              <li>Raspberry Pi microcontroller as the main processing unit</li>
+              <li>DHT22 sensor for temperature and humidity monitoring</li>
+              <li>Capacitive soil moisture sensors — more accurate and longer-lasting than resistive</li>
+              <li>5V submersible mini pump with relay module for automated watering</li>
+              <li>Full-spectrum LED grow light strip on programmable timer relay</li>
+              <li>Python control script with configurable thresholds and intervals</li>
+              <li>CSV data logging + lightweight HTML/JS dashboard for visualization</li>
+            </ul>
+            <div class="process-images">
+              <div class="process-img-box">
+                <!-- SWAP IMAGE: greenhouse-process-1.jpg -->
+                <div class="process-img-placeholder">Wiring diagram &amp; sensor layout schematic</div>
+                <!-- <img src="../photos/greenhouse-process-1.jpg" alt="Wiring diagram" /> -->
+              </div>
+              <div class="process-img-box">
+                <!-- SWAP IMAGE: greenhouse-process-2.jpg -->
+                <div class="process-img-placeholder">Physical build — enclosure &amp; sensor placement</div>
+                <!-- <img src="../photos/greenhouse-process-2.jpg" alt="Physical build" /> -->
+              </div>
+            </div>
+          </section>
+
+          <section class="fade-up">
+            <h2>Build Process</h2>
+            <p>
+              The physical enclosure is a laser-cut acrylic and wood composite structure — transparent sides allow light penetration and visibility while the wooden frame provides structural rigidity. Sensor wiring is routed through channels in the frame to keep the interior clean and accessible.
+            </p>
+            <p>
+              Software development was iterative — I started with individual sensor test scripts, then integrated them into a unified control loop, and finally added the logging and dashboard layer. Edge cases like sensor read failures and pump stuck-on conditions required adding watchdog logic and manual override buttons.
+            </p>
+            <div class="process-images">
+              <div class="process-img-box">
+                <!-- SWAP IMAGE: greenhouse-process-3.jpg -->
+                <div class="process-img-placeholder">Dashboard UI showing live sensor readings</div>
+                <!-- <img src="../photos/greenhouse-process-3.jpg" alt="Dashboard UI" /> -->
+              </div>
+              <div class="process-img-box">
+                <!-- SWAP IMAGE: greenhouse-process-4.jpg -->
+                <div class="process-img-placeholder">Laser-cut enclosure assembly</div>
+                <!-- <img src="../photos/greenhouse-process-4.jpg" alt="Enclosure assembly" /> -->
+              </div>
+            </div>
+          </section>
+
+          <section class="fade-up">
+            <h2>Outcome &amp; Result</h2>
+            <p>
+              The automated greenhouse successfully maintained a basil and lettuce crop over a 6-week test period with zero manual watering interventions. Sensor data showed the system kept soil moisture within a 5% band of the target value, and temperature remained within ±2°C of the setpoint.
+            </p>
+            <p>
+              This project taught me how to bridge the gap between hardware and software — particularly how to handle sensor noise, intermittent connections, and the importance of fail-safe design in physical systems. It also reinforced that even "simple" automation requires careful edge-case thinking.
+            </p>
+          </section>
+
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="project-sidebar fade-in">
+          <div class="sidebar-card">
+            <h3>Project Details</h3>
+            <div class="sidebar-detail">
+              <div class="sidebar-row">
+                <span class="sidebar-label">Type</span>
+                <span class="sidebar-value">Hardware &amp; Engineering</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Context</span>
+                <span class="sidebar-value">Class Project</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Year</span>
+                <span class="sidebar-value">2023 – 2024</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Tools Used</span>
+                <div class="tools-list">
+                  <span class="tool-chip">Python</span>
+                  <span class="tool-chip">Raspberry Pi</span>
+                  <span class="tool-chip">DHT22 Sensor</span>
+                  <span class="tool-chip">Laser Cutter</span>
+                  <span class="tool-chip">HTML / CSS / JS</span>
+                  <span class="tool-chip">CAD (Fusion 360)</span>
+                </div>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Components</span>
+                <div class="tools-list">
+                  <span class="tool-chip">Sensors × 3</span>
+                  <span class="tool-chip">Mini Pump</span>
+                  <span class="tool-chip">Relay Module</span>
+                  <span class="tool-chip">LED Grow Strip</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ NEXT PROJECT ═══ -->
+  <div class="next-project-section">
+    <div class="container">
+      <a href="lamps.html" class="next-project-card">
+        <div>
+          <div class="next-project-label">Next Project</div>
+          <div class="next-project-title">Lamp-mania →</div>
+        </div>
+        <div class="next-project-arrow">→</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="../index.html" class="nav-logo">LILY DYKSTRA</a>
+          <p>Creative Technology &amp; Design Engineer based in the US. Open to UX, product design, and creative technology roles.</p>
+          <div class="social-links" style="margin-top:1rem;">
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-link" aria-label="GitHub">GH</a>
+            <a href="mailto:lilykatdykstra@gmail.com" class="social-link" aria-label="Email">✉</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../projects.html">All Projects</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Projects</h4>
+          <ul>
+            <li><a href="zoo.html">Zoo Redesign</a></li>
+            <li><a href="shelf.html">Wood + Acrylic Shelf</a></li>
+            <li><a href="greenhouse.html">Automated Greenhouse</a></li>
+            <li><a href="lamps.html">Lamp-mania</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Lily Dykstra. All rights reserved.</span>
+        <span>lilykatdykstra@gmail.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lily Dykstra — Creative Technology & Design Engineer</title>
+  <meta name="description" content="Portfolio of Lily Dykstra — Creative Technology & Design Engineer, UX Designer, and Maker." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" /></noscript>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">LILY DYKSTRA</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="nav-dropdown">
+          <a href="projects.html">Projects <span class="dropdown-arrow">▾</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="projects.html">All Projects</a></li>
+            <li><a href="projects/zoo.html">Cheyenne Mountain Zoo Redesign</a></li>
+            <li><a href="projects/shelf.html">Wood + Acrylic Shelf</a></li>
+            <li><a href="projects/greenhouse.html">Automated Greenhouse</a></li>
+            <li><a href="projects/lamps.html">Lamp-mania</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-blob hero-blob-1"></div>
+      <div class="hero-blob hero-blob-2"></div>
+      <div class="hero-blob hero-blob-3"></div>
+    </div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-text fade-up">
+          <div class="hero-eyebrow">✨ Available for opportunities</div>
+          <h1>Hi, I'm <span>Lily Dykstra</span></h1>
+          <p class="hero-subhead">Creative Technology &amp; Design Engineer · UX Certificate · CU Boulder</p>
+          <p class="hero-tagline">Designer. Maker. Problem-solver. Recently graduated and ready to build cool things.</p>
+          <div class="hero-ctas">
+            <a href="projects.html" class="btn btn-primary">See My Work →</a>
+            <a href="#footer" class="btn btn-secondary">Get In Touch</a>
+          </div>
+        </div>
+        <div class="hero-photo fade-in">
+          <div class="headshot-border"></div>
+          <div class="headshot-frame">
+            <!-- SWAP IMAGE: headshot.jpg -->
+            <div class="headshot-frame-placeholder">LD</div>
+            <!-- <img src="photos/headshot.jpg" alt="Lily Dykstra" /> -->
+          </div>
+          <div class="headshot-accent">🎨</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Soft background blobs + doodle squiggles -->
+    <div class="hero-decor" aria-hidden="true">
+      <div class="hero-soft-blob hero-soft-blob-1"></div>
+      <div class="hero-soft-blob hero-soft-blob-2"></div>
+      <div class="hero-soft-blob hero-soft-blob-3"></div>
+
+      <!-- Squiggle doodle 1 — left side -->
+      <svg class="hero-scribble hero-scribble-1" viewBox="0 0 80 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2,16 C10,4 20,26 30,14 C40,2 50,24 60,12 C66,6 72,20 78,15" stroke="#F2A89A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+      <!-- Squiggle doodle 2 — bottom right -->
+      <svg class="hero-scribble hero-scribble-2" viewBox="0 0 64 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2,14 C9,3 18,23 28,12 C38,1 48,22 58,10 C60,8 62,12 64,11" stroke="#A8C5A0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+      <!-- Dashed circle doodle — upper right area -->
+      <svg class="hero-scribble hero-scribble-3" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="26" cy="26" r="22" stroke="#F5DFA0" stroke-width="2" stroke-dasharray="5 7" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- Squiggly wave divider -->
+    <div class="hero-wave-bottom" aria-hidden="true">
+      <svg viewBox="0 0 1440 64" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,36 C18,56 54,12 90,30 C126,48 166,8 214,28 C262,48 308,10 362,36 C416,62 452,4 514,24 C576,44 620,14 682,38 C744,62 790,8 858,30 C926,52 970,6 1032,28 C1094,50 1142,8 1204,34 C1262,58 1304,16 1362,36 C1390,46 1420,30 1440,34 L1440,64 L0,64 Z" fill="#FAF3E5"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═══ STATS STRIP ═══ -->
+  <div class="stats-strip">
+    <div class="container">
+      <div class="stats-inner stagger">
+        <div class="stat-item">
+          <span class="stat-icon">🎓</span>
+          <h4>CU Boulder Grad</h4>
+          <p>B.S. Creative Technology &amp; Design Engineering + UX Certificate</p>
+        </div>
+        <div class="stat-item">
+          <span class="stat-icon">🌍</span>
+          <h4>15+ Countries</h4>
+          <p>Global perspective shaped by studying in Florence, Italy and beyond</p>
+        </div>
+        <div class="stat-item">
+          <span class="stat-icon">🛠️</span>
+          <h4>Maker &amp; Designer</h4>
+          <p>From Figma wireframes to hand-built shelves — both sides of the table</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Squiggly wave divider into Featured Works -->
+    <div class="stats-wave-bottom" aria-hidden="true">
+      <svg viewBox="0 0 1440 64" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,32 C22,50 62,10 110,32 C158,54 208,6 264,28 C320,50 372,8 432,30 C492,52 546,10 606,34 C666,58 718,4 780,26 C842,48 898,12 962,36 C1026,60 1078,8 1140,30 C1202,52 1260,10 1318,34 C1362,50 1408,26 1440,32 L1440,64 L0,64 Z" fill="#FFFFFF"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ═══ FEATURED WORKS ═══ -->
+  <section>
+    <div class="container">
+      <h2 class="section-heading fade-up">Featured Works</h2>
+      <div class="divider"></div>
+      <p class="section-sub fade-up">A taste of what I've been building lately.</p>
+
+      <div class="featured-grid stagger">
+
+        <!-- Card: Zoo -->
+        <div class="project-card">
+          <div class="project-card-img">
+            <!-- SWAP IMAGE: zoo-card.jpg -->
+            <div class="project-card-img-placeholder" style="background: linear-gradient(160deg, #FAD9D5, #F9ECE9);">
+              Cheyenne Mountain Zoo
+            </div>
+            <!-- <img src="photos/zoo-card.jpg" alt="Cheyenne Mountain Zoo Redesign" /> -->
+          </div>
+          <div class="project-card-body">
+            <span class="tag tag-ux">UX / UI</span>
+            <h3>Cheyenne Mountain Zoo Redesign</h3>
+            <p>A full redesign of the Cheyenne Mountain Zoo ticketing experience. Focused on improving user satisfaction and reducing friction in the purchase flow.</p>
+          </div>
+          <div class="project-card-footer">
+            <a href="projects/zoo.html" class="btn btn-ghost">View Project →</a>
+          </div>
+        </div>
+
+        <!-- Card: Greenhouse -->
+        <div class="project-card">
+          <div class="project-card-img">
+            <!-- SWAP IMAGE: greenhouse-card.jpg -->
+            <div class="project-card-img-placeholder" style="background: linear-gradient(160deg, #C8E6C3, #D8EDD5);">
+              Automated Greenhouse
+            </div>
+            <!-- <img src="photos/greenhouse-card.jpg" alt="Automated Greenhouse" /> -->
+          </div>
+          <div class="project-card-body">
+            <span class="tag tag-hw">Hardware &amp; Engineering</span>
+            <h3>Automated Greenhouse</h3>
+            <p>A sensor-driven greenhouse using temperature, humidity, and soil moisture data to automate watering and lighting for optimal plant health.</p>
+          </div>
+          <div class="project-card-footer">
+            <a href="projects/greenhouse.html" class="btn btn-ghost">View Project →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align:center; margin-top: 2.5rem;" class="fade-up">
+        <a href="projects.html" class="btn btn-outline">View All Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">LILY DYKSTRA</a>
+          <p>Creative Technology &amp; Design Engineer based in the US. Open to UX, product design, and creative technology roles.</p>
+          <div class="social-links" style="margin-top:1rem;">
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-link" aria-label="GitHub">GH</a>
+            <a href="mailto:lilykatdykstra@gmail.com" class="social-link" aria-label="Email">✉</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">All Projects</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Projects</h4>
+          <ul>
+            <li><a href="projects/zoo.html">Zoo Redesign</a></li>
+            <li><a href="projects/shelf.html">Wood + Acrylic Shelf</a></li>
+            <li><a href="projects/greenhouse.html">Automated Greenhouse</a></li>
+            <li><a href="projects/lamps.html">Lamp-mania</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Lily Dykstra. All rights reserved.</span>
+        <span>lilykatdykstra@gmail.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

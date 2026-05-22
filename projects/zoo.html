@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cheyenne Mountain Zoo Redesign — Lily Dykstra</title>
+  <meta name="description" content="A UX redesign of the Cheyenne Mountain Zoo ticketing experience by Lily Dykstra." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" /></noscript>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">LILY DYKSTRA</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li class="nav-dropdown">
+          <a href="../projects.html">Projects <span class="dropdown-arrow">▾</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../projects.html">All Projects</a></li>
+            <li><a href="zoo.html">Cheyenne Mountain Zoo Redesign</a></li>
+            <li><a href="shelf.html">Wood + Acrylic Shelf</a></li>
+            <li><a href="greenhouse.html">Automated Greenhouse</a></li>
+            <li><a href="lamps.html">Lamp-mania</a></li>
+          </ul>
+        </li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO BANNER ═══ -->
+  <div class="project-hero-banner">
+    <!-- SWAP IMAGE: zoo-hero.jpg -->
+    <div class="project-hero-placeholder" style="background:linear-gradient(160deg,#FAD9D5 0%,#F9EDEA 50%,#FAF0CC 100%);">
+      Cheyenne Mountain Zoo Redesign
+    </div>
+    <!-- <img src="../photos/zoo-hero.jpg" alt="Cheyenne Mountain Zoo Redesign Hero" /> -->
+  </div>
+
+  <!-- ═══ PROJECT HEADER ═══ -->
+  <div class="container">
+    <div class="project-header fade-up">
+      <a href="../projects.html" class="back-link">← All Projects</a>
+      <span class="tag tag-ux">UX / UI</span>
+      <h1>Cheyenne Mountain Zoo Redesign</h1>
+    </div>
+  </div>
+
+  <!-- ═══ PROJECT BODY ═══ -->
+  <div class="project-body">
+    <div class="container">
+      <div class="project-layout">
+
+        <!-- Main Content -->
+        <main class="project-main">
+
+          <section class="fade-up">
+            <h2>Overview</h2>
+            <p>
+              A comprehensive redesign of the Cheyenne Mountain Zoo's online ticketing experience, targeting the core friction points that caused visitor frustration and cart abandonment. The project began with extensive user research and culminated in a tested, high-fidelity Figma prototype.
+            </p>
+            <p>
+              The existing ticketing flow required users to navigate multiple disconnected pages, re-enter information repeatedly, and make decisions without adequate context — leading to confusion, especially for first-time visitors planning complex group trips.
+            </p>
+          </section>
+
+          <section class="fade-up">
+            <h2>Problem Statement</h2>
+            <p>
+              Zoo visitors — especially families and group organizers — struggled to complete ticket purchases online due to a fragmented, unclear interface. The site's information architecture buried critical details like parking, accessibility options, and add-on experiences, resulting in calls to the zoo's customer service line for clarification.
+            </p>
+            <ul>
+              <li>Ticket type selection was confusing — age categories were ambiguous</li>
+              <li>Membership discounts were not surfaced at the right moment in the flow</li>
+              <li>No clear path to add parking, dining, or special experiences</li>
+              <li>Mobile experience was especially broken — key CTAs were below the fold</li>
+            </ul>
+          </section>
+
+          <section class="fade-up">
+            <h2>Research &amp; Discovery</h2>
+            <p>
+              I conducted heuristic evaluations of the existing site, competitive analysis of three other zoo and attraction ticketing systems, and user interviews with five participants who had recently purchased attraction tickets online.
+            </p>
+            <p>
+              Key insights: users expected a step-by-step wizard-style flow with a persistent progress indicator; they wanted to see total cost update in real time; and they were overwhelmed by too many choices presented simultaneously.
+            </p>
+            <div class="process-images">
+              <div class="process-img-box">
+                <!-- SWAP IMAGE: zoo-process-1.jpg -->
+                <div class="process-img-placeholder">User interview notes &amp; affinity map</div>
+                <!-- <img src="../photos/zoo-process-1.jpg" alt="User research notes" /> -->
+              </div>
+              <div class="process-img-box">
+                <!-- SWAP IMAGE: zoo-process-2.jpg -->
+                <div class="process-img-placeholder">Competitive analysis of peer ticketing flows</div>
+                <!-- <img src="../photos/zoo-process-2.jpg" alt="Competitive analysis" /> -->
+              </div>
+            </div>
+          </section>
+
+          <section class="fade-up">
+            <h2>Design Process</h2>
+            <p>
+              I created low-fidelity wireframes to explore the new information architecture, then moved into mid-fidelity flows for usability testing with 4 participants. After two rounds of iteration, I built a polished high-fidelity prototype in Figma using the zoo's existing brand palette.
+            </p>
+            <p>
+              Key design decisions: a sticky progress bar showing steps (Date → Tickets → Add-Ons → Review → Pay), contextual tooltips explaining ticket categories, and a real-time order summary panel visible throughout checkout.
+            </p>
+            <div class="process-images">
+              <div class="process-img-box">
+                <!-- SWAP IMAGE: zoo-process-3.jpg -->
+                <div class="process-img-placeholder">Low-fidelity wireframes — checkout flow</div>
+                <!-- <img src="../photos/zoo-process-3.jpg" alt="Wireframes" /> -->
+              </div>
+              <div class="process-img-box">
+                <!-- SWAP IMAGE: zoo-process-4.jpg -->
+                <div class="process-img-placeholder">High-fidelity Figma prototype</div>
+                <!-- <img src="../photos/zoo-process-4.jpg" alt="Figma prototype" /> -->
+              </div>
+            </div>
+          </section>
+
+          <section class="fade-up">
+            <h2>Outcome &amp; Result</h2>
+            <p>
+              Usability testing of the redesigned prototype showed a significant improvement in task completion rate — participants completed the checkout flow in under 3 minutes on average, compared to 7+ minutes on the original site. All participants rated the redesigned experience as "easy" or "very easy."
+            </p>
+            <p>
+              The redesign also surfaced membership upsell opportunities naturally within the flow, with 3 of 4 test participants pausing to consider the membership option — compared to 0 on the original.
+            </p>
+          </section>
+
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="project-sidebar fade-in">
+          <div class="sidebar-card">
+            <h3>Project Details</h3>
+            <div class="sidebar-detail">
+              <div class="sidebar-row">
+                <span class="sidebar-label">Type</span>
+                <span class="sidebar-value">UX / UI Design</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Context</span>
+                <span class="sidebar-value">Class Project</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Year</span>
+                <span class="sidebar-value">2024 – 2025</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Tools Used</span>
+                <div class="tools-list">
+                  <span class="tool-chip">Figma</span>
+                  <span class="tool-chip">User Interviews</span>
+                  <span class="tool-chip">Heuristic Evaluation</span>
+                  <span class="tool-chip">Usability Testing</span>
+                  <span class="tool-chip">Competitive Analysis</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ NEXT PROJECT ═══ -->
+  <div class="next-project-section">
+    <div class="container">
+      <a href="shelf.html" class="next-project-card">
+        <div>
+          <div class="next-project-label">Next Project</div>
+          <div class="next-project-title">Wood + Acrylic Shelf →</div>
+        </div>
+        <div class="next-project-arrow">→</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="../index.html" class="nav-logo">LILY DYKSTRA</a>
+          <p>Creative Technology &amp; Design Engineer based in the US. Open to UX, product design, and creative technology roles.</p>
+          <div class="social-links" style="margin-top:1rem;">
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-link" aria-label="GitHub">GH</a>
+            <a href="mailto:lilykatdykstra@gmail.com" class="social-link" aria-label="Email">✉</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../projects.html">All Projects</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Projects</h4>
+          <ul>
+            <li><a href="zoo.html">Zoo Redesign</a></li>
+            <li><a href="shelf.html">Wood + Acrylic Shelf</a></li>
+            <li><a href="greenhouse.html">Automated Greenhouse</a></li>
+            <li><a href="lamps.html">Lamp-mania</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Lily Dykstra. All rights reserved.</span>
+        <span>lilykatdykstra@gmail.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
