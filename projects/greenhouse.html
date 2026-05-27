@@ -4,12 +4,90 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Automated Greenhouse — Lily Dykstra</title>
-  <meta name="description" content="A sensor-driven automated greenhouse project by Lily Dykstra." />
+  <meta name="description" content="An automated greenhouse using Arduino sensors to control lights and watering, by Lily Dykstra." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" /></noscript>
   <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .model-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: end;
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    .model-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: end;
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    .model-grid-3 figure,
+    .model-grid-4 figure {
+      margin: 0;
+    }
+    .model-grid-3 figure img,
+    .model-grid-4 figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      border: 1px solid #e8e0d4;
+      background: #f5f0e8;
+    }
+    .model-grid-3 figcaption,
+    .model-grid-4 figcaption {
+      font-size: 0.72rem;
+      color: #8a7f72;
+      text-align: center;
+      margin-top: 0.35rem;
+      font-family: var(--font-body, 'Inter', sans-serif);
+    }
+    .section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8a7f72;
+      margin: 1.75rem 0 0.5rem;
+    }
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .materials-card {
+      background: #f5f0e8;
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+      border: 1px solid #e8e0d4;
+    }
+    .materials-card h4 {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #8a7f72;
+      margin: 0 0 0.6rem;
+    }
+    .materials-card p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #4a4035;
+      margin: 0;
+    }
+    @media (max-width: 700px) {
+      .model-grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .materials-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .model-grid-4 { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -40,11 +118,7 @@
 
   <!-- ═══ HERO BANNER ═══ -->
   <div class="project-hero-banner">
-    <!-- SWAP IMAGE: greenhouse-hero.jpg -->
-    <div class="project-hero-placeholder" style="background:linear-gradient(160deg,#C5DEC2 0%,#D5EDD1 50%,#E5F3E4 100%);">
-      Automated Greenhouse
-    </div>
-    <!-- <img src="../photos/greenhouse-hero.jpg" alt="Automated Greenhouse Hero" /> -->
+    <img src="../photos/greenhouse-hero.jpg" alt="Completed automated greenhouse" style="object-fit:contain;" />
   </div>
 
   <!-- ═══ PROJECT HEADER ═══ -->
@@ -61,98 +135,204 @@
     <div class="container">
       <div class="project-layout">
 
-        <!-- Main Content -->
+        <!-- ── Main Content ── -->
         <main class="project-main">
 
           <section class="fade-up">
             <h2>Overview</h2>
             <p>
-              A fully automated miniature greenhouse that uses real-time sensor data to maintain optimal growing conditions for plants — without requiring manual intervention. The system continuously monitors temperature, humidity, and soil moisture, then triggers watering pumps and grow lights automatically based on predefined thresholds.
-            </p>
-            <p>
-              Built as an end-to-end hardware and software project, the greenhouse combines physical enclosure design, sensor integration, microcontroller programming, and a simple data dashboard for monitoring environmental conditions over time.
+              A sensor-driven greenhouse built for ATLS 4519 — Hacking the Apocalypse. Working in a group of three, we designed and constructed a fully automated growing environment: temperature, humidity, and soil moisture sensors feed data into an Arduino Uno, which controls grow lights and triggers a bilge pump whenever moisture drops too low. I contributed to the physical build and electronics throughout.
             </p>
           </section>
 
           <section class="fade-up">
-            <h2>Problem Statement</h2>
+            <h2>The Brief</h2>
             <p>
-              For plant hobbyists, students, and researchers, maintaining a consistent growing environment is time-consuming and easy to get wrong. Inconsistent watering, temperature swings, and poor light schedules are the most common causes of plant stress or death. The goal was to build a low-cost, reliable system that removes guesswork and manual labor from plant care.
+              The class premise was speculative: it's 2035, a decade of trade wars and collapsed social investment has made basic necessities — food, water, shelter — nearly unattainable for most people. AI has eliminated the majority of both blue- and white-collar work, and a ruling class has sequestered itself in fortress-cities while the rest of the population struggles to survive.
             </p>
-            <ul>
-              <li>Manual watering leads to over- or under-watering — the most common plant killer</li>
-              <li>Temperature and humidity fluctuations stress plants and reduce yield</li>
-              <li>Grow light schedules are frequently disrupted by forgetting to toggle switches</li>
-              <li>No easy way to track environmental history for troubleshooting or learning</li>
-            </ul>
+            <p>
+              Food is one of the most critical resources in a world of scarcity. We wanted to build something that let people grow their own food while tracking the environmental data keeping plants alive — or killing them. The automated greenhouse was our answer.
+            </p>
           </section>
 
           <section class="fade-up">
-            <h2>System Design &amp; Engineering</h2>
-            <p>
-              The system is built around a Raspberry Pi microcontroller connected to three sensor types: a DHT22 temperature/humidity sensor, capacitive soil moisture sensors (one per planting zone), and a light intensity sensor. Outputs include a submersible water pump, a relay-controlled LED grow light strip, and a small cooling fan.
-            </p>
-            <p>
-              The control logic runs in Python. Each sensor polls at a configurable interval (default: every 5 minutes). When soil moisture falls below threshold, the pump runs for a calculated duration based on pot volume. The grow light follows a programmable day/night schedule. All readings are logged to a CSV and visualized in a browser-based dashboard.
-            </p>
-            <ul>
-              <li>Raspberry Pi microcontroller as the main processing unit</li>
-              <li>DHT22 sensor for temperature and humidity monitoring</li>
-              <li>Capacitive soil moisture sensors — more accurate and longer-lasting than resistive</li>
-              <li>5V submersible mini pump with relay module for automated watering</li>
-              <li>Full-spectrum LED grow light strip on programmable timer relay</li>
-              <li>Python control script with configurable thresholds and intervals</li>
-              <li>CSV data logging + lightweight HTML/JS dashboard for visualization</li>
-            </ul>
-            <div class="process-images">
-              <div class="process-img-box">
-                <!-- SWAP IMAGE: greenhouse-process-1.jpg -->
-                <div class="process-img-placeholder">Wiring diagram &amp; sensor layout schematic</div>
-                <!-- <img src="../photos/greenhouse-process-1.jpg" alt="Wiring diagram" /> -->
+            <h2>Materials &amp; Tools</h2>
+            <div class="materials-grid">
+              <div class="materials-card">
+                <h4>Physical Tools</h4>
+                <p>Table saw, chop saw, drill, drill press, jigsaw, staple gun, router</p>
               </div>
-              <div class="process-img-box">
-                <!-- SWAP IMAGE: greenhouse-process-2.jpg -->
-                <div class="process-img-placeholder">Physical build — enclosure &amp; sensor placement</div>
-                <!-- <img src="../photos/greenhouse-process-2.jpg" alt="Physical build" /> -->
+              <div class="materials-card">
+                <h4>Materials</h4>
+                <p>1×2 lumber, screws, clear vinyl sheeting, cement/plant tray, soil, seeds, soaker hose, conductive aluminum tape</p>
+              </div>
+              <div class="materials-card">
+                <h4>Electronics</h4>
+                <p>Arduino Uno, breadboard, DHT22 (temp/humidity), soil moisture sensor, photo-resistor, MOSFET, pixel lights, bilge pump, 5V battery, 12V power supply, jumper wires</p>
               </div>
             </div>
           </section>
 
           <section class="fade-up">
-            <h2>Build Process</h2>
+            <h2>3D Modeling</h2>
             <p>
-              The physical enclosure is a laser-cut acrylic and wood composite structure — transparent sides allow light penetration and visibility while the wooden frame provides structural rigidity. Sensor wiring is routed through channels in the frame to keep the interior clean and accessible.
+              Before cutting a single board, we modeled the entire greenhouse in Fusion 360 — frame, roof, vinyl panels, electronics enclosure, and back panel. Working out dimensions and joinery in CAD let us catch problems before they became wasted lumber, and gave us a reference throughout the physical build.
             </p>
-            <p>
-              Software development was iterative — I started with individual sensor test scripts, then integrated them into a unified control loop, and finally added the logging and dashboard layer. Edge cases like sensor read failures and pump stuck-on conditions required adding watchdog logic and manual override buttons.
-            </p>
+
+            <p class="section-eyebrow">Final Assembly &amp; Full Dimensions</p>
             <div class="process-images">
-              <div class="process-img-box">
-                <!-- SWAP IMAGE: greenhouse-process-3.jpg -->
-                <div class="process-img-placeholder">Dashboard UI showing live sensor readings</div>
-                <!-- <img src="../photos/greenhouse-process-3.jpg" alt="Dashboard UI" /> -->
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../photos/greenhouse-3d-assembly.png" alt="3D model — final assembly" style="width:100%; height:auto; object-fit:unset; background:#f5f0e8;" />
               </div>
-              <div class="process-img-box">
-                <!-- SWAP IMAGE: greenhouse-process-4.jpg -->
-                <div class="process-img-placeholder">Laser-cut enclosure assembly</div>
-                <!-- <img src="../photos/greenhouse-process-4.jpg" alt="Enclosure assembly" /> -->
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../photos/greenhouse-3d-dims.png" alt="3D model — full dimensions overview" style="width:100%; height:auto; object-fit:unset; background:#f5f0e8;" />
+              </div>
+            </div>
+
+            <p class="section-eyebrow">Frame — Base Construction</p>
+            <div class="model-grid-3">
+              <figure>
+                <img src="../photos/greenhouse-3d-base1.png" alt="Base — step 1" />
+                <figcaption>Step 1</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/greenhouse-3d-base2.png" alt="Base — step 2" />
+                <figcaption>Step 2</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/greenhouse-3d-base3.png" alt="Base — step 3" />
+                <figcaption>Step 3</figcaption>
+              </figure>
+            </div>
+
+            <p class="section-eyebrow">Frame — Roof Construction</p>
+            <div class="model-grid-4">
+              <figure>
+                <img src="../photos/greenhouse-3d-roof1.png" alt="Roof — step 1" />
+                <figcaption>Step 1</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/greenhouse-3d-roof2.png" alt="Roof — step 2" />
+                <figcaption>Step 2</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/greenhouse-3d-roof3.png" alt="Roof — step 3" />
+                <figcaption>Step 3</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/greenhouse-3d-roof4.png" alt="Roof — step 4" />
+                <figcaption>Step 4</figcaption>
+              </figure>
+            </div>
+
+            <p class="section-eyebrow">Electronics Enclosure</p>
+            <div class="model-grid-3">
+              <figure>
+                <img src="../photos/greenhouse-3d-boxfront.png" alt="Electronics box — front" />
+                <figcaption>Front</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/greenhouse-3d-boxback.png" alt="Electronics box — back" />
+                <figcaption>Back</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/greenhouse-3d-boxside.png" alt="Electronics box — side" />
+                <figcaption>Side</figcaption>
+              </figure>
+            </div>
+
+            <p class="section-eyebrow">Vinyl &amp; Back Panel</p>
+            <div class="process-images">
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../photos/greenhouse-3d-vinyl.png" alt="3D model — vinyl overview" style="width:100%; height:auto; object-fit:unset; background:#f5f0e8;" />
+              </div>
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../photos/greenhouse-3d-backpanel.png" alt="3D model — back panel" style="width:100%; height:auto; object-fit:unset; background:#f5f0e8;" />
               </div>
             </div>
           </section>
 
           <section class="fade-up">
-            <h2>Outcome &amp; Result</h2>
+            <h2>Physical Build</h2>
             <p>
-              The automated greenhouse successfully maintained a basil and lettuce crop over a 6-week test period with zero manual watering interventions. Sensor data showed the system kept soil moisture within a 5% band of the target value, and temperature remained within ±2°C of the setpoint.
+              We calculated a total lumber requirement of 43.7 linear feet and at least 12 square feet of clear vinyl before making any cuts. The chop saw handled all the wood; the vinyl came apart cleanly with scissors.
             </p>
             <p>
-              This project taught me how to bridge the gap between hardware and software — particularly how to handle sensor noise, intermittent connections, and the importance of fail-safe design in physical systems. It also reinforced that even "simple" automation requires careful edge-case thinking.
+              Frame construction started with three rectangular bases — dry-fit, mark screw locations, drill pilot holes, fasten. Vertical corner posts went in next, then the top rectangle, completing the structural box. The roof used four pieces with 45° mitered ends paired into two triangular peak segments, screwed to the top rectangle with a ridge piece running across the top.
             </p>
+            <p>
+              With the frame done we installed hinges along the back and on both doors, then stretched and stapled the pre-cut vinyl panels across each side. For the electronics enclosure, we routed a display cutout on the front face, drilled holes for the potentiometer and mounting bolts, then glued the box together with an internal shelf. The back panel got holes for the soaker hose and sensor leads before being screwed to the frame.
+            </p>
+            <div class="process-images" style="margin-top:1.25rem;">
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../photos/greenhouse-overview.jpg" alt="Greenhouse — overview" style="width:100%; height:auto; object-fit:unset;" />
+              </div>
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../photos/greenhouse-frontdoor.jpg" alt="View through front doors" style="width:100%; height:auto; object-fit:unset;" />
+              </div>
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../photos/greenhouse-back.jpg" alt="Back overview" style="width:100%; height:auto; object-fit:unset;" />
+              </div>
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../photos/greenhouse-rooftape.jpg" alt="Roof conductive tape" style="width:100%; height:auto; object-fit:unset;" />
+              </div>
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../photos/greenhouse-pump.jpg" alt="Back panel: pump and control box" style="width:100%; height:auto; object-fit:unset;" />
+              </div>
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../photos/greenhouse-fan.jpg" alt="External fan" style="width:100%; height:auto; object-fit:unset;" />
+              </div>
+            </div>
+          </section>
+
+          <section class="fade-up">
+            <h2>Electronics</h2>
+            <p>
+              The system runs on two power rails: a 12V external supply for pumps and fans, and a 5V battery for the Arduino and sensors. The Arduino Uno reads the light, temperature, humidity, and soil moisture sensors continuously. MOSFETs gate the 12V loads — when soil moisture drops below threshold the bilge pump fires; when the photo-resistor reads low light the pixel strip activates. Connections were insulated with heat-shrink tubing, and the LED strip was soldered in a corner configuration down each interior leg of the frame.
+            </p>
+            <div class="process-images" style="margin-top:1.25rem;">
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../photos/greenhouse-electronics.jpg" alt="Internal electronics and fan" style="width:100%; height:auto; object-fit:unset;" />
+              </div>
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../photos/greenhouse-fan2.jpg" alt="External fan detail" style="width:100%; height:auto; object-fit:unset;" />
+              </div>
+            </div>
+
+            <p class="section-eyebrow" style="margin-top:1.5rem;">Circuit Diagram</p>
+            <div class="process-images">
+              <div class="process-img-box" style="grid-column:1/-1; aspect-ratio:unset; height:auto;">
+                <img src="../photos/greenhouse-circuit.png" alt="Full circuit diagram" style="width:100%; height:auto; object-fit:unset; background:#fff;" />
+              </div>
+            </div>
+          </section>
+
+          <section class="fade-up">
+            <h2>Final Product</h2>
+            <div class="process-images">
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../photos/greenhouse-hero.jpg" alt="Completed greenhouse — front view" style="width:100%; height:auto; object-fit:unset;" />
+              </div>
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../photos/greenhouse-final2.jpg" alt="Completed greenhouse — alternate view" style="width:100%; height:auto; object-fit:unset;" />
+              </div>
+            </div>
+          </section>
+
+          <section class="fade-up">
+            <h2>Limitations &amp; Future Work</h2>
+            <ul>
+              <li><strong>Heating element</strong> — nothing currently keeps the greenhouse warm in cold weather. A heater or heavy-duty grow lights would allow year-round production through Colorado winters.</li>
+              <li><strong>Modularity</strong> — adding additional base sections with conductive tape connections at each junction would stack growing levels without redesigning the full structure.</li>
+              <li><strong>Dedicated power</strong> — the current 12V supply requires manually attaching jumper wires each session. An embedded, always-on power connection would make the system far more reliable.</li>
+              <li><strong>Electronics enclosure access</strong> — the current open-back box is awkward to service. A hinged front or side door would make wiring accessible. The back-panel placement also makes wall-mounting impractical and contradicts the plywood backing added for that purpose.</li>
+              <li><strong>Plumbing</strong> — connections between the soaker hose, regular hose, and pump are loose and leaked during testing, creating a hazard near the electronics. More robust fittings are needed.</li>
+            </ul>
           </section>
 
         </main>
 
-        <!-- Sidebar -->
+        <!-- ── Sidebar ── -->
         <aside class="project-sidebar fade-in">
           <div class="sidebar-card">
             <h3>Project Details</h3>
@@ -166,27 +346,28 @@
                 <span class="sidebar-value">Class Project</span>
               </div>
               <div class="sidebar-row">
+                <span class="sidebar-label">Class</span>
+                <span class="sidebar-value">ATLS 4519 – Hacking the Apocalypse</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Timeline</span>
+                <span class="sidebar-value">Sep – Nov 2025 · 2 months</span>
+              </div>
+              <div class="sidebar-row">
                 <span class="sidebar-label">Year</span>
-                <span class="sidebar-value">2023 – 2024</span>
+                <span class="sidebar-value">2025</span>
               </div>
               <div class="sidebar-row">
-                <span class="sidebar-label">Tools Used</span>
-                <div class="tools-list">
-                  <span class="tool-chip">Python</span>
-                  <span class="tool-chip">Raspberry Pi</span>
-                  <span class="tool-chip">DHT22 Sensor</span>
-                  <span class="tool-chip">Laser Cutter</span>
-                  <span class="tool-chip">HTML / CSS / JS</span>
-                  <span class="tool-chip">CAD (Fusion 360)</span>
-                </div>
+                <span class="sidebar-label">Role</span>
+                <span class="sidebar-value">Physical Build &amp; Electronics (team of 3)</span>
               </div>
               <div class="sidebar-row">
-                <span class="sidebar-label">Components</span>
+                <span class="sidebar-label">Tools</span>
                 <div class="tools-list">
-                  <span class="tool-chip">Sensors × 3</span>
-                  <span class="tool-chip">Mini Pump</span>
-                  <span class="tool-chip">Relay Module</span>
-                  <span class="tool-chip">LED Grow Strip</span>
+                  <span class="tool-chip">Arduino Uno</span>
+                  <span class="tool-chip">Fusion 360</span>
+                  <span class="tool-chip">Sensors</span>
+                  <span class="tool-chip">Power Tools</span>
                 </div>
               </div>
             </div>
@@ -229,6 +410,7 @@
             <li><a href="../index.html">Home</a></li>
             <li><a href="../about.html">About</a></li>
             <li><a href="../projects.html">All Projects</a></li>
+            <li><a href="../contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">

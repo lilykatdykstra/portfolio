@@ -10,6 +10,35 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" /></noscript>
   <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .wireframe-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    .wireframe-grid figure {
+      margin: 0;
+    }
+    .wireframe-grid figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      border: 1px solid #e8e0d4;
+    }
+    .wireframe-grid figcaption {
+      font-size: 0.72rem;
+      color: #8a7f72;
+      text-align: center;
+      margin-top: 0.35rem;
+      font-family: var(--font-body, 'Inter', sans-serif);
+      letter-spacing: 0.01em;
+    }
+    @media (max-width: 600px) {
+      .wireframe-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
 </head>
 <body>
 
@@ -39,12 +68,8 @@
   </nav>
 
   <!-- ═══ HERO BANNER ═══ -->
-  <div class="project-hero-banner">
-    <!-- SWAP IMAGE: zoo-hero.jpg -->
-    <div class="project-hero-placeholder" style="background:linear-gradient(160deg,#FAD9D5 0%,#F9EDEA 50%,#FAF0CC 100%);">
-      Cheyenne Mountain Zoo Redesign
-    </div>
-    <!-- <img src="../photos/zoo-hero.jpg" alt="Cheyenne Mountain Zoo Redesign Hero" /> -->
+  <div class="project-hero-banner" style="background:#FDFAF5;">
+    <img src="../photos/zoo-hero.png" alt="Cheyenne Mountain Zoo redesign mockup" style="object-fit:contain;" />
   </div>
 
   <!-- ═══ PROJECT HEADER ═══ -->
@@ -61,89 +86,236 @@
     <div class="container">
       <div class="project-layout">
 
-        <!-- Main Content -->
+        <!-- ── Main Content ── -->
         <main class="project-main">
 
           <section class="fade-up">
             <h2>Overview</h2>
             <p>
-              A comprehensive redesign of the Cheyenne Mountain Zoo's online ticketing experience, targeting the core friction points that caused visitor frustration and cart abandonment. The project began with extensive user research and culminated in a tested, high-fidelity Figma prototype.
-            </p>
-            <p>
-              The existing ticketing flow required users to navigate multiple disconnected pages, re-enter information repeatedly, and make decisions without adequate context — leading to confusion, especially for first-time visitors planning complex group trips.
+              A semester-long redesign of the Cheyenne Mountain Zoo's online ticketing experience. The current flow is outdated, repetitive, and confusing — leaving visitors frustrated before they even walk through the gate. As the sole designer and researcher on this class project, I took on the challenge of rebuilding the ticketing experience end-to-end, resulting in a cleaner, more efficient flow that reduces confusion and drop-off.
             </p>
           </section>
 
           <section class="fade-up">
-            <h2>Problem Statement</h2>
+            <h2>The Challenge</h2>
             <p>
-              Zoo visitors — especially families and group organizers — struggled to complete ticket purchases online due to a fragmented, unclear interface. The site's information architecture buried critical details like parking, accessibility options, and add-on experiences, resulting in calls to the zoo's customer service line for clarification.
+              The core challenge was information management. The original site buried visitors under policies, special event details, general zoo info, and opening hours — all competing for attention on the same pages. The ticket purchase flow itself was spread across too many steps, with inconsistent pricing information and no clear hierarchy.
             </p>
-            <ul>
-              <li>Ticket type selection was confusing — age categories were ambiguous</li>
-              <li>Membership discounts were not surfaced at the right moment in the flow</li>
-              <li>No clear path to add parking, dining, or special experiences</li>
-              <li>Mobile experience was especially broken — key CTAs were below the fold</li>
-            </ul>
+            <p>
+              The goal: make the ticketing experience as efficient as possible without losing information visitors actually need, and do it in a way that feels like the zoo itself — warm, welcoming, and worth the trip.
+            </p>
           </section>
 
           <section class="fade-up">
             <h2>Research &amp; Discovery</h2>
             <p>
-              I conducted heuristic evaluations of the existing site, competitive analysis of three other zoo and attraction ticketing systems, and user interviews with five participants who had recently purchased attraction tickets online.
+              I began with usability testing of the existing experience, conducting user interviews and building an affinity map to surface recurring pain points. Key issues that emerged: information overload, confusing visual hierarchy, inconsistent pricing display, and too much scrolling before reaching the actual purchase flow.
             </p>
             <p>
-              Key insights: users expected a step-by-step wizard-style flow with a persistent progress indicator; they wanted to see total cost update in real time; and they were overwhelmed by too many choices presented simultaneously.
+              The affinity mapping process surfaced opportunities to prioritize the right information at the right moment, design a direct and linear ticket flow, and make pricing transparent from the first screen.
             </p>
+            <p>Participants were candid:</p>
+            <ul>
+              <li>"looks like a late 1990s website"</li>
+              <li>"I could have programmed this website — me, not a programmer — better"</li>
+              <li>"words are death of a website"</li>
+              <li>"barely effective and extremely suboptimal"</li>
+            </ul>
             <div class="process-images">
-              <div class="process-img-box">
-                <!-- SWAP IMAGE: zoo-process-1.jpg -->
-                <div class="process-img-placeholder">User interview notes &amp; affinity map</div>
-                <!-- <img src="../photos/zoo-process-1.jpg" alt="User research notes" /> -->
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../photos/zoo-affinity.jpg" alt="Affinity mapping overview" style="width:100%; height:auto; object-fit:unset;" />
               </div>
-              <div class="process-img-box">
-                <!-- SWAP IMAGE: zoo-process-2.jpg -->
-                <div class="process-img-placeholder">Competitive analysis of peer ticketing flows</div>
-                <!-- <img src="../photos/zoo-process-2.jpg" alt="Competitive analysis" /> -->
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../photos/zoo-usertesting.png" alt="User testing session" style="width:100%; height:auto; object-fit:unset;" />
               </div>
             </div>
           </section>
 
           <section class="fade-up">
-            <h2>Design Process</h2>
+            <h2>Problem Statement</h2>
             <p>
-              I created low-fidelity wireframes to explore the new information architecture, then moved into mid-fidelity flows for usability testing with 4 participants. After two rounds of iteration, I built a polished high-fidelity prototype in Figma using the zoo's existing brand palette.
+              Zoo visitors buying tickets online need an efficient purchase process because the current flow is long and discouraging — causing people to abandon their carts before completing a ticket purchase.
             </p>
+          </section>
+
+          <section class="fade-up">
+            <h2>Task Flow</h2>
             <p>
-              Key design decisions: a sticky progress bar showing steps (Date → Tickets → Add-Ons → Review → Pay), contextual tooltips explaining ticket categories, and a real-time order summary panel visible throughout checkout.
+              Using insights from user interviews and affinity mapping, I mapped out what information truly needed to be in the flow versus what could be surfaced elsewhere. The proposed redesigned task flow cut unnecessary pages, moved quantity selection earlier, and eliminated repeated data entry.
             </p>
             <div class="process-images">
-              <div class="process-img-box">
-                <!-- SWAP IMAGE: zoo-process-3.jpg -->
-                <div class="process-img-placeholder">Low-fidelity wireframes — checkout flow</div>
-                <!-- <img src="../photos/zoo-process-3.jpg" alt="Wireframes" /> -->
-              </div>
-              <div class="process-img-box">
-                <!-- SWAP IMAGE: zoo-process-4.jpg -->
-                <div class="process-img-placeholder">High-fidelity Figma prototype</div>
-                <!-- <img src="../photos/zoo-process-4.jpg" alt="Figma prototype" /> -->
+              <div class="process-img-box" style="grid-column:1/-1; aspect-ratio:unset; height:auto;">
+                <img src="../photos/zoo-taskflow.png" alt="Old vs. new task flow comparison" style="width:100%; height:auto; object-fit:unset; background:#F5F0E8;" />
               </div>
             </div>
           </section>
 
           <section class="fade-up">
-            <h2>Outcome &amp; Result</h2>
+            <h2>Wireframing: Low to High Fidelity</h2>
             <p>
-              Usability testing of the redesigned prototype showed a significant improvement in task completion rate — participants completed the checkout flow in under 3 minutes on average, compared to 7+ minutes on the original site. All participants rated the redesigned experience as "easy" or "very easy."
+              I worked through three fidelity levels, using feedback at each stage to make increasingly informed decisions about layout, content hierarchy, and interaction design.
+            </p>
+
+            <!-- Low Fidelity -->
+            <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#8a7f72; margin:1.75rem 0 0.5rem;">Low Fidelity</p>
+            <p>
+              Hand sketches focused on cutting front-page clutter, redesigning the homepage to lead with zoo promotion and the schedule, and shortening the path to ticket purchase.
+            </p>
+            <div class="wireframe-grid">
+              <figure>
+                <img src="../photos/zoo-low-home.png" alt="Low fidelity — Homepage" />
+                <figcaption>Homepage</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-low-ticket.png" alt="Low fidelity — Ticket Type" />
+                <figcaption>Ticket Type</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-low-quantity.png" alt="Low fidelity — Quantity" />
+                <figcaption>Quantity</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-low-date.png" alt="Low fidelity — Date &amp; Time" />
+                <figcaption>Date &amp; Time</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-low-checkout.png" alt="Low fidelity — Checkout" />
+                <figcaption>Checkout</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-low-confirm.png" alt="Low fidelity — Confirmation" />
+                <figcaption>Confirmation</figcaption>
+              </figure>
+            </div>
+
+            <!-- Mid Fidelity -->
+            <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#8a7f72; margin:1.75rem 0 0.5rem;">Mid Fidelity</p>
+            <p>
+              Translated sketches into digital wireframes. The most significant addition: persistent header and footer on every screen, which allowed me to better visualize the full product and plan interactions.
+            </p>
+            <div class="wireframe-grid">
+              <figure>
+                <img src="../photos/zoo-mid-home.png" alt="Mid fidelity — Homepage" />
+                <figcaption>Homepage</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-mid-ticket.png" alt="Mid fidelity — Ticket Type" />
+                <figcaption>Ticket Type</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-mid-quantity.png" alt="Mid fidelity — Quantity" />
+                <figcaption>Quantity</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-mid-date.png" alt="Mid fidelity — Date &amp; Time" />
+                <figcaption>Date &amp; Time</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-mid-checkout.png" alt="Mid fidelity — Checkout" />
+                <figcaption>Checkout</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-mid-confirm.png" alt="Mid fidelity — Confirmation" />
+                <figcaption>Confirmation</figcaption>
+              </figure>
+            </div>
+
+            <!-- High Fidelity V1 -->
+            <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#8a7f72; margin:1.75rem 0 0.5rem;">High Fidelity — V1</p>
+            <p>
+              Added the zoo's color palette, real imagery, and interactive states. Feedback led to modifying the ticket type selection screen and introducing a clearer visual distinction between primary and secondary buttons.
+            </p>
+            <div class="wireframe-grid">
+              <figure>
+                <img src="../photos/zoo-v1-home.png" alt="High fidelity v1 — Homepage" />
+                <figcaption>Homepage</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-v1-ticket.png" alt="High fidelity v1 — Ticket Type" />
+                <figcaption>Ticket Type</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-v1-quantity.png" alt="High fidelity v1 — Quantity" />
+                <figcaption>Quantity</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-v1-date.png" alt="High fidelity v1 — Date &amp; Time" />
+                <figcaption>Date &amp; Time</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-v1-checkout.png" alt="High fidelity v1 — Checkout" />
+                <figcaption>Checkout</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-v1-confirm.png" alt="High fidelity v1 — Confirmation" />
+                <figcaption>Confirmation</figcaption>
+              </figure>
+            </div>
+
+            <!-- High Fidelity V2 -->
+            <p style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#8a7f72; margin:1.75rem 0 0.5rem;">High Fidelity — V2</p>
+            <p>
+              The final iteration after intensive critique. I rebuilt the homepage, ticket type, and quantity screens from scratch, resolved all color contrast accessibility errors, and finalized spacing throughout.
+            </p>
+            <div class="wireframe-grid">
+              <figure>
+                <img src="../photos/zoo-v2-home.png" alt="High fidelity v2 — Homepage" />
+                <figcaption>Homepage</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-v2-ticket.png" alt="High fidelity v2 — Ticket Type" />
+                <figcaption>Ticket Type</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-v2-quantity.png" alt="High fidelity v2 — Quantity" />
+                <figcaption>Quantity</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-v2-date.png" alt="High fidelity v2 — Date &amp; Time" />
+                <figcaption>Date &amp; Time</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-v2-checkout.png" alt="High fidelity v2 — Checkout" />
+                <figcaption>Checkout</figcaption>
+              </figure>
+              <figure>
+                <img src="../photos/zoo-v2-confirm.png" alt="High fidelity v2 — Confirmation" />
+                <figcaption>Confirmation</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section class="fade-up">
+            <h2>User Testing &amp; Iteration</h2>
+            <p>
+              I tested the high-fidelity prototype with 3 participants and asked them to walk through the full ticket purchase flow. Key pain points discovered: the schedule layout on the homepage, the ticket type selection screen, the animals page layout, status bar color contrast, and missing information on the order confirmation page.
+            </p>
+            <p>In response, I made the following updates:</p>
+            <ul>
+              <li>Replaced the struggling schedule layout with content that was clearer to organize</li>
+              <li>Added padding throughout the animals page for better readability</li>
+              <li>Found a higher-contrast shade for the status bar, resolving an accessibility issue</li>
+              <li>Reverted the ticket type screen to the mid-fidelity button-based design, which tested better</li>
+              <li>Added an order number and complete summary to the confirmation page</li>
+            </ul>
+          </section>
+
+          <section class="fade-up">
+            <h2>Reflection</h2>
+            <p>
+              This project taught me how much intention goes into a "readable and welcoming" website. I had no idea how many micro-decisions compound into a user's overall experience. Iterating through four levels of fidelity — and responding to real user feedback at each — gave me a hands-on education in interaction design that I couldn't have gotten any other way.
             </p>
             <p>
-              The redesign also surfaced membership upsell opportunities naturally within the flow, with 3 of 4 test participants pausing to consider the membership option — compared to 0 on the original.
+              Coming in, I thought my interests were in physical design. This project showed me I enjoy digital just as much. Watching how users navigated the prototype — how my interaction choices quite literally dictated every path they took — was genuinely eye-opening.
+            </p>
+            <p>
+              If I revisited this project, I'd push the color system further (I played it safe with green and cream), explore more layout variations through A/B testing, and spend more time on the animals and schedule pages.
             </p>
           </section>
 
         </main>
 
-        <!-- Sidebar -->
+        <!-- ── Sidebar ── -->
         <aside class="project-sidebar fade-in">
           <div class="sidebar-card">
             <h3>Project Details</h3>
@@ -157,17 +329,29 @@
                 <span class="sidebar-value">Class Project</span>
               </div>
               <div class="sidebar-row">
-                <span class="sidebar-label">Year</span>
-                <span class="sidebar-value">2024 – 2025</span>
+                <span class="sidebar-label">Class</span>
+                <span class="sidebar-value">ATLS 4620 – User Experience 1</span>
               </div>
               <div class="sidebar-row">
-                <span class="sidebar-label">Tools Used</span>
+                <span class="sidebar-label">Timeline</span>
+                <span class="sidebar-value">Sep – Dec 2025 · 3 months</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Year</span>
+                <span class="sidebar-value">2025</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Role</span>
+                <span class="sidebar-value">Sole Designer &amp; Researcher</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Tools</span>
                 <div class="tools-list">
                   <span class="tool-chip">Figma</span>
                   <span class="tool-chip">User Interviews</span>
-                  <span class="tool-chip">Heuristic Evaluation</span>
+                  <span class="tool-chip">Affinity Mapping</span>
                   <span class="tool-chip">Usability Testing</span>
-                  <span class="tool-chip">Competitive Analysis</span>
+                  <span class="tool-chip">Task Flow Mapping</span>
                 </div>
               </div>
             </div>
@@ -210,6 +394,7 @@
             <li><a href="../index.html">Home</a></li>
             <li><a href="../about.html">About</a></li>
             <li><a href="../projects.html">All Projects</a></li>
+            <li><a href="../contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">

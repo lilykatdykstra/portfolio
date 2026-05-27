@@ -26,16 +26,26 @@
   });
 })();
 
-/* ─── Dropdown (touch / click on mobile) ─── */
+/* ─── Dropdown (click toggle on all screen sizes) ─── */
 (function () {
-  document.querySelectorAll('.nav-dropdown').forEach(item => {
-    const link = item.querySelector('a');
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+
+  dropdowns.forEach(item => {
+    const link = item.querySelector(':scope > a');
     link.addEventListener('click', (e) => {
-      if (window.innerWidth <= 600) {
-        e.preventDefault();
-        item.classList.toggle('open');
-      }
+      e.preventDefault();
+      const opening = !item.classList.contains('open');
+      // Close all first, then open the clicked one if it was closed
+      dropdowns.forEach(d => d.classList.remove('open'));
+      if (opening) item.classList.add('open');
     });
+  });
+
+  // Close open dropdown when clicking anywhere outside it
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-dropdown')) {
+      dropdowns.forEach(d => d.classList.remove('open'));
+    }
   });
 })();
 
