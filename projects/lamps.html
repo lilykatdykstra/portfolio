@@ -4,20 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lamp-mania — Lily Dykstra</title>
-  <meta name="description" content="A series of hand-fabricated lamps exploring material, form, and light by Lily Dykstra." />
+  <meta name="description" content="A series of hand-fabricated lamps exploring material, form, and light diffusion by Lily Dykstra." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" /></noscript>
   <link rel="stylesheet" href="../css/style.css" />
   <style>
-    .lamp-header {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: #3a342c;
-      margin: 2rem 0 0.4rem;
-      font-family: var(--font-heading, 'Space Grotesk', sans-serif);
-    }
     .photo-grid-2 {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -73,6 +66,20 @@
       border-top: 1px solid #e8e0d4;
       margin: 2.5rem 0;
     }
+    .materials-inline {
+      font-size: 0.88rem;
+      color: #6a5f52;
+      background: #f5f0e8;
+      border: 1px solid #e8e0d4;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      margin-top: 0.75rem;
+      line-height: 1.6;
+    }
+    .materials-inline strong {
+      color: #4a4035;
+      font-weight: 600;
+    }
     @media (max-width: 700px) {
       .photo-grid-4 { grid-template-columns: repeat(2, 1fr); }
       .photo-grid-3 { grid-template-columns: repeat(2, 1fr); }
@@ -110,8 +117,8 @@
   </nav>
 
   <!-- ═══ HERO BANNER ═══ -->
-  <div class="project-hero-banner">
-    <img src="../../Desktop/portolio/lamps/expo-lampsetup.JPG" alt="All three lamps displayed at expo" style="object-fit:contain;" />
+  <div class="project-hero-banner" style="background:#1a1612; height:600px;">
+    <img src="../portfolio/lamps/expo-lampsetup.JPG" alt="All three lamps displayed at the ATLAS Institute Expo" style="object-fit:cover;" />
   </div>
 
   <!-- ═══ PROJECT HEADER ═══ -->
@@ -137,10 +144,11 @@
           <section class="fade-up">
             <h2>Overview</h2>
             <p>
-              Lamp-mania is a series of three hand-built lamps, each using a completely different material and construction approach. The series was a chance to slow down and ask a specific question with every build: what does this material do to light, and what forms does it make possible?
+              This fabrication class explored material-driven design through hands-on making. An option for our final was to make lamps. I experimented with form, light diffusion, and structural techniques using a range of materials and fabrication methods. Each lamp began with sketching and material testing, followed by iterative prototyping and physical construction. The projects emphasize learning-through-making, problem-solving, and translating organic inspiration into functional objects.
             </p>
+            <p class="section-eyebrow" style="margin-top:1.25rem;">The Prompt</p>
             <p>
-              The lamps — Mushroom, Flower, and Jellyfish — each started from a natural form and were worked out in sketches before anything was built. Materials were chosen to serve the form, not the other way around.
+              Create a table lamp at least 8 inches tall using physical fabrication techniques from the class.
             </p>
           </section>
 
@@ -149,68 +157,80 @@
           <section class="fade-up">
             <h2>Lamp 01 — Mushroom</h2>
             <p>
-              The mushroom lamp is built around a carved and shaped cap shade that sits over a simple stem base. The cap's gentle curve diffuses the light softly around the rim while the underside glows — mimicking the way light filters through a real mushroom's gills. The form is deceptively simple; most of the work went into getting the proportions right so it reads as mushroom-like without being cartoonish.
+              A 3D-printed pendant lamp modeled after the form and texture of a mushroom cap. The cap was designed in SketchUp by subtracting multiple spheres from a dome, creating a bumpy, organic texture. Internal supports connect the cap to the stem and manage cord placement. Light diffuses through translucent PLA and glows through the gills underneath.
             </p>
+
+            <div class="materials-inline">
+              <strong>Materials:</strong> Translucent PLA, LED light bulb, pre-assembled lighting components, wire cutters, soldering iron, heat shrink, sandpaper
+            </div>
 
             <p class="section-eyebrow">Inspiration &amp; Sketches</p>
             <div class="process-images" style="margin-top:0;">
               <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
-                <img src="../../Desktop/portolio/lamps/mushroom lamp/inspo and sketches.png" alt="Mushroom lamp — inspiration and sketches" style="width:100%; height:auto; object-fit:unset;" />
+                <img src="../portfolio/lamps/mushroom lamp/inspo and sketches.png" alt="Mushroom lamp — inspiration and sketches" style="width:100%; height:auto; object-fit:unset;" />
               </div>
             </div>
 
             <p class="section-eyebrow">Labels &amp; Diagrams</p>
             <div class="photo-grid-2">
               <figure>
-                <img src="../../Desktop/portolio/lamps/mushroom lamp/labels.png" alt="Mushroom lamp — labeled overview" />
+                <img src="../portfolio/lamps/mushroom lamp/labels.png" alt="Mushroom lamp — labeled overview" />
                 <figcaption>Overview</figcaption>
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/mushroom lamp/labels-side.png" alt="Mushroom lamp — side label" />
+                <img src="../portfolio/lamps/mushroom lamp/labels-side.png" alt="Mushroom lamp — side label" />
                 <figcaption>Side</figcaption>
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/mushroom lamp/labels-back.png" alt="Mushroom lamp — back label" />
+                <img src="../portfolio/lamps/mushroom lamp/labels-back.png" alt="Mushroom lamp — back label" />
                 <figcaption>Back</figcaption>
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/mushroom lamp/labels-under.png" alt="Mushroom lamp — underside label" />
+                <img src="../portfolio/lamps/mushroom lamp/labels-under.png" alt="Mushroom lamp — underside label" />
                 <figcaption>Underside</figcaption>
               </figure>
             </div>
 
             <p class="section-eyebrow">Process</p>
-            <div class="process-images" style="margin-top:0;">
+            <p>
+              I began by modeling the lamp base and internal supports around the dimensions of the lamp hardware I had ordered. Much of the early process involved struggling with SketchUp constraints, particularly when connecting different-sized circles, subtracting complex forms, and maintaining solid geometry. Repeated scaling issues arose when printed parts no longer fit together after resizing to accommodate print bed limitations. This led to extensive iteration, including multiple reprints of supports and the eventual addition of gills to hide seams, improve fit, and manage cord placement. Measuring internal dimensions became a major challenge until I discovered using Play-Doh as a physical measuring aid, which significantly improved accuracy.
+            </p>
+            <div class="process-images" style="margin-top:1rem;">
               <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
-                <img src="../../Desktop/portolio/lamps/mushroom lamp/processphoto-nolid.JPG" alt="Mushroom lamp — cap removed, showing interior" style="width:100%; height:auto; object-fit:unset;" />
+                <img src="../portfolio/lamps/mushroom lamp/processphoto-nolid.JPG" alt="Mushroom lamp — cap removed, showing interior" style="width:100%; height:auto; object-fit:unset;" />
               </div>
             </div>
 
             <p class="section-eyebrow">Final Product</p>
             <div class="photo-grid-2">
               <figure>
-                <img src="../../Desktop/portolio/lamps/mushroom lamp/processphoto-lampoff.JPG" alt="Mushroom lamp — off" />
-                <figcaption>Lamp off</figcaption>
+                <img src="../portfolio/lamps/mushroom lamp/processphoto-lampoff.JPG" alt="Mushroom lamp — light off" />
+                <figcaption>Light off</figcaption>
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/mushroom lamp/processphoto-lampon.JPG" alt="Mushroom lamp — on" />
-                <figcaption>Lamp on</figcaption>
+                <img src="../portfolio/lamps/mushroom lamp/processphoto-lampon.JPG" alt="Mushroom lamp — light on" />
+                <figcaption>Light on</figcaption>
               </figure>
             </div>
             <div class="photo-grid-4" style="margin-top:0.85rem;">
               <figure>
-                <img src="../../Desktop/portolio/lamps/mushroom lamp/goodphoto.JPG" alt="Mushroom lamp — final photo 1" />
+                <img src="../portfolio/lamps/mushroom lamp/goodphoto.JPG" alt="Mushroom lamp — final photo 1" />
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/mushroom lamp/goodphoto2.JPG" alt="Mushroom lamp — final photo 2" />
+                <img src="../portfolio/lamps/mushroom lamp/goodphoto2.JPG" alt="Mushroom lamp — final photo 2" />
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/mushroom lamp/goodphoto3.JPG" alt="Mushroom lamp — final photo 3" />
+                <img src="../portfolio/lamps/mushroom lamp/goodphoto3.JPG" alt="Mushroom lamp — final photo 3" />
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/mushroom lamp/goodphoto4.JPG" alt="Mushroom lamp — final photo 4" />
+                <img src="../portfolio/lamps/mushroom lamp/goodphoto4.JPG" alt="Mushroom lamp — final photo 4" />
               </figure>
             </div>
+
+            <p class="section-eyebrow">Reflection</p>
+            <p>
+              This was my most technically challenging lamp and involved intense iteration. It taught me the importance of planning for fabrication constraints early, especially print size and tolerances, but also showed me that solutions often emerge through persistence. While the final lamp still has imperfections, I learned that perfection is rarely achievable in first prototypes. If I were to continue developing this piece, I would redesign the connection between the cap and support to be more secure and modular. Overall, the project reinforced the value of starting early, iterating often, and trusting the process even when it feels chaotic.
+            </p>
           </section>
 
           <!-- ── FLOWER LAMP ── -->
@@ -218,63 +238,67 @@
           <section class="fade-up">
             <h2>Lamp 02 — Flower</h2>
             <p>
-              The flower lamp is a pendant made from individually shaped and sewn fabric petals, each built around a wire armature. The petals are wired together so they open outward like a bloom and hang naturally under gravity. Fabric and wire are not materials I had worked with before, and the construction — shaping wire, sewing fabric over it, assembling petal by petal — was slow and iterative in the best way.
+              A pendant lamp made from individually shaped and sewn fabric leaves, each built around a wire armature. The leaves are connected through careful wire wrapping so they open outward like a bloom and hang naturally under gravity. The light source sits at the center; the lace fabric diffuses warmth outward and the form only fully comes together when lit.
             </p>
-            <p>
-              The light source sits at the center, and the fabric diffuses the warmth outward. The form only comes together when it's lit.
-            </p>
+
+            <div class="materials-inline">
+              <strong>Materials:</strong> Wire, lace fabric, sewing needles, thread, sewing machine, pliers, wire cutters, pre-assembled light fixture
+            </div>
 
             <p class="section-eyebrow">Inspiration &amp; Sketches</p>
             <div class="process-images" style="margin-top:0;">
               <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
-                <img src="../../Desktop/portolio/lamps/flower lamp/insp and sketches.png" alt="Flower lamp — inspiration and sketches" style="width:100%; height:auto; object-fit:unset;" />
+                <img src="../portfolio/lamps/flower lamp/insp and sketches.png" alt="Flower lamp — inspiration and sketches" style="width:100%; height:auto; object-fit:unset;" />
               </div>
             </div>
 
             <p class="section-eyebrow">Labels &amp; Diagrams</p>
             <div class="photo-grid-2">
               <figure>
-                <img src="../../Desktop/portolio/lamps/flower lamp/labels-front.png" alt="Flower lamp — front label" />
+                <img src="../portfolio/lamps/flower lamp/labels-front.png" alt="Flower lamp — front label" />
                 <figcaption>Front</figcaption>
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/flower lamp/labels-side.png" alt="Flower lamp — side label" />
+                <img src="../portfolio/lamps/flower lamp/labels-side.png" alt="Flower lamp — side label" />
                 <figcaption>Side</figcaption>
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/flower lamp/labels-top.png" alt="Flower lamp — top label" />
+                <img src="../portfolio/lamps/flower lamp/labels-top.png" alt="Flower lamp — top label" />
                 <figcaption>Top</figcaption>
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/flower lamp/labels-bottom.png" alt="Flower lamp — bottom label" />
+                <img src="../portfolio/lamps/flower lamp/labels-bottom.png" alt="Flower lamp — bottom label" />
                 <figcaption>Bottom</figcaption>
               </figure>
             </div>
 
             <p class="section-eyebrow">Process</p>
+            <p>
+              I began by shaping individual leaf forms out of wire, then used them as patterns to cut lace fabric. Each leaf was machine-sewn with the wire frame shaped inside, which proved more difficult than expected due to the flexibility of the materials. I left excess wire at the top of each leaf to allow for later attachment. After testing multiple attachment ideas, I constructed a small wire circle to sit above the bulb and connected the leaves through careful wire wrapping. Much of the process involved problem-solving in real time — redoing uneven attachments, seam ripping hours of work, and ultimately using safety pins to plan spacing before committing to sewing. Final adjustments involved ladder stitching and additional hand sewing to refine the form and ensure the leaves overlapped evenly.
+            </p>
             <div class="photo-grid-3">
               <figure>
-                <img src="../../Desktop/portolio/lamps/flower lamp/process-wireleaf.JPG" alt="Shaping wire for a single leaf" />
+                <img src="../portfolio/lamps/flower lamp/process-wireleaf.JPG" alt="Shaping wire for a single leaf" />
                 <figcaption>Shaping wire</figcaption>
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/flower lamp/process-wireleaves.JPG" alt="Multiple wire leaves laid out" />
+                <img src="../portfolio/lamps/flower lamp/process-wireleaves.JPG" alt="Multiple wire leaves laid out" />
                 <figcaption>Wire leaves</figcaption>
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/flower lamp/process-sewingleaves.JPG" alt="Sewing fabric over wire armature" />
+                <img src="../portfolio/lamps/flower lamp/process-sewingleaves.JPG" alt="Sewing fabric over wire armature" />
                 <figcaption>Sewing fabric</figcaption>
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/flower lamp/upclose-sewingtopofleaf.JPG" alt="Up close — sewing top of leaf" />
+                <img src="../portfolio/lamps/flower lamp/upclose-sewingtopofleaf.JPG" alt="Up close — sewing top of leaf" />
                 <figcaption>Leaf tip detail</figcaption>
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/flower lamp/upclosewiresupport.JPG" alt="Wire support structure detail" />
+                <img src="../portfolio/lamps/flower lamp/upclosewiresupport.JPG" alt="Wire support structure detail" />
                 <figcaption>Wire support</figcaption>
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/flower lamp/processphoto-oneleafonshowingwiresupport.JPG" alt="Single petal showing wire structure" />
+                <img src="../portfolio/lamps/flower lamp/processphoto-oneleafonshowingwiresupport.JPG" alt="Single petal showing wire structure" />
                 <figcaption>Petal structure</figcaption>
               </figure>
             </div>
@@ -282,18 +306,23 @@
             <p class="section-eyebrow">Final Product</p>
             <div class="photo-grid-3">
               <figure>
-                <img src="../../Desktop/portolio/lamps/flower lamp/lighthanginginroom.JPG" alt="Flower lamp hanging in room, lit" />
+                <img src="../portfolio/lamps/flower lamp/lighthanginginroom.JPG" alt="Flower lamp hanging in room, lit" />
                 <figcaption>In context</figcaption>
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/flower lamp/lighton-sideview.JPG" alt="Flower lamp — side view lit" />
+                <img src="../portfolio/lamps/flower lamp/lighton-sideview.JPG" alt="Flower lamp — side view lit" />
                 <figcaption>Side view</figcaption>
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/flower lamp/lighton-underphoto.JPG" alt="Flower lamp — view from below" />
+                <img src="../portfolio/lamps/flower lamp/lighton-underphoto.JPG" alt="Flower lamp — view from below" />
                 <figcaption>Underside</figcaption>
               </figure>
             </div>
+
+            <p class="section-eyebrow">Reflection</p>
+            <p>
+              This project reinforced my preference for hands-on iteration and material-driven design. While the process was tedious and often frustrating, sewing allowed for flexibility and aesthetic control that would have been difficult to achieve digitally. I learned the importance of planning attachment strategies before assembly and how small decisions compound over time. The final lamp closely matches my original vision and was deeply satisfying to complete — it transformed an idea that lived only in my head into a physical object.
+            </p>
           </section>
 
           <!-- ── JELLYFISH LAMP ── -->
@@ -301,42 +330,45 @@
           <section class="fade-up">
             <h2>Lamp 03 — Jellyfish</h2>
             <p>
-              The jellyfish lamp hangs from a cord and uses trailing elements to mimic the tentacles of a jellyfish in motion. The goal was to create something that felt alive — a shade that catches air movement and shifts slightly when you walk past it.
+              This lamp was inspired by a desire to build an additional piece for the ATLAS Institute Expo, outside of the original fabrication class. While planning to present my other lamps, I wanted to expand the collection. I have always been drawn to the ethereal quality of jellyfish and aimed to capture that sense of lightness and movement. I 3D modeled the lamp head and adjusted its scale to allow it to print as a single piece. Internal circular structures were modeled to serve as attachment points for ribbons, tulle, and beads. When illuminated, the light diffuses through the materials in a soft, atmospheric way.
             </p>
 
             <p class="section-eyebrow">Process</p>
             <div class="process-images" style="margin-top:0;">
               <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
-                <img src="../../Desktop/portolio/lamps/jellyfish/nocorein-process.JPG" alt="Jellyfish lamp — assembly without core" style="width:100%; height:auto; object-fit:unset;" />
+                <img src="../portfolio/lamps/jellyfish/nocorein-process.JPG" alt="Jellyfish lamp — assembly without core" style="width:100%; height:auto; object-fit:unset;" />
               </div>
             </div>
 
             <p class="section-eyebrow">Final Product</p>
             <div class="photo-grid-3">
               <figure>
-                <img src="../../Desktop/portolio/lamps/jellyfish/haning-lightoff.JPG" alt="Jellyfish lamp — light off" />
+                <img src="../portfolio/lamps/jellyfish/haning-lightoff.JPG" alt="Jellyfish lamp — light off" />
                 <figcaption>Light off</figcaption>
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/jellyfish/hanging-lighton.JPG" alt="Jellyfish lamp — light on" />
+                <img src="../portfolio/lamps/jellyfish/hanging-lighton.JPG" alt="Jellyfish lamp — light on" />
                 <figcaption>Light on</figcaption>
               </figure>
               <figure>
-                <img src="../../Desktop/portolio/lamps/jellyfish/hanging-lighton2.JPG" alt="Jellyfish lamp — alternate lit view" />
+                <img src="../portfolio/lamps/jellyfish/hanging-lighton2.JPG" alt="Jellyfish lamp — alternate lit view" />
                 <figcaption>Alternate view</figcaption>
               </figure>
             </div>
           </section>
 
+          <!-- ── EXPO DISPLAY ── -->
           <hr class="lamp-divider" />
           <section class="fade-up">
-            <h2>Reflection</h2>
+            <h2>Expo Display</h2>
             <p>
-              Three lamps, three completely different skill sets. The mushroom lamp was about form and proportion; the flower lamp was about patience and material discovery (I had never sewn anything before this); the jellyfish was about movement and creating something that responds to its environment rather than just sitting still.
+              All three lamps were exhibited together at the ATLAS Institute end-of-year Expo. Seeing them displayed as a collection — each one built from a completely different material and technique — made the series feel intentional in a way that individual photos don't quite capture. The exhibit let visitors interact with the lamps in person, experiencing the way light behaves differently through PLA, lace, and tulle.
             </p>
-            <p>
-              The consistent thread across all three was starting from a natural form and figuring out which materials could carry it. Form first, then material, then technique — that sequence made every decision easier.
-            </p>
+            <div class="process-images" style="margin-top:1rem;">
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../portfolio/lamps/expo-lampsetup.JPG" alt="All three lamps displayed together at the ATLAS Institute Expo" style="width:100%; height:auto; object-fit:unset;" />
+              </div>
+            </div>
           </section>
 
         </main>
@@ -355,8 +387,12 @@
                 <span class="sidebar-value">Class Project</span>
               </div>
               <div class="sidebar-row">
+                <span class="sidebar-label">Class</span>
+                <span class="sidebar-value">Form — ATLS 3200</span>
+              </div>
+              <div class="sidebar-row">
                 <span class="sidebar-label">Year</span>
-                <span class="sidebar-value">2023</span>
+                <span class="sidebar-value">2024</span>
               </div>
               <div class="sidebar-row">
                 <span class="sidebar-label">Lamps</span>
@@ -365,10 +401,11 @@
               <div class="sidebar-row">
                 <span class="sidebar-label">Tools</span>
                 <div class="tools-list">
+                  <span class="tool-chip">3D Printer</span>
+                  <span class="tool-chip">Laser Cutter</span>
+                  <span class="tool-chip">Sewing Machine</span>
+                  <span class="tool-chip">SketchUp</span>
                   <span class="tool-chip">Hand Fabrication</span>
-                  <span class="tool-chip">Wire Forming</span>
-                  <span class="tool-chip">Sewing</span>
-                  <span class="tool-chip">Woodshop Tools</span>
                 </div>
               </div>
             </div>
