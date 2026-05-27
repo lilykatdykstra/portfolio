@@ -4,12 +4,88 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wood + Acrylic Shelf — Lily Dykstra</title>
-  <meta name="description" content="A fabrication project inspired by Shiro Kuramata — wood and acrylic shelf by Lily Dykstra." />
+  <meta name="description" content="A hand-fabricated shelf combining walnut-stained wood and welded acrylic, by Lily Dykstra." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" /></noscript>
   <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .photo-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    .photo-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    .photo-grid-2 figure,
+    .photo-grid-3 figure {
+      margin: 0;
+    }
+    .photo-grid-2 figure img,
+    .photo-grid-3 figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      border: 1px solid #e8e0d4;
+      background: #f5f0e8;
+    }
+    .photo-grid-2 figcaption,
+    .photo-grid-3 figcaption {
+      font-size: 0.72rem;
+      color: #8a7f72;
+      text-align: center;
+      margin-top: 0.35rem;
+      font-family: var(--font-body, 'Inter', sans-serif);
+    }
+    .section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8a7f72;
+      margin: 1.75rem 0 0.5rem;
+    }
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .materials-card {
+      background: #f5f0e8;
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+      border: 1px solid #e8e0d4;
+    }
+    .materials-card h4 {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #8a7f72;
+      margin: 0 0 0.6rem;
+    }
+    .materials-card p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #4a4035;
+      margin: 0;
+    }
+    @media (max-width: 600px) {
+      .photo-grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .materials-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .photo-grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -40,11 +116,7 @@
 
   <!-- ═══ HERO BANNER ═══ -->
   <div class="project-hero-banner">
-    <!-- SWAP IMAGE: shelf-hero.jpg -->
-    <div class="project-hero-placeholder" style="background:linear-gradient(160deg,#F5E5C0 0%,#F5DFA0 50%,#FAF3D8 100%);">
-      Wood + Acrylic Shelf
-    </div>
-    <!-- <img src="../photos/shelf-hero.jpg" alt="Wood + Acrylic Shelf Hero" /> -->
+    <img src="../../portfolio/shelf/finalproduct-fullview.JPG" alt="Completed wood and acrylic shelf — full view" style="object-fit:contain;" />
   </div>
 
   <!-- ═══ PROJECT HEADER ═══ -->
@@ -61,83 +133,161 @@
     <div class="container">
       <div class="project-layout">
 
-        <!-- Main Content -->
+        <!-- ── Main Content ── -->
         <main class="project-main">
 
           <section class="fade-up">
             <h2>Overview</h2>
             <p>
-              A functional furniture piece inspired by the work of Japanese designer Shiro Kuramata, whose career was defined by exploring transparency, weightlessness, and the poetic potential of industrial materials. This shelf translates those ideas into a hand-built object using solid wood joinery and precision-welded acrylic panels.
-            </p>
-            <p>
-              The result is a shelf that appears to float — the clear acrylic sections dissolve into the surrounding space while the warm wood grain grounds it. It's a study in material contrast: rigid versus flexible, opaque versus transparent, warm versus cold.
+              A hand-fabricated shelf that pairs walnut-stained wood with welded acrylic inserts — two materials that don't usually share space but turn out to complement each other well. The project was an exercise in precision joinery, surface finishing, and learning a new bonding process: solvent welding acrylic instead of relying on mechanical fasteners.
             </p>
           </section>
 
           <section class="fade-up">
-            <h2>Concept &amp; Inspiration</h2>
+            <h2>Concept &amp; Sketches</h2>
             <p>
-              Kuramata's "How High the Moon" armchair (1986) and his glass furniture series were the starting point — the idea that furniture could be nearly invisible, present only as a suggestion of form. I wanted to build something that felt structural and permanent but also light enough to question whether it was really there.
+              The brief was open-ended: test two materials in combination and produce something functional. I gravitated toward wood and acrylic because the contrast — warm grain against cold transparency — felt interesting to resolve structurally. Early sketches worked through how to seat the acrylic panels within the wood frame without adhesive failure or visible gaps.
             </p>
-            <p>
-              The design went through several sketch iterations before landing on a format that balanced the visual interest of the acrylic panels with the honest warmth of the wood. The proportions were driven by the golden ratio to create a naturally pleasing visual weight distribution.
-            </p>
-            <div class="process-images">
-              <div class="process-img-box">
-                <!-- SWAP IMAGE: shelf-process-1.jpg -->
-                <div class="process-img-placeholder">Concept sketches &amp; proportion studies</div>
-                <!-- <img src="../photos/shelf-process-1.jpg" alt="Concept sketches" /> -->
+            <div class="photo-grid-2">
+              <figure>
+                <img src="../../portfolio/shelf/SKETCH1.jpeg" alt="Sketch — initial concept" />
+                <figcaption>Initial concept sketch</figcaption>
+              </figure>
+              <figure>
+                <img src="../../portfolio/shelf/SKETCH2.jpeg" alt="Sketch — refined layout" />
+                <figcaption>Refined layout</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section class="fade-up">
+            <h2>Materials &amp; Tools</h2>
+            <div class="materials-grid">
+              <div class="materials-card">
+                <h4>Wood &amp; Finishing</h4>
+                <p>Dimensional lumber, walnut stain, sandpaper (80–220 grit)</p>
               </div>
-              <div class="process-img-box">
-                <!-- SWAP IMAGE: shelf-process-2.jpg -->
-                <div class="process-img-placeholder">Material samples — acrylic &amp; wood selection</div>
-                <!-- <img src="../photos/shelf-process-2.jpg" alt="Material samples" /> -->
+              <div class="materials-card">
+                <h4>Woodshop Tools</h4>
+                <p>Table saw, chop saw, router, clamps, mallet</p>
+              </div>
+              <div class="materials-card">
+                <h4>Acrylic</h4>
+                <p>Clear acrylic sheet, solvent cement (IPS Weld-On), applicator needle</p>
               </div>
             </div>
           </section>
 
           <section class="fade-up">
-            <h2>Fabrication Process</h2>
+            <h2>Process</h2>
             <p>
-              The wood components were cut and shaped in the woodshop using a table saw, band saw, and router table. Joinery uses mortise-and-tenon construction for the main frame — no visible hardware on the exterior face.
+              The shelves were cut from lumber on the table saw and trimmed to length on the chop saw. Miter joints were marked and cut carefully — miter joinery depends entirely on angle consistency, and any drift compounds across the assembly. Shelf boards were dry-fit before committing to anything.
             </p>
             <p>
-              The acrylic panels were scored, snapped, and then solvent-welded using methylene chloride. The weld joints were polished with progressively finer grit sandpaper (up to 2000 grit) and then buffed to optical clarity. Fitting the acrylic into the wood frame required precise tolerance work — the channel grooves were routed to 0.5mm clearance.
+              Staining came next. I applied a mid-tone walnut stain by hand and let it fully cure before moving on — trying to weld acrylic onto a freshly stained surface would have introduced contamination at the bond line.
             </p>
-            <ul>
-              <li>Table saw and band saw for wood component cuts</li>
-              <li>Router table for channel grooves and edge profiles</li>
-              <li>Mortise-and-tenon joinery for structural frame</li>
-              <li>Solvent welding (methylene chloride) for acrylic panels</li>
-              <li>Progressive sanding to 2000 grit + polishing compound for acrylic clarity</li>
-            </ul>
-            <div class="process-images">
-              <div class="process-img-box">
-                <!-- SWAP IMAGE: shelf-process-3.jpg -->
-                <div class="process-img-placeholder">Acrylic welding &amp; polishing process</div>
-                <!-- <img src="../photos/shelf-process-3.jpg" alt="Acrylic welding" /> -->
+            <p>
+              The acrylic inserts were cut to fit the routed channels in each shelf level, then welded with solvent cement. Acrylic welding works by capillary action: a small amount of solvent wicks into the joint and partially dissolves both surfaces, which then fuse as the solvent evaporates. Getting it right required keeping the joint aligned under light pressure and working quickly before the solvent flashed off.
+            </p>
+
+            <p class="section-eyebrow">Cutting &amp; Joinery</p>
+            <div class="photo-grid-3">
+              <figure>
+                <img src="../../portfolio/shelf/process-cuttingshelves.JPG" alt="Cutting shelf boards" />
+                <figcaption>Cutting shelf boards</figcaption>
+              </figure>
+              <figure>
+                <img src="../../portfolio/shelf/process-markingmiterjoint.JPG" alt="Marking miter joint" />
+                <figcaption>Marking miter joint</figcaption>
+              </figure>
+              <figure>
+                <img src="../../portfolio/shelf/process-cuttinginserts2.JPG" alt="Cutting acrylic inserts" />
+                <figcaption>Cutting acrylic inserts</figcaption>
+              </figure>
+            </div>
+
+            <p class="section-eyebrow">Staining</p>
+            <div class="process-images" style="margin-top:0;">
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../../portfolio/shelf/process-midstain.JPG" alt="Mid-stain application" style="width:100%; height:auto; object-fit:unset;" />
               </div>
-              <div class="process-img-box">
-                <!-- SWAP IMAGE: shelf-process-4.jpg -->
-                <div class="process-img-placeholder">Wood frame assembly with joinery</div>
-                <!-- <img src="../photos/shelf-process-4.jpg" alt="Wood frame assembly" /> -->
+            </div>
+
+            <p class="section-eyebrow">Acrylic Welding</p>
+            <div class="photo-grid-2">
+              <figure>
+                <img src="../../portfolio/shelf/process-weldingacrylic.JPG" alt="Welding acrylic — applying solvent" />
+                <figcaption>Applying solvent cement</figcaption>
+              </figure>
+              <figure>
+                <img src="../../portfolio/shelf/process-weldingacrylic2.JPG" alt="Welding acrylic — holding joint" />
+                <figcaption>Holding the joint under pressure</figcaption>
+              </figure>
+            </div>
+
+            <p class="section-eyebrow">Assembly</p>
+            <div class="process-images" style="margin-top:0;">
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../../portfolio/shelf/process-puttingshelftogether.JPG" alt="Putting the shelf together" style="width:100%; height:auto; object-fit:unset;" />
               </div>
+            </div>
+
+            <p class="section-eyebrow">Leveling &amp; Sanding</p>
+            <p>
+              Once fully assembled, the shelf was wobbly — the dowel joinery had introduced small inconsistencies that threw off the level. I worked through several fixes: sanding and adjusting the legs, then sawing them down with a Japanese saw to equalize the contact. Failed dowel holes were filled with wood filler. Ultimately, rubber feet on the base brought everything into stable balance.
+            </p>
+            <p>
+              For surface finishing, I used an orbital sander on the acrylic panels for consistency, and hand-sanded the wooden frames up to 120 grit. The acrylic sanding also helped soften any imperfections at the welded joints, giving them a subtle frosted quality. After prepping the surfaces, I applied stain and let everything cure before calling the piece done.
+            </p>
+          </section>
+
+          <section class="fade-up">
+            <h2>Final Product</h2>
+            <div class="photo-grid-2">
+              <figure>
+                <img src="../../portfolio/shelf/finalproduct-fullview.JPG" alt="Final shelf — full view" />
+                <figcaption>Full view</figcaption>
+              </figure>
+              <figure>
+                <img src="../../portfolio/shelf/finalproduct-cornerview.JPG" alt="Final shelf — corner view" />
+                <figcaption>Corner view</figcaption>
+              </figure>
+              <figure>
+                <img src="../../portfolio/shelf/finalproduct-sideview.JPG" alt="Final shelf — side view" />
+                <figcaption>Side view</figcaption>
+              </figure>
+              <figure>
+                <img src="../../portfolio/shelf/finalproduct-topview.JPG" alt="Final shelf — top view" />
+                <figcaption>Top view</figcaption>
+              </figure>
+            </div>
+
+            <p class="section-eyebrow">Detail Shots</p>
+            <div class="photo-grid-2">
+              <figure>
+                <img src="../../portfolio/shelf/finalproduct-upclosetoplevel.JPG" alt="Up close — top level acrylic insert" />
+                <figcaption>Top level — acrylic insert detail</figcaption>
+              </figure>
+              <figure>
+                <img src="../../portfolio/shelf/finalproduct-woodgrain.JPG" alt="Wood grain detail" />
+                <figcaption>Wood grain after staining</figcaption>
+              </figure>
             </div>
           </section>
 
           <section class="fade-up">
-            <h2>Outcome &amp; Result</h2>
+            <h2>Reflection</h2>
             <p>
-              The finished shelf successfully achieves the intended visual effect — the acrylic panels read as almost invisible, creating the illusion that the wooden shelves are floating without support. The piece is structurally sound and load-bearing, capable of holding books and objects without flex.
+              I'm hard on myself, and going in I wanted the piece to be more perfect. But looking at the finished shelf, I can see how much the process itself taught me — the sanding, staining, and acrylic finishing transformed materials that had a lot of small problems into something I genuinely liked.
             </p>
             <p>
-              This project deepened my understanding of precision fabrication, material behavior (particularly how acrylic moves and stresses under temperature change), and the relationship between design concept and physical execution.
+              I also learned which techniques I'd approach differently. Dowels were the main thing: they introduced just enough variability to make leveling a real challenge. But I also came away with a better instinct for creative problem-solving — when the legs wouldn't sit flat, rubber feet turned what felt like a compromise into a clean functional solution.
             </p>
           </section>
 
         </main>
 
-        <!-- Sidebar -->
+        <!-- ── Sidebar ── -->
         <aside class="project-sidebar fade-in">
           <div class="sidebar-card">
             <h3>Project Details</h3>
@@ -151,25 +301,27 @@
                 <span class="sidebar-value">Class Project</span>
               </div>
               <div class="sidebar-row">
+                <span class="sidebar-label">Class</span>
+                <span class="sidebar-value">Material Studies</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Timeline</span>
+                <span class="sidebar-value">Nov 2025 · 3 weeks</span>
+              </div>
+              <div class="sidebar-row">
                 <span class="sidebar-label">Year</span>
-                <span class="sidebar-value">2024</span>
+                <span class="sidebar-value">2025</span>
               </div>
               <div class="sidebar-row">
-                <span class="sidebar-label">Tools Used</span>
+                <span class="sidebar-label">Role</span>
+                <span class="sidebar-value">Sole Designer &amp; Engineer</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Tools</span>
                 <div class="tools-list">
-                  <span class="tool-chip">Woodshop</span>
-                  <span class="tool-chip">Table Saw</span>
-                  <span class="tool-chip">Router Table</span>
+                  <span class="tool-chip">Woodshop Tools</span>
                   <span class="tool-chip">Acrylic Welding</span>
-                  <span class="tool-chip">Hand Tools</span>
-                </div>
-              </div>
-              <div class="sidebar-row">
-                <span class="sidebar-label">Materials</span>
-                <div class="tools-list">
-                  <span class="tool-chip">Hardwood</span>
-                  <span class="tool-chip">Clear Acrylic Sheet</span>
-                  <span class="tool-chip">Methylene Chloride</span>
+                  <span class="tool-chip">Hand Fabrication</span>
                 </div>
               </div>
             </div>
@@ -212,6 +364,7 @@
             <li><a href="../index.html">Home</a></li>
             <li><a href="../about.html">About</a></li>
             <li><a href="../projects.html">All Projects</a></li>
+            <li><a href="../contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
