@@ -138,6 +138,7 @@ p { max-width: 68ch; }
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.01em;
+  align-self: flex-start;
 }
 .tag-ux     { background: #FADDD9; color: #7D3228; }
 .tag-fab    { background: #D5E8D2; color: #2A5C30; }

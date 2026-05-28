@@ -1,0 +1,1206 @@
+body {
+    font-family:'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #efe8e8;
+    /* background-image: url(background.png);
+    background-size: 80%; */
+}
+.about{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+
+/* universal */
+img{
+    border: 5px solid white; /* Set the color of the border (#ff0000 is red in this example) */
+    }
+
+a {
+    color: #000000; /* Specify the color you want */
+    text-decoration: none; /* Removes underlines from all links */
+    transition: color 0.3s; /* Add a smooth transition for color changes */
+}
+a:hover {
+    color: gray; /* Change the color on hover to your desired color */
+    text-decoration: underline;
+}
+
+#navvy{
+    height:50px;
+}
+#navvy2{
+    position: absolute;
+    top:10px;
+}
+.blogintro{
+    position: absolute;   
+    left: 20%; 
+    top: 40%;
+    font-size: 20px;
+}
+header {
+    background-color: #efe8e8;
+    color: black;
+    font-size: 15px;
+    height: 110px;
+    text-align: center;
+    padding: 10px;
+    position: sticky;
+    top: 0; /* Stick to the top */
+    z-index: 1000; /* Ensure the header stays above other elements */
+}
+div {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 5px;
+    flex-grow: 1; /* Allow the div to grow and take up the available space */
+
+}
+
+
+
+
+/* front page */
+h1{
+    text-align: center;
+    font-size: 150%;
+}
+#basics{
+    padding: 30px;
+    font-size: 20px;
+    width: 40%;
+    position: absolute; 
+    left: 5%;
+    top: 25%;
+}
+#headshot{
+    position: absolute;
+    right: 10%;
+    top: 30%;
+    width: 35%;
+}
+
+
+
+/*GFIEX */
+/* General Styling */
+
+.gfiexheader {
+    /* text-align: center; */
+    margin-bottom: 20px;
+    width: 50%;
+}
+.gfieximg {
+    display: block;  /* Make the image a block element */
+    margin: 0 auto;  /* Center the image horizontally */
+    max-width: 70%;  /* Optional: Ensure it doesn't overflow its container */
+    height: auto;  /* Maintain aspect ratio */
+    border: none !important;  /* Force removal of the border */
+}
+
+
+.g-section {
+    margin-top: 40px;
+    align-items: center;
+}
+
+#g-titles1 {
+    text-align: center;
+}
+
+/* Grid layout for the section */
+.g-grid {
+    display: flex; /* Use flexbox */
+    flex-wrap: wrap; /* Allow items to wrap to the next row if needed */
+    gap: 20px; /* Space between items */
+}
+
+/* Style for each div within the grid */
+.g-grid > div {
+    display: flex; /* Flexbox for items inside the div */
+    flex-direction: column; /* Stack images and text vertically */
+    justify-content: flex-start; /* Align the content at the top */
+    align-items: center; /* Center align images and text */
+    gap: 10px; /* Space between text and images */
+    flex: 1; /* Ensure each div takes equal space */
+}
+
+/* Optional: Styling for the images to make sure they don't overflow */
+.g-image-container img {
+    width: 100%; /* Adjust to the desired width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+/* Images and Videos */
+.g-grid img {
+    width: 60%; /* Ensure images fill the grid cell */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the whole image fits inside the cell */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
+    display: block; /* Ensures no inline spacing affects centering */
+    margin: 0 auto; /* Centers images horizontally */
+}
+
+
+.g-video-row {
+    display: flex; /* Display items in a row */
+    justify-content: center; /* Distribute space between items */
+    gap: 20px; /* Optional: Add space between videos */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    align-items: center; /* Center the videos vertically if needed */
+
+}
+
+.g-video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    flex: 1; /* Allow each video container to flex */
+    max-width: 33%; /* Limit the container's width to a maximum of 33% */
+    box-sizing: border-box; /* Ensure padding/margins don't affect width */
+}
+
+.g-video-container video {
+    width: 50%; /* Ensure the video takes up the container's full width */
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+    align-items: center; /* Center align images and text */
+
+}
+
+#g-titles {
+    grid-column: 1 / -1; /* Ensure the text spans the entire row */
+    text-align: left;
+}
+
+
+
+
+
+
+/* CIRGO!!!!!!! */
+
+.cirgoheader {
+    /* text-align: center; */
+    margin-bottom: 20px;
+    width: 30%;
+}
+.cirgoimg {
+    display: block;  /* Make the image a block element */
+    margin: 0 auto;  /* Center the image horizontally */
+    max-width: 70%;  /* Optional: Ensure it doesn't overflow its container */
+    height: auto;  /* Maintain aspect ratio */
+    border: none !important;  /* Force removal of the border */
+}
+
+.c-section {
+    margin-top: 40px;
+    align-items: center;
+}
+
+#c-titles1 {
+    text-align: center;
+}
+
+/* Grid layout for the section */
+.c-grid {
+    display: flex; /* Use flexbox */
+    flex-wrap: wrap; /* Allow items to wrap to the next row if needed */
+    gap: 20px; /* Space between items */
+}
+
+/* Style for each div within the grid */
+.c-grid > div {
+    display: flex; /* Flexbox for items inside the div */
+    flex-direction: column; /* Stack images and text vertically */
+    justify-content: flex-start; /* Align the content at the top */
+    align-items: center; /* Center align images and text */
+    gap: 10px; /* Space between text and images */
+    flex: 1; /* Ensure each div takes equal space */
+}
+
+/* Optional: Styling for the images to make sure they don't overflow */
+.c-image-container img {
+    width: 100%; /* Adjust to the desired width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+/* Images and Videos */
+.c-grid img {
+    width: 60%; /* Ensure images fill the grid cell */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the whole image fits inside the cell */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
+    display: block; /* Ensures no inline spacing affects centering */
+    margin: 0 auto; /* Centers images horizontally */
+}
+
+
+.c-video-row {
+    display: flex; /* Display items in a row */
+    justify-content: center; /* Distribute space between items */
+    gap: 20px; /* Optional: Add space between videos */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    align-items: center; /* Center the videos vertically if needed */
+
+}
+
+.c-video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    flex: 1; /* Allow each video container to flex */
+    max-width: 33%; /* Limit the container's width to a maximum of 33% */
+    box-sizing: border-box; /* Ensure padding/margins don't affect width */
+}
+
+.c-video-container video {
+    width: 100%; /* Ensure the video takes up the container's full width */
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+    align-items: center; /* Center align images and text */
+
+}
+
+#c-titles {
+    grid-column: 1 / -1; /* Ensure the text spans the entire row */
+    text-align: left;
+}
+
+
+
+
+
+
+/* gallery photos */
+#gallery{
+    text-align: left;
+    margin: 15px;
+}
+.gallery {
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+}
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Fewer, larger columns */
+    gap: 20px; /* Space between images */
+    margin-top: 20px;
+    align-items: center; /* Vertically align all items */
+}
+
+.photo-grid img {
+    width: 100%; /* Fill the grid cell width */
+    height: auto; /* Maintain the aspect ratio */
+    object-fit: contain; /* Ensure the whole image fits inside the cell */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
+    display: block; /* Ensures no inline spacing affects centering */
+    margin: 0 auto; /* Centers images horizontally */
+}
+
+
+/* 
+.workkatieimg{
+    position: absolute;
+    top: 85%;
+    left: 5%;
+    margin: 20px;
+    width: 20%;
+}
+.workusacoimg{
+    position: absolute;
+    top: 145%;
+    left: 30%;
+    margin: 20px;
+    width: 37%;
+}
+.workovenimg{
+    position: absolute;
+    top: 145%;
+    left: 72%;
+    margin: 20px;
+    width: 20%;
+}
+.workbirdgif{
+    position: absolute;
+    top: 220%;
+    left: 52%;
+    margin: 20px;
+    width: 18%;
+}
+
+.workdesertimg{
+    position: absolute;
+    top: 92%;
+    left: 74%;
+    margin: 20px;
+    width: 20%;
+}
+.worksillyimg1{
+    position: absolute;
+    top: 177%;
+    left: 73%;
+    margin: 20px;
+    width: 18%;
+}
+.worksillyimg2{
+    position: absolute;
+    top: 135%;
+    left: 5%;
+    margin: 20px;
+    width: 20%;
+}
+.workcolsymimg{
+    position: absolute;
+    top: 85%;
+    left: 49%;
+    margin: 20px;
+    width: 20%;
+}
+.workphoneimg{
+    position: absolute;
+    top: 110%;
+    left: 5%;
+    margin: 20px;
+    width: 20%;
+}
+.workphoneimg2{
+    position: absolute;
+    top: 112%;
+    left: 49%;
+    margin: 20px;
+    width: 20%;
+}
+.worktypeimg{
+    position: absolute;
+    top: 117%;
+    left: 72%;
+    margin: 20px;
+    width: 25%;
+}
+.workhamburgimg{
+    position: absolute;
+    top: 158%;
+    left: 49%;
+    margin: 20px;
+    width: 20%;
+}
+.workposterimg{
+    position: absolute;
+    top: 90%;
+    left: 28%;
+    margin: 20px;
+    width: 18%;
+}
+.workdreamsimg1{
+    position: absolute;
+    top: 253%;
+    left: 28%;
+    margin: 20px;
+    width: 25%;
+}
+.workdreamsimg2{
+    position: absolute;
+    top: 253%;
+    left: 54%;
+    margin: 20px;
+    width: 25%;
+}
+.workdreamsimg3{
+    position: absolute;
+    top: 253%;
+    left: 80%;
+    margin: 20px;
+    width: 16.7%;
+}
+.workmailerimg1{
+    position: absolute;
+    top: 180%;
+    left: 7%;
+    margin: 20px;
+    width: 18%;
+}
+.workmailerimg2{
+    position: absolute;
+    top: 160%;
+    left: 28%;
+    margin: 20px;
+    width: 18%;
+}
+.workovenimg2{
+    position: absolute;
+    top: 180%;
+    left: 52%;
+    margin: 20px;
+    width: 15%;
+    transform: rotate(90deg); /* Adjust the angle of rotation (45deg in this example)
+}
+.workovenimg4{
+    position: absolute;
+    top: 220%;
+    left: 30%;
+    margin: 20px;
+    width: 18%;
+}
+.workovenimg3{
+    position: absolute;
+    top: 215%;
+    left: 73%;
+    margin: 20px;
+    width: 20%;
+}
+.workappimg{
+    position: absolute;
+    top: 240%;
+    left: 5%;
+    margin: 20px;
+    width: 20%;
+}
+  */
+
+
+
+
+
+/* page photos */
+.birdgif{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    margin: 20px;
+    width: 35%;
+}
+.birdvid{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    margin: 20px;
+    width: 35%;
+}
+.usaco{
+    text-align: left;
+}
+.usacoimg1 {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    margin: 20px;
+    width: 35%;
+}
+/* .usacoimg2 {
+    position: absolute;
+    top: 45%;
+    left: 70%;
+    margin: 20px; 
+    width: 20%;
+
+} */
+.usacoimg3 {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    margin: 20px; 
+    width: 35%;
+}
+.usacoimg4 {
+    position: absolute;
+    top: 63%;
+    left: 45%;
+    margin: 20px; 
+    width: 35%;
+
+}
+.usacoimg5 {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    margin: 20px; 
+    width: 40%;
+}
+.katie{
+    text-align: left;
+}
+
+.katieimg{
+    width: 70%;
+}
+
+.silly{
+    text-align: left;
+}
+
+.sillyimg{
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    margin: 20px; 
+    width: 30%;
+}
+
+.sillyimg2{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin: 20px; 
+    width: 30%;
+}
+
+.dogimg{
+    position: absolute;
+    top: 40%;
+    left: 7%;
+    margin: 20px; 
+    width: 37%;
+}
+
+.dogimg2{
+    position: absolute;
+    top: 40%;
+    left: 52%;
+    margin: 20px; 
+    width: 40%;
+}
+.colsymimg{
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    margin: 20px; 
+    width: 35%;
+}
+
+.colsymimg2{
+    position: absolute;
+    top: 35%;
+    left: 52%;
+    margin: 20px; 
+    width: 40%;
+}
+
+.phoneimg{
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    margin: 20px; 
+    width: 38%;
+}
+
+.phoneimg2{
+    position: absolute;
+    top: 35%;
+    left: 52%;
+    margin: 20px; 
+    width: 40%;
+}
+.desertimg{
+    position: absolute;
+    top: 30%;
+    left: 23%;
+    margin: 20px; 
+    width: 50%;
+}
+.typeimg{
+    position: absolute;
+    top: 35%;
+    left: 7%;
+    margin: 20px; 
+    width: 40%;
+}
+
+.hamburgimg{
+    position: absolute;
+    top: 35%;
+    left: 52%;
+    margin: 20px; 
+    width: 35%;
+}
+.posterimg{
+    position: absolute;
+    top: 9%;
+    left: 40%;
+    margin: 20px; 
+    width: 25%;
+}
+
+.dreamsimg1{
+    position: absolute;
+    top: 32%;
+    left: 5%;
+    margin: 20px; 
+    width: 40%;
+}
+.dreamsimg2{
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    margin: 20px; 
+    width: 40%;
+}
+.dreamsimg3{
+    position: absolute;
+    top: 60%;
+    left: 35%;
+    margin: 20px; 
+    width: 26%;
+}
+.mailerimg1{
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    margin: 20px; 
+    width: 26%;
+}
+.mailerimg2{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin: 20px; 
+    width: 26%;
+}
+.ovenimg1{
+    position: absolute;
+    top: 40%;
+    left: 2%;
+    margin: 20px; 
+    width: 25%;
+}
+.ovenimg2{
+    position: absolute;
+    top: 45%;
+    left: 20%;
+    margin: 20px; 
+    width: 18%;
+}
+.ovenimg5{
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    margin: 20px; 
+    width: 20%;
+}
+.ovenimg4{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    margin: 20px; 
+    width: 25%;
+}
+.ovenimg3{
+    position: absolute;
+    top: 35%;
+    left: 70%;
+    margin: 20px; 
+    width: 23%;
+}
+
+.plat1{
+    position: absolute;
+    top: 33%;
+    left: 70%;
+    margin: 20px; 
+    width: 18%;
+}
+.plat2{
+    position: absolute;
+    top: 63%;
+    left: 60%;
+    margin: 20px; 
+    width: 15%;
+}
+/* .plat3{
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    margin: 20px; 
+    width: 15%;
+} */
+.plat4{
+    position: absolute;
+    top: 53%;
+    left: 40%;
+    margin: 20px; 
+    width: 17%;
+}
+.plat5{
+    position: absolute;
+    top: 28%;
+    left: 52%;
+    margin: 20px; 
+    width: 15%;
+}
+.plat-pdf{
+    position: absolute;
+    top: 35%;
+    left: 7%;
+    width: 30%;
+    height: 50%;
+}
+
+.print1{
+    position: absolute;
+    top: 40%;
+    left: 5%;
+    margin: 20px; 
+    width: 18%;
+}
+.print6{
+    position: absolute;
+    top: 40%;
+    left: 27%;
+    margin: 20px; 
+    width: 18%;
+}
+/* .print3{
+    position: absolute;
+    top: 40%;
+    left: 37%;
+    margin: 20px; 
+    width: 18%;
+} */
+.print4{
+    position: absolute;
+    top: 40%;
+    left: 49%;
+    margin: 20px; 
+    width: 18%;
+}
+.print5{
+    position: absolute;
+    top: 40%;
+    left: 71%;
+    margin: 20px; 
+    width: 18%;
+}
+
+
+.mush1{
+    position: absolute;
+    top: 30%;
+    left: 2%;
+    margin: 20px; 
+    width: 12%;
+}
+.mush2{
+    position: absolute;
+    top: 40%;
+    left: 16%;
+    margin: 20px; 
+    width: 12%;
+}
+.mush3{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    margin: 20px; 
+    width: 12%;
+}
+
+
+.flower1{
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    margin: 20px; 
+    width: 12%;
+}
+.flower2{
+    position: absolute;
+    top: 25%;
+    left: 60%;
+    margin: 20px; 
+    width: 15%;
+}
+.flower3{
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    margin: 20px; 
+    width: 15%;
+}
+.flower4{
+    position: absolute;
+    top: 40%;
+    left: 78%;
+    margin: 20px; 
+    width:15%;
+}
+
+
+.mush-pdf1{
+    position: absolute;
+    top: 80%;
+    left: 15%;
+    width: 30%;
+    height: 50%;
+}
+
+.mush-pdf2{
+    position: absolute;
+    top: 80%;
+    left: 55%;
+    width: 30%;
+    height: 50%;
+}
+
+
+
+/* work page columns */
+.work {
+    text-align: left;
+    width:90%;
+    font-size: large;
+
+}
+.workcontainer{
+    display: flex;
+    justify-content: space-between; /* Evenly space columns */
+    flex-wrap: wrap; /* Ensure it wraps if necessary on smaller screens */
+}
+
+.workcolumn{
+    flex: 1;
+    margin: 50px 10px; /* Add some space between columns */
+    max-width: 18%; /* Ensure columns fit within the container (5 columns = ~20% each with spacing) */
+}
+
+
+
+
+
+
+footer {
+    /* background-color: #efe8e8; */
+    color: black;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 50px;
+}
+
+
+
+
+/* nav bar */
+nav {
+    padding: 10px;
+    text-align: center;
+    width:100%;
+    position: absolute;
+    top:55%;
+    left:0%
+}
+nav a {
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 10px;
+    font-weight: bold;
+}
+nav a:hover {
+    filter: brightness(0.8); /* Reduce brightness to make color darker */
+}
+.hometab{
+    background-color: #f8d3fe;
+    border-radius: 30%;
+}
+.hometab:hover {
+    background-color: #f0b5f9;
+    color: gray;
+}
+.blogtab{
+    background-color: #98e6cd;
+    border-radius: 30%;
+}
+.blogtab:hover {
+    background-color: #6decc4;
+    color: gray;
+}
+.worktab{
+    background-color: #adc8fe;
+    border-radius: 30%;
+}
+.worktab:hover {
+    background-color: #87acf6;
+    color: gray;
+}
+.abouttab{
+    background-color: #fee2a1;
+    border-radius: 30%;
+}
+.abouttab:hover {
+    background-color: #f8d37d;
+    color: gray;
+}
+.contacttab{
+    background-color: #cebefe;
+    border-radius: 30%;
+}
+.contacttab:hover {
+    background-color: #b59ff7;
+    color: gray;
+}
+
+
+
+
+/* about page images */
+.photo-grid2 {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Fewer, larger columns */
+    gap: 20px; /* Add space between the images */
+    align-items: center; /* Center the grid container on the page */
+}
+
+.photo-grid2 img {
+    width: 100%; /* Set a fixed width for images */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the whole image fits inside the cell */
+    border-radius: 8px; /* Optional: Rounded corners */
+    display: block; /* Ensures no inline spacing affects centering */
+    margin: 0 auto; /* Centers images horizontally */
+}
+
+
+
+/* .swim1img{
+    position: absolute;
+    top: 60%;
+    left: 40%;
+    margin: 20px;
+    width: 25%;
+} */
+/* 
+.swim2img{
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    margin: 20px;
+    width: 15%;
+}
+.meowimg{
+    position: absolute;
+    top: 28%;
+    left: 23%;
+    margin: 20px;
+    width: 20%;
+}
+.bryceimg{
+    position: absolute;
+    top: 26%;
+    left: 45%;
+    margin: 20px;
+    width: 12%;
+}
+.shadowsimg{
+    position: absolute;
+    top: 52%;
+    left: 4%;
+    margin: 20px;
+    width: 17%;
+}
+.tierafuegoimg{
+    position: absolute;
+    top: 52%;
+    left: 60%;
+    margin: 20px;
+    width: 13%;
+}
+.waterfallimg{
+    position: absolute;
+    top: 60%;
+    left: 24%;
+    margin: 20px;
+    width: 15%;
+}
+.cenoteimg{
+    position: absolute;
+    top: 28%;
+    left: 60%;
+    margin: 20px;
+    width: 15%;
+}
+.mountaindudesimg{
+    position: absolute;
+    top: 57%;
+    left: 75%;
+    margin: 20px;
+    width: 18%;
+}
+.alpsimg{
+    position: absolute;
+    top: 60%;
+    left: 43%;
+    margin: 20px;
+    width: 15%;
+}
+.marseilleimg{
+    position: absolute;
+    top: 30%;
+    left: 77%;
+    margin: 20px;
+    width: 15%;
+} */
+
+.coverpage{
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    margin: 20px;
+    width: 50%;
+}
+.books{
+    position: absolute;
+    top: 35%;
+    left: 63%;
+    margin: 20px;
+    width: 19%;
+}
+
+
+
+.bag1{
+    position: absolute;
+    top: 30%;
+    left: 2%;
+    margin: 20px;
+    width: 15%;
+}
+.bag2{
+    position: absolute;
+    top: 35%;
+    left: 20%;
+    margin: 20px;
+    width: 15%;
+}
+.bag5{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    margin: 20px;
+    width: 15%;
+}
+.bag4{
+    position: absolute;
+    top: 35%;
+    left: 60%;
+    margin: 20px;
+    width: 15%;
+}
+.bag3{
+    position: absolute;
+    top: 30%;
+    left: 80%;
+    margin: 20px;
+    width: 15%;
+}
+
+
+.top1{
+    position: absolute;
+    top: 80%;
+    left: 20%;
+    margin: 20px;
+    width: 15%;
+}
+.top2{
+    position: absolute;
+    top: 80%;
+    left: 40%;
+    margin: 20px;
+    width: 15%;
+}
+.top3 {
+    position: absolute;
+    top: 80%;
+    left: 60%;
+    margin: 20px;
+    width: 15%;
+}
+
+
+.top4{
+    position: absolute;
+    top: 123%;
+    left: 30%;
+    margin: 20px;
+    width: 15%;
+}
+.top5 {
+    position: absolute;
+    top: 123%;
+    left: 50%;
+    margin: 20px;
+    width: 15%;
+}
+
+
+
+.top6{
+    position: absolute;
+    top: 157%;
+    left: 10%;
+    margin: 20px;
+    width: 15%;
+}
+.top7 {
+    position: absolute;
+    top: 157%;
+    left: 30%;
+    margin: 20px;
+    width: 15%;
+}
+.top8{
+    position: absolute;
+    top: 157%;
+    left: 50%;
+    margin: 20px;
+    width: 15%;
+}
+.top9 {
+    position: absolute;
+    top: 157%;
+    left: 70%;
+    margin: 20px;
+    width: 15%;
+}
+
+
+/* .pillow1{
+    position: absolute;
+    top: 165%;
+    left: 2%;
+    margin: 20px;
+    width: 15%;
+} */
+.pillow2 {
+    position: absolute;
+    top: 200%;
+    left: 20%;
+    margin: 20px;
+    width: 15%;
+}
+.pillow3{
+    position: absolute;
+    top: 200%;
+    left: 40%;
+    margin: 20px;
+    width: 15%;
+}
+.pillow4 {
+    position: absolute;
+    top: 200%;
+    left: 60%;
+    margin: 20px;
+    width: 15%;
+}

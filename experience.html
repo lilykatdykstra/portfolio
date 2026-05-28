@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience — Lily Dykstra</title>
+  <meta name="description" content="Resume, work experience, education, and skills for Lily Dykstra — Creative Technology & Design Engineer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" /></noscript>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+
+    /* ══════════════════════════════════
+       HERO
+    ══════════════════════════════════ */
+    .exp-hero {
+      background: var(--cream);
+      padding: 4.5rem 0 3.5rem;
+      border-bottom: 1px solid var(--light-border);
+    }
+    .exp-eyebrow {
+      font-family: var(--font-head);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 0.9rem;
+    }
+    .exp-hero-h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .exp-hero-h1 em {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+    .exp-hero-sub {
+      font-size: 1.05rem;
+      color: var(--mid);
+      max-width: 52ch;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ══════════════════════════════════
+       SECTION COMMON
+    ══════════════════════════════════ */
+    .exp-section { padding: 4rem 0 3.5rem; }
+    .exp-section-white { background: var(--white); }
+    .exp-section-cream  { background: var(--cream); }
+
+    .exp-section-h {
+      font-family: var(--font-head);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .exp-section-h em {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+    .exp-section-rule {
+      height: 2px;
+      background: var(--light-border);
+      border: none;
+      margin: 0.5rem 0 2.75rem;
+    }
+
+    /* ══════════════════════════════════
+       SVG DIVIDERS
+    ══════════════════════════════════ */
+    .exp-divider {
+      padding: 1rem 0;
+      display: flex;
+      justify-content: center;
+    }
+    .exp-divider svg {
+      width: min(640px, 100%);
+      display: block;
+    }
+
+    /* ══════════════════════════════════
+       TIMELINE
+    ══════════════════════════════════ */
+    .timeline {
+      display: grid;
+      grid-template-columns: 1fr 52px 1fr;
+      row-gap: 2.5rem;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: calc(50% - 1px);
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--light-border);
+      z-index: 0;
+    }
+    .tl-node {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .tl-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #F2A89A;
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2.5px #F2A89A;
+      flex-shrink: 0;
+    }
+    .tl-spacer { /* empty grid cell */ }
+
+    .tl-card {
+      background: var(--white);
+      border: 1px solid var(--light-border);
+      border-radius: 14px;
+      padding: 1.5rem 1.6rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .tl-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    /* card internal layout */
+    .tl-top {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.85rem;
+    }
+    .tl-date {
+      display: inline-block;
+      font-family: var(--font-head);
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: var(--butter);
+      color: #7A6000;
+      padding: 0.18rem 0.7rem;
+      border-radius: 100px;
+      letter-spacing: 0.01em;
+    }
+    .tl-badge {
+      display: inline-block;
+      font-family: var(--font-head);
+      font-size: 0.65rem;
+      font-weight: 600;
+      background: var(--sage);
+      color: #2A5C30;
+      padding: 0.18rem 0.6rem;
+      border-radius: 100px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .tl-company {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--navy);
+    }
+    .tl-location {
+      font-size: 0.76rem;
+      color: var(--mid);
+      margin-top: 0.1rem;
+    }
+    .tl-role {
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--navy);
+      margin-top: 0.4rem;
+    }
+    .tl-bullets {
+      margin: 0.8rem 0 0 1rem;
+      padding: 0;
+      list-style: disc;
+    }
+    .tl-bullets li {
+      font-size: 0.83rem;
+      color: var(--body-text);
+      line-height: 1.68;
+      margin-bottom: 0.4rem;
+    }
+    .tl-bullets li:last-child { margin-bottom: 0; }
+
+    /* ── Timeline mobile: single column ── */
+    @media (max-width: 720px) {
+      .timeline {
+        display: block;
+      }
+      .timeline::before {
+        left: 7px;
+        top: 0;
+        bottom: 0;
+      }
+      .tl-node, .tl-spacer { display: none; }
+      .tl-card {
+        margin-left: 1.85rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+      .tl-card::before {
+        content: '';
+        position: absolute;
+        left: calc(-1.85rem - 6px);
+        top: 1.5rem;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #F2A89A;
+        border: 2px solid var(--white);
+        box-shadow: 0 0 0 2px #F2A89A;
+      }
+    }
+
+    /* ══════════════════════════════════
+       EDUCATION
+    ══════════════════════════════════ */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .edu-card {
+      background: var(--white);
+      border: 1px solid var(--light-border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .edu-icon { font-size: 1.8rem; margin-bottom: 0.85rem; }
+    .edu-school {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--navy);
+    }
+    .edu-degree {
+      font-size: 0.88rem;
+      color: var(--navy);
+      margin-top: 0.25rem;
+      line-height: 1.4;
+    }
+    .edu-meta {
+      font-size: 0.76rem;
+      color: var(--mid);
+      margin-top: 0.55rem;
+      font-family: var(--font-head);
+    }
+    .edu-meta strong { color: var(--navy); }
+    .edu-coursework {
+      font-size: 0.79rem;
+      color: var(--mid);
+      margin-top: 1rem;
+      line-height: 1.65;
+      padding-top: 1rem;
+      border-top: 1px solid var(--light-border);
+    }
+    .edu-coursework strong { color: var(--navy); font-weight: 600; }
+
+    @media (max-width: 620px) {
+      .edu-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ══════════════════════════════════
+       SKILLS
+    ══════════════════════════════════ */
+    .skills-groups {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .skill-group-label {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.78rem;
+      color: var(--navy);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+    .skill-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .skill-chip {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      border-radius: 100px;
+      font-family: var(--font-head);
+      font-size: 0.79rem;
+      font-weight: 500;
+      cursor: default;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .skill-chip:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 3px 10px rgba(44,62,80,0.12);
+    }
+    .sc-butter   { background: var(--butter);   color: #7A6000; }
+    .sc-sage     { background: var(--sage);     color: #2A5C30; }
+    .sc-blush    { background: var(--blush);    color: #7D3228; }
+    .sc-lavender { background: var(--lavender); color: #3D2C5A; }
+
+    /* ══════════════════════════════════
+       LEADERSHIP
+    ══════════════════════════════════ */
+    .lead-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .lead-card {
+      background: var(--white);
+      border: 1px solid var(--light-border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .lead-org {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+    .lead-chapter {
+      font-size: 0.78rem;
+      color: var(--mid);
+      margin-top: 0.15rem;
+    }
+    .lead-role {
+      font-size: 0.86rem;
+      color: var(--navy);
+      font-style: italic;
+      margin-top: 0.6rem;
+    }
+    .lead-dates {
+      font-family: var(--font-head);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--mid);
+      margin-top: 0.2rem;
+      letter-spacing: 0.01em;
+    }
+    .lead-desc {
+      font-size: 0.82rem;
+      color: var(--mid);
+      margin-top: 0.85rem;
+      line-height: 1.68;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--light-border);
+    }
+
+    @media (max-width: 620px) {
+      .lead-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ══════════════════════════════════
+       REVEAL ANIMATION
+    ══════════════════════════════════ */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">LILY DYKSTRA</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="projects.html">Projects <span class="dropdown-arrow">▾</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="projects.html">All Projects</a></li>
+            <li><a href="projects/zoo.html">Cheyenne Mountain Zoo Redesign</a></li>
+            <li><a href="projects/shelf.html">Wood + Acrylic Shelf</a></li>
+            <li><a href="projects/greenhouse.html">Automated Greenhouse</a></li>
+            <li><a href="projects/lamps.html">Lamp-mania</a></li>
+            <li><a href="projects/oven-oops.html">Oven Oops</a></li>
+            <li><a href="projects/measurely.html">Measurely</a></li>
+          </ul>
+        </li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <div class="exp-hero">
+    <div class="container">
+      <div class="fade-up">
+        <p class="exp-eyebrow">Resume &amp; Skills</p>
+        <h1 class="exp-hero-h1">Experience &amp; <em>Education</em></h1>
+        <p class="exp-hero-sub">A mix of engineering, design, and building things that work.</p>
+        <!-- ADD RESUME PDF: replace href="#" with the actual path, e.g. "files/lily-dykstra-resume.pdf" -->
+        <a href="#" download class="btn btn-primary">Download Resume ↓</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SECTION 1: EXPERIENCE ═══ -->
+  <section class="exp-section exp-section-white">
+    <div class="container">
+      <h2 class="exp-section-h">Where I've Worked</h2>
+      <hr class="exp-section-rule" />
+
+      <div class="timeline" data-reveal>
+
+        <!-- ── Entry 1: Gfiex (LEFT) ── -->
+        <div class="tl-card">
+          <div class="tl-top">
+            <span class="tl-date">May 2024 – Present</span>
+            <span class="tl-badge">Current</span>
+          </div>
+          <div class="tl-company">Gfiex</div>
+          <div class="tl-location">Denver, CO</div>
+          <div class="tl-role">Prototype Designer &amp; Co-Founder</div>
+          <ul class="tl-bullets">
+            <li>Lead prototyping and design for a startup developing smart GFI (Ground Fault Interrupter) units, translating complex electronics into consumer-ready enclosures</li>
+            <li>Engineered 5+ unique electronics enclosures in Fusion 360, executing 3+ iterations per model to optimize internal component fit and structural reliability</li>
+          </ul>
+        </div>
+        <div class="tl-node"><div class="tl-dot"></div></div>
+        <div class="tl-spacer"></div>
+
+        <!-- ── Entry 2: CU Boulder ATLAS (RIGHT) ── -->
+        <div class="tl-spacer"></div>
+        <div class="tl-node"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-top">
+            <span class="tl-date">August 2023 – April 2026</span>
+          </div>
+          <div class="tl-company">University of Colorado Boulder, ATLAS Institute</div>
+          <div class="tl-location">Boulder, CO</div>
+          <div class="tl-role">Learning Assistant — Image and Form Courses</div>
+          <ul class="tl-bullets">
+            <li>Evaluated assignments for 18 students ensuring consistent grading and surfacing recurring usability and comprehension issues</li>
+            <li>Partnered with faculty to iterate on curriculum design and propose changes to increase clarity and learning outcomes</li>
+            <li>Independently led weekly office hours and managed all course correspondence, resolving ~95% of inquiries solo with under 24-hour response time</li>
+          </ul>
+        </div>
+
+        <!-- ── Entry 3: Aviano Coffee (LEFT) ── -->
+        <div class="tl-card">
+          <div class="tl-top">
+            <span class="tl-date">February 2025 – November 2025</span>
+          </div>
+          <div class="tl-company">Aviano Coffee</div>
+          <div class="tl-location">Boulder, CO</div>
+          <div class="tl-role">Barista &amp; Cashier</div>
+          <ul class="tl-bullets">
+            <li>Managed high-velocity café operations serving 100+ customers per hour during peak periods</li>
+            <li>Balanced high-demand service work alongside rigorous full-time coursework, demonstrating sustained time management under pressure</li>
+          </ul>
+        </div>
+        <div class="tl-node"><div class="tl-dot"></div></div>
+        <div class="tl-spacer"></div>
+
+        <!-- ── Entry 4: Calypso AI (RIGHT) ── -->
+        <div class="tl-spacer"></div>
+        <div class="tl-node"><div class="tl-dot"></div></div>
+        <div class="tl-card">
+          <div class="tl-top">
+            <span class="tl-date">May 2024 – August 2024</span>
+          </div>
+          <div class="tl-company">Calypso AI</div>
+          <div class="tl-location">Denver, CO</div>
+          <div class="tl-role">Intern</div>
+          <ul class="tl-bullets">
+            <li>Engineered 10+ customized Amplitude dashboards to analyze customer engagement and user paths, identifying friction points that informed UI/UX optimizations</li>
+            <li>Benchmarked 20+ global AI firms by mapping product features and capabilities, delivering competitive analysis to executive leadership</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SVG Divider 1: sage green wave ── -->
+  <div class="exp-divider exp-section-white" aria-hidden="true">
+    <svg viewBox="0 0 700 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,14 C58,0 116,28 175,14 C233,0 291,28 350,14 C408,0 466,28 525,14 C583,0 641,28 700,14" stroke="#A8C5A0" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <!-- ═══ SECTION 2: EDUCATION ═══ -->
+  <section class="exp-section exp-section-cream">
+    <div class="container">
+      <h2 class="exp-section-h">Education</h2>
+      <hr class="exp-section-rule" />
+
+      <div class="edu-grid" data-reveal>
+
+        <div class="edu-card">
+          <div class="edu-icon">🎓</div>
+          <div class="edu-school">University of Colorado Boulder</div>
+          <div class="edu-degree">B.S. Creative Technology &amp; Design Engineering</div>
+          <div class="edu-meta">Graduated May 2026 &nbsp;·&nbsp; <strong>GPA: 3.96</strong></div>
+          <div class="edu-coursework">
+            <strong>Relevant coursework:</strong> Software Development, UX/UI, Computer-Aided Design, 3D Modeling, Fabrication
+          </div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-icon">📜</div>
+          <div class="edu-school">UX Certificate</div>
+          <div class="edu-degree">University of Colorado Boulder</div>
+          <div class="edu-meta">Earned alongside B.S., 2026</div>
+          <div class="edu-coursework">
+            <strong>Focus:</strong> User research, usability testing, interaction design, wireframing, prototyping
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SVG Divider 2: blush coral zigzag ── -->
+  <div class="exp-divider exp-section-cream" aria-hidden="true">
+    <svg viewBox="0 0 700 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polyline points="0,14 70,4 140,24 210,4 280,24 350,4 420,24 490,4 560,24 630,4 700,14" stroke="#F2A89A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+  </div>
+
+  <!-- ═══ SECTION 3: SKILLS ═══ -->
+  <section class="exp-section exp-section-white">
+    <div class="container">
+      <h2 class="exp-section-h"><em>Skills</em></h2>
+      <hr class="exp-section-rule" />
+
+      <div class="skills-groups" data-reveal>
+
+        <div class="skill-group">
+          <div class="skill-group-label">3D &amp; CAD</div>
+          <div class="skill-chips">
+            <span class="skill-chip sc-butter">Fusion 360</span>
+            <span class="skill-chip sc-butter">Onshape</span>
+            <span class="skill-chip sc-butter">Rhino 7</span>
+            <span class="skill-chip sc-butter">SketchUp</span>
+            <span class="skill-chip sc-butter">Blender</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Fabrication</div>
+          <div class="skill-chips">
+            <span class="skill-chip sc-sage">3D Printing</span>
+            <span class="skill-chip sc-sage">Laser Cutting</span>
+            <span class="skill-chip sc-sage">Thermoforming</span>
+            <span class="skill-chip sc-sage">Soldering</span>
+            <span class="skill-chip sc-sage">Hand Fabrication</span>
+            <span class="skill-chip sc-sage">Woodshop</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">UX &amp; Design</div>
+          <div class="skill-chips">
+            <span class="skill-chip sc-blush">Figma</span>
+            <span class="skill-chip sc-blush">Adobe Creative Suite</span>
+            <span class="skill-chip sc-blush">Wireframing</span>
+            <span class="skill-chip sc-blush">User Research</span>
+            <span class="skill-chip sc-blush">Usability Testing</span>
+            <span class="skill-chip sc-blush">Iterative Prototyping</span>
+            <span class="skill-chip sc-blush">Storyboarding</span>
+            <span class="skill-chip sc-blush">Sitemaps</span>
+            <span class="skill-chip sc-blush">User Flows</span>
+            <span class="skill-chip sc-blush">Photoshop</span>
+            <span class="skill-chip sc-blush">Illustrator</span>
+            <span class="skill-chip sc-blush">InDesign</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Development</div>
+          <div class="skill-chips">
+            <span class="skill-chip sc-lavender">HTML</span>
+            <span class="skill-chip sc-lavender">CSS</span>
+            <span class="skill-chip sc-lavender">JavaScript</span>
+            <span class="skill-chip sc-lavender">Front-End Coding</span>
+            <span class="skill-chip sc-lavender">Responsive Design</span>
+            <span class="skill-chip sc-lavender">Arduino</span>
+            <span class="skill-chip sc-lavender">Object-Oriented Programming</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SVG Divider 3: butter yellow squiggle ── -->
+  <div class="exp-divider exp-section-white" aria-hidden="true">
+    <svg viewBox="0 0 700 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,17 C35,2 70,32 105,17 C140,2 175,32 210,17 C245,2 280,32 315,17 C350,2 385,32 420,17 C455,2 490,32 525,17 C560,2 595,32 630,17 C665,2 700,17 700,17" stroke="#F5DFA0" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <!-- ═══ SECTION 4: LEADERSHIP ═══ -->
+  <section class="exp-section exp-section-cream">
+    <div class="container">
+      <h2 class="exp-section-h">Leadership &amp; Volunteering</h2>
+      <hr class="exp-section-rule" />
+
+      <div class="lead-grid" data-reveal>
+
+        <div class="lead-card">
+          <div class="lead-org">Society of Women Engineers</div>
+          <div class="lead-chapter">CU Boulder Chapter</div>
+          <div class="lead-role">Board Member</div>
+          <div class="lead-dates">August 2023 – May 2026</div>
+          <p class="lead-desc">Served on the SWE CU Boulder board, contributing to event planning, member outreach, and building community for women and allies in engineering.</p>
+        </div>
+
+        <!-- FILL IN: second leadership / volunteering entry — replace placeholder below -->
+        <div class="lead-card">
+          <div class="lead-org"><!-- Organization name --></div>
+          <div class="lead-chapter"><!-- Chapter or location, if applicable --></div>
+          <div class="lead-role"><!-- Role title --></div>
+          <div class="lead-dates"><!-- Dates --></div>
+          <p class="lead-desc"><!-- 1–2 sentence description of your involvement and impact. --></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">LILY DYKSTRA</a>
+          <p>Creative Technology &amp; Design Engineer based in the US. Open to UX, product design, and creative technology roles.</p>
+          <div class="social-links" style="margin-top:1rem;">
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-link" aria-label="GitHub">GH</a>
+            <a href="mailto:lilykatdykstra@gmail.com" class="social-link" aria-label="Email">✉</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">All Projects</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="archive.html">Archive</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Projects</h4>
+          <ul>
+            <li><a href="projects/zoo.html">Zoo Redesign</a></li>
+            <li><a href="projects/shelf.html">Wood + Acrylic Shelf</a></li>
+            <li><a href="projects/greenhouse.html">Automated Greenhouse</a></li>
+            <li><a href="projects/lamps.html">Lamp-mania</a></li>
+            <li><a href="projects/oven-oops.html">Oven Oops</a></li>
+            <li><a href="projects/measurely.html">Measurely</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lily Dykstra. All rights reserved.</span>
+        <span>lilykatdykstra@gmail.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    /* IntersectionObserver reveal */
+    (function () {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('revealed');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('[data-reveal]').forEach(function (el) {
+        obs.observe(el);
+      });
+    })();
+  </script>
+</body>
+</html>
