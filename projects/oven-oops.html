@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oven Oops — Lily Dykstra</title>
+  <meta name="description" content="An Arduino-powered oven reminder device designed to prevent accidental oven misuse, by Lily Dykstra." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" /></noscript>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .photo-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    .photo-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    .photo-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    .photo-grid-2 figure,
+    .photo-grid-3 figure,
+    .photo-grid-4 figure {
+      margin: 0;
+    }
+    .photo-grid-2 figure img,
+    .photo-grid-3 figure img,
+    .photo-grid-4 figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      border: 1px solid #e8e0d4;
+      background: #f5f0e8;
+    }
+    .photo-grid-2 figcaption,
+    .photo-grid-3 figcaption,
+    .photo-grid-4 figcaption {
+      font-size: 0.72rem;
+      color: #8a7f72;
+      text-align: center;
+      margin-top: 0.35rem;
+      font-family: var(--font-body, 'Inter', sans-serif);
+    }
+    .section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8a7f72;
+      margin: 1.75rem 0 0.5rem;
+    }
+    .iter-divider {
+      border: none;
+      border-top: 1px solid #e8e0d4;
+      margin: 2.5rem 0;
+    }
+    .materials-inline {
+      font-size: 0.88rem;
+      color: #6a5f52;
+      background: #f5f0e8;
+      border: 1px solid #e8e0d4;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      margin-top: 0.75rem;
+      line-height: 1.6;
+    }
+    .materials-inline strong {
+      color: #4a4035;
+      font-weight: 600;
+    }
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .feature-list li {
+      font-size: 0.88rem;
+      color: #4a4035;
+      padding: 0.5rem 0.75rem;
+      background: #fdfaf5;
+      border: 1px solid #e8e0d4;
+      border-left: 3px solid #d4a017;
+      border-radius: 4px;
+      line-height: 1.5;
+    }
+    .feature-list li strong {
+      color: #3a342c;
+    }
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 9rem 1fr;
+      gap: 0.6rem 1rem;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      margin-top: 0.75rem;
+    }
+    .timeline-row .tl-label {
+      color: #8a7f72;
+      font-weight: 600;
+    }
+    .timeline-row .tl-val {
+      color: #4a4035;
+    }
+    .video-wrap {
+      margin-top: 1rem;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e8e0d4;
+      background: #1a1612;
+    }
+    .video-wrap video {
+      width: 100%;
+      display: block;
+      max-height: 480px;
+      object-fit: contain;
+    }
+    .video-caption {
+      font-size: 0.72rem;
+      color: #8a7f72;
+      text-align: center;
+      padding: 0.4rem 0.75rem 0.5rem;
+      font-family: var(--font-body, 'Inter', sans-serif);
+      background: #f5f0e8;
+      border-top: 1px solid #e8e0d4;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 700px) {
+      .photo-grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .photo-grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .video-grid   { grid-template-columns: 1fr; }
+      .timeline-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .photo-grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">LILY DYKSTRA</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li class="nav-dropdown">
+          <a href="../projects.html">Projects <span class="dropdown-arrow">▾</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../projects.html">All Projects</a></li>
+            <li><a href="zoo.html">Cheyenne Mountain Zoo Redesign</a></li>
+            <li><a href="shelf.html">Wood + Acrylic Shelf</a></li>
+            <li><a href="greenhouse.html">Automated Greenhouse</a></li>
+            <li><a href="lamps.html">Lamp-mania</a></li>
+            <li><a href="oven-oops.html">Oven Oops</a></li>
+          </ul>
+        </li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO BANNER ═══ -->
+  <div class="project-hero-banner" style="background:#1c1a14;">
+    <img src="../portfolio/oven oops/finalproduct.JPG" alt="Oven Oops device — final product" style="object-fit:contain;" />
+  </div>
+
+  <!-- ═══ PROJECT HEADER ═══ -->
+  <div class="container">
+    <div class="project-header fade-up">
+      <a href="../projects.html" class="back-link">← All Projects</a>
+      <span class="tag tag-hw">Hardware &amp; Engineering</span>
+      <h1>Oven Oops</h1>
+    </div>
+  </div>
+
+  <!-- ═══ PROJECT BODY ═══ -->
+  <div class="project-body">
+    <div class="container">
+      <div class="project-layout">
+
+        <!-- ── Main Content ── -->
+        <main class="project-main">
+
+          <section class="fade-up">
+            <h2>Overview</h2>
+            <p>
+              Oven Oops is an Arduino-powered device that monitors how long the oven has been left on and alerts the user before it becomes a problem. It started from a real, everyday frustration and grew into a fully functional microcontroller system with a countdown timer, animated LED status gauge, remote control input, and a screen that communicates clearly — even from across the room.
+            </p>
+            <p class="section-eyebrow" style="margin-top:1.25rem;">The Prompt</p>
+            <p>
+              Identify a personal "pet peeve," analyze the real-world conditions around it, and develop a physical solution supported by microcontroller technology.
+            </p>
+          </section>
+
+          <section class="fade-up">
+            <h2>The Problem</h2>
+            <p>
+              The project began with a simple but serious problem: my roommate frequently left the oven on without realizing it. A forgotten oven is not just an inconvenience — it's a safety hazard and an energy waste, and existing kitchen timers don't solve it because they aren't attached to the oven itself.
+            </p>
+            <p>
+              I wanted a device that was: easy to understand, impossible to ignore, and helpful without being annoying. This guided every design decision moving forward.
+            </p>
+
+            <p class="section-eyebrow">Semester Timeline</p>
+            <div class="timeline-row">
+              <span class="tl-label">Weeks 1–5</span>
+              <span class="tl-val">Electronics fundamentals, Arduino basics, circuitry practice — LED behavior, circuit wiring, button input logic, debugging, microcontroller communication</span>
+              <span class="tl-label">Weeks 6–16</span>
+              <span class="tl-val">Designing, prototyping, programming, and assembling Oven Oops through two full iterations</span>
+            </div>
+          </section>
+
+          <!-- ── ITERATION 1 ── -->
+          <hr class="iter-divider" />
+          <section class="fade-up">
+            <h2>Iteration 1 — Proof of Concept</h2>
+            <p>
+              Before beginning the final device, I spent five weeks building foundational skills and ended Iteration 1 with a functional, ugly-but-effective prototype that proved the core concept: users could start a cook timer and receive an alert when the time was up.
+            </p>
+
+            <div class="materials-inline">
+              <strong>Components:</strong> Arduino Mega, breadboard, jumper wires, 4-digit segment display, LED, 1K Ohm resistor, buttons, buzzer, heat sensor
+            </div>
+
+            <p class="section-eyebrow">Goals</p>
+            <ul class="feature-list">
+              <li>Get timing logic working reliably</li>
+              <li>Establish a minimal viable version of the concept</li>
+              <li>Understand how to communicate alerts effectively</li>
+            </ul>
+
+            <p class="section-eyebrow">Features</p>
+            <ul class="feature-list">
+              <li><strong>Two physical push buttons</strong> — set time &amp; start</li>
+              <li><strong>Basic countdown timer</strong> — 4-digit segment display</li>
+              <li><strong>LED + buzzer alert</strong> — triggered when time expires</li>
+            </ul>
+
+            <p class="section-eyebrow">Challenges</p>
+            <ul class="feature-list">
+              <li>Creating functional spring-loaded buttons from scratch</li>
+              <li>Understanding and debugging Arduino code logic</li>
+              <li>Calibrating alerts to be noticeable without being obnoxious</li>
+            </ul>
+
+            <p class="section-eyebrow">Circuit</p>
+            <div class="photo-grid-2">
+              <figure>
+                <img src="../portfolio/oven oops/iteration1circuit-overview.jpeg" alt="Iteration 1 — circuit overview" />
+                <figcaption>Circuit overview</figcaption>
+              </figure>
+              <figure>
+                <img src="../portfolio/oven oops/iteration1circuit.jpeg" alt="Iteration 1 — circuit detail" />
+                <figcaption>Circuit detail</figcaption>
+              </figure>
+            </div>
+
+            <p class="section-eyebrow">Enclosure</p>
+            <div class="photo-grid-2">
+              <figure>
+                <img src="../portfolio/oven oops/iteration1-enclosure.JPG" alt="Iteration 1 enclosure — view 1" />
+              </figure>
+              <figure>
+                <img src="../portfolio/oven oops/iteration1-enclosure2.JPG" alt="Iteration 1 enclosure — view 2" />
+              </figure>
+              <figure>
+                <img src="../portfolio/oven oops/iteration1-enclosure3.JPG" alt="Iteration 1 enclosure — view 3" />
+              </figure>
+              <figure>
+                <img src="../portfolio/oven oops/interation1-circuitinenclosure.jpeg" alt="Iteration 1 — circuit inside enclosure" />
+                <figcaption>Circuit in enclosure</figcaption>
+              </figure>
+            </div>
+
+            <p class="section-eyebrow">Demo</p>
+            <div class="video-wrap">
+              <video controls preload="none">
+                <source src="../portfolio/oven oops/iteration1-timersetupprototype.MOV" type="video/mp4" />
+                Your browser does not support this video format.
+              </video>
+              <div class="video-caption">Iteration 1 — device being set and started</div>
+            </div>
+          </section>
+
+          <!-- ── ITERATION 2 ── -->
+          <hr class="iter-divider" />
+          <section class="fade-up">
+            <h2>Iteration 2 — Full Device</h2>
+            <p>
+              With the concept proven, I rebuilt the device from scratch with a significantly expanded feature set. Each addition was chosen to address a specific usability gap identified in Iteration 1: unclear status, limited range, and the need to physically touch the device while cooking.
+            </p>
+
+            <p class="section-eyebrow">New Features &amp; Why</p>
+            <ul class="feature-list">
+              <li><strong>IR remote control</strong> — No physical interaction with a hot oven; greater flexibility in setting or resetting the timer from anywhere in the kitchen</li>
+              <li><strong>OLED/LCD screen with written alerts</strong> — Clear, readable communication ("Oven is ON," "Oven Still On!," "Time's Up!") with status changes based on user input</li>
+              <li><strong>Animated NeoPixel gauge</strong> — Ambient, across-the-room visibility; heat color progression (blue → red) as a fun, expressive status indicator</li>
+              <li><strong>MP3 sound module + speaker</strong> — Distinct audio alerts that are unmistakable but not panic-inducing</li>
+              <li><strong>Cleaner timer logic &amp; more intuitive interactions</strong> — Improved reliability and user-friendly messaging throughout</li>
+            </ul>
+
+            <p class="section-eyebrow">Circuit Build</p>
+            <div class="photo-grid-3">
+              <figure>
+                <img src="../portfolio/oven oops/iteration2circuit-overview.JPG" alt="Iteration 2 — circuit overview" />
+                <figcaption>Circuit overview</figcaption>
+              </figure>
+              <figure>
+                <img src="../portfolio/oven oops/iteration2circuit-overview2.JPG" alt="Iteration 2 — circuit overview 2" />
+                <figcaption>Full circuit</figcaption>
+              </figure>
+              <figure>
+                <img src="../portfolio/oven oops/iteration2circuit-screen.jpeg" alt="Iteration 2 — screen module" />
+                <figcaption>Screen module</figcaption>
+              </figure>
+              <figure>
+                <img src="../portfolio/oven oops/iteration2circuit-screensoldered.jpeg" alt="Iteration 2 — screen soldered" />
+                <figcaption>Screen soldered</figcaption>
+              </figure>
+              <figure>
+                <img src="../portfolio/oven oops/iteration2circuit-neopixels.jpeg" alt="Iteration 2 — NeoPixels" />
+                <figcaption>NeoPixel gauge</figcaption>
+              </figure>
+              <figure>
+                <img src="../portfolio/oven oops/iteration2circuit-mp3.jpeg" alt="Iteration 2 — MP3 module" />
+                <figcaption>MP3 module</figcaption>
+              </figure>
+              <figure>
+                <img src="../portfolio/oven oops/iteration2circuit-speaker.jpeg" alt="Iteration 2 — speaker" />
+                <figcaption>Speaker</figcaption>
+              </figure>
+              <figure>
+                <img src="../portfolio/oven oops/iteration2circuit-solder.JPG" alt="Iteration 2 — soldering" />
+                <figcaption>Soldering</figcaption>
+              </figure>
+              <figure>
+                <img src="../portfolio/oven oops/iteration2circuit-screenon.jpeg" alt="Iteration 2 — screen on" />
+                <figcaption>Screen live</figcaption>
+              </figure>
+            </div>
+
+            <p class="section-eyebrow">Enclosure &amp; Assembly</p>
+            <div class="photo-grid-2">
+              <figure>
+                <img src="../portfolio/oven oops/iteration2enclosure.JPG" alt="Iteration 2 — enclosure" />
+                <figcaption>Enclosure</figcaption>
+              </figure>
+              <figure>
+                <img src="../portfolio/oven oops/iteration2-circuitinenclosure.JPG" alt="Iteration 2 — circuit in enclosure" />
+                <figcaption>Circuit in enclosure</figcaption>
+              </figure>
+            </div>
+
+            <p class="section-eyebrow">In Use</p>
+            <div class="process-images" style="margin-top:0;">
+              <div class="process-img-box" style="aspect-ratio:unset; height:auto;">
+                <img src="../portfolio/oven oops/iteration2-device on oven.JPG" alt="Device mounted on oven in use" style="width:100%; height:auto; object-fit:unset;" />
+              </div>
+            </div>
+
+            <p class="section-eyebrow">Demo Videos</p>
+            <div class="video-grid">
+              <div class="video-wrap" style="margin-top:0;">
+                <video controls preload="none">
+                  <source src="../portfolio/oven oops/countdown.mov" type="video/mp4" />
+                  Your browser does not support this video format.
+                </video>
+                <div class="video-caption">Timer countdown while active</div>
+              </div>
+              <div class="video-wrap" style="margin-top:0;">
+                <video controls preload="none">
+                  <source src="../portfolio/oven oops/fullvid2.mov" type="video/mp4" />
+                  Your browser does not support this video format.
+                </video>
+                <div class="video-caption">Full device walkthrough</div>
+              </div>
+            </div>
+
+            <p class="section-eyebrow">Final Product</p>
+            <div class="photo-grid-3">
+              <figure>
+                <img src="../portfolio/oven oops/finalproduct.JPG" alt="Oven Oops — final product" />
+                <figcaption>Final device</figcaption>
+              </figure>
+              <figure>
+                <img src="../portfolio/oven oops/finalproduct2.JPG" alt="Oven Oops — final product angle 2" />
+                <figcaption>Alternate angle</figcaption>
+              </figure>
+              <figure>
+                <img src="../portfolio/oven oops/finalproduct-unofficial.JPG" alt="Oven Oops — candid final photo" />
+                <figcaption>In context</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <!-- ── REFLECTION ── -->
+          <hr class="iter-divider" />
+          <section class="fade-up">
+            <h2>Reflection</h2>
+            <p>
+              A fully functioning Arduino device that helps prevent accidental oven misuse — user-friendly, visible from across the room, and solving the original pet peeve in a way that's actually fun to use. The device moves seamlessly between multiple input and output systems and represents a major leap in technical capability from where I started.
+            </p>
+            <p>
+              The project was both challenging and incredibly rewarding. While the final device may not be as visually refined as I hoped — so much time went into electrical optimization, and my fabrication education was still early at this point — the underlying engineering is something I'm genuinely proud of.
+            </p>
+            <p>
+              It taught me thoughtful interaction design, how to accept imperfections as part of the process, and how to build with real-world considerations in mind. And perhaps most importantly: I learned how to build functional microcontroller systems from scratch.
+            </p>
+          </section>
+
+        </main>
+
+        <!-- ── Sidebar ── -->
+        <aside class="project-sidebar fade-in">
+          <div class="sidebar-card">
+            <h3>Project Details</h3>
+            <div class="sidebar-detail">
+              <div class="sidebar-row">
+                <span class="sidebar-label">Type</span>
+                <span class="sidebar-value">Hardware &amp; Engineering</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Context</span>
+                <span class="sidebar-value">Class Project</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Class</span>
+                <span class="sidebar-value">Object — ATLS 3300</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Timeline</span>
+                <span class="sidebar-value">Sep – Dec 2023 · 16 weeks</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Year</span>
+                <span class="sidebar-value">2024</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Role</span>
+                <span class="sidebar-value">Sole Creator &amp; Engineer</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Tools</span>
+                <div class="tools-list">
+                  <span class="tool-chip">Arduino</span>
+                  <span class="tool-chip">Circuitry</span>
+                  <span class="tool-chip">Soldering</span>
+                  <span class="tool-chip">Enclosure Design</span>
+                  <span class="tool-chip">Fusion 360</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ NEXT PROJECT ═══ -->
+  <div class="next-project-section">
+    <div class="container">
+      <a href="zoo.html" class="next-project-card">
+        <div>
+          <div class="next-project-label">Back to First Project</div>
+          <div class="next-project-title">Cheyenne Mountain Zoo Redesign →</div>
+        </div>
+        <div class="next-project-arrow">→</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="../index.html" class="nav-logo">LILY DYKSTRA</a>
+          <p>Creative Technology &amp; Design Engineer based in the US. Open to UX, product design, and creative technology roles.</p>
+          <div class="social-links" style="margin-top:1rem;">
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-link" aria-label="GitHub">GH</a>
+            <a href="mailto:lilykatdykstra@gmail.com" class="social-link" aria-label="Email">✉</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../projects.html">All Projects</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Projects</h4>
+          <ul>
+            <li><a href="zoo.html">Zoo Redesign</a></li>
+            <li><a href="shelf.html">Wood + Acrylic Shelf</a></li>
+            <li><a href="greenhouse.html">Automated Greenhouse</a></li>
+            <li><a href="lamps.html">Lamp-mania</a></li>
+            <li><a href="oven-oops.html">Oven Oops</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Lily Dykstra. All rights reserved.</span>
+        <span>lilykatdykstra@gmail.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
