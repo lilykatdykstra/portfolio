@@ -100,6 +100,9 @@
 })();
 
 /* ─── Projects filter ─── */
+/* data-filter on buttons and data-tags on cards use the same keyword tokens.
+   A card matches if its data-tags string contains the filter token as a substring,
+   so "Hardware &amp; Engineering Fabrication" matches both "Hardware" and "Fabrication". */
 (function () {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const cards = document.querySelectorAll('.projects-grid .project-card');
