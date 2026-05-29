@@ -155,10 +155,10 @@
       position: relative !important;
       background: white !important;
       border-radius: 16px !important;
-      padding: 2rem !important;
-      max-width: 640px !important;
-      width: 100% !important;
-      max-height: 85vh !important;
+      padding: 1.5rem !important;
+      max-width: 580px !important;
+      width: 90% !important;
+      max-height: 80vh !important;
       overflow-y: auto !important;
       margin: auto !important;
     }
@@ -201,25 +201,32 @@
       gap: 0.6rem;
       margin-bottom: 1.15rem;
     }
+    .modal-image-grid.g1 { grid-template-columns: 1fr; }
     .modal-image-grid.g2 { grid-template-columns: repeat(2, 1fr); }
     .modal-image-grid.g3 { grid-template-columns: repeat(3, 1fr); }
-    .modal-image-grid.g4 { grid-template-columns: repeat(2, 1fr); }
+    .modal-image-grid.g4 { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
 
-    /* placeholder boxes AND swapped-in real images share one style */
-    .modal-ph,
-    .modal-image-grid img {
-      display: block;
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      border-radius: 8px;
-      border: 1px solid var(--light-border);
-      background: var(--cream);
-    }
+    /* placeholder boxes */
     .modal-ph {
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 8px;
+      border: 1px solid var(--light-border);
+      background: var(--cream);
+    }
+
+    /* real images: shrink to fit, no cropping */
+    .modal-image-grid img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: none;
     }
     .modal-ph::after {
       content: 'photo';
@@ -237,10 +244,35 @@
       line-height: 1.72;
     }
 
-    /* (GitHub popup styles removed) */
-    .modal-gh-unavailable {
-      display: none;
+    /* ── GitHub popup ── */
+    .modal-gh-body {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.85rem;
     }
+    .modal-gh-icon { font-size: 2rem; line-height: 1; }
+    .modal-gh-desc {
+      font-size: 0.875rem;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+    .modal-gh-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 8px;
+      background: var(--navy);
+      color: #fff;
+      font-family: var(--font-head);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s ease;
+      margin-top: 0.25rem;
+    }
+    .modal-gh-btn:hover { background: var(--blush); color: var(--navy); }
 
     /* ── Modal mobile: full screen ── */
     @media (max-width: 540px) {
@@ -303,27 +335,27 @@
         <span class="archive-cat-label">Code</span>
         <div class="archive-grid">
 
-          <div class="archive-card">
+          <div class="archive-card" data-modal="tpl-gh-usaco" tabindex="0" role="button" aria-haspopup="dialog">
             <div class="archive-name">USA Computing Olympiad</div>
-            <div class="archive-desc">Competed in the USA Computing Olympiad, applying algorithmic problem-solving and programming under pressure.</div>
+            <div class="archive-desc">Competitive programming through USA Computing Olympiad problems, worked through 25+ problems ranging from Bronze to Gold difficulty. </div>
             <span class="archive-pill archive-pill-code">Code</span>
           </div>
 
-          <div class="archive-card">
+          <div class="archive-card" data-modal="tpl-gh-ledecky" tabindex="0" role="button" aria-haspopup="dialog">
             <div class="archive-name">Katie Ledecky Wins Gold!</div>
-            <div class="archive-desc">A coding project built around the 2024 Olympics, celebrating Katie Ledecky's gold medal performance.</div>
+            <div class="archive-desc">A web overlay project built with HTML and CSS.</div>
             <span class="archive-pill archive-pill-code">Code</span>
           </div>
 
-          <div class="archive-card">
+          <div class="archive-card" data-modal="tpl-gh-silly" tabindex="0" role="button" aria-haspopup="dialog">
             <div class="archive-name">Silly Story :)</div>
-            <div class="archive-desc">A fun small coding project generating silly, mad-lib-style stories with user input.</div>
+            <div class="archive-desc">A browser-based story generator built with HTML, CSS, and JavaScript that produces randomized silly stories.</div>
             <span class="archive-pill archive-pill-code">Code</span>
           </div>
 
-          <div class="archive-card">
+          <div class="archive-card" data-modal="tpl-gh-phone" tabindex="0" role="button" aria-haspopup="dialog">
             <div class="archive-name">Bad Phone Number</div>
-            <div class="archive-desc">A code-based project exploring phone number parsing, logic, and validation edge cases.</div>
+            <div class="archive-desc">A deliberately terrible phone number input field — the challenge was to make entering a phone number as painful as possible.</div>
             <span class="archive-pill archive-pill-code">Code</span>
           </div>
 
@@ -337,25 +369,26 @@
 
           <div class="archive-card" data-modal="tpl-desert-botany" tabindex="0" role="button" aria-haspopup="dialog">
             <div class="archive-name">Desert Botany</div>
-            <div class="archive-desc">A graphic design project exploring desert plant illustration and botanical visual language.</div>
+            <div class="archive-desc">A VR world built using HTML and A-Frame/Glitch, populated with custom 3D objects, textures, and an equirectangular background image.</div>
             <span class="archive-pill archive-pill-design">Design</span>
           </div>
 
           <div class="archive-card" data-modal="tpl-avenir" tabindex="0" role="button" aria-haspopup="dialog">
             <div class="archive-name">Avenir</div>
-            <div class="archive-desc">A typography project exploring the Avenir typeface, its history, and systematic type applications.</div>
+            <div class="archive-desc">A type specimen poster for Avenir, exploring the typeface's geometric foundations and humanist corrections.
+            </div>
             <span class="archive-pill archive-pill-design">Design</span>
           </div>
 
           <div class="archive-card" data-modal="tpl-dreams" tabindex="0" role="button" aria-haspopup="dialog">
             <div class="archive-name">Dreams</div>
-            <div class="archive-desc">A visual and graphic design exploration — evocative imagery and layered composition.</div>
+            <div class="archive-desc">A printed accordion booklet designed in Adobe Illustrator that typographically expresses a lyric from Dreams by Fleetwood Mac.</div>
             <span class="archive-pill archive-pill-design">Design</span>
           </div>
 
           <div class="archive-card" data-modal="tpl-symphony" tabindex="0" role="button" aria-haspopup="dialog">
             <div class="archive-name">Colorado Symphony Poster Mailer</div>
-            <div class="archive-desc">A designed poster and direct-mail piece for the Colorado Symphony.</div>
+            <div class="archive-desc">An informational poster mailer for the Colorado Symphony concert schedule. </div>
             <span class="archive-pill archive-pill-design">Design</span>
           </div>
 
@@ -369,32 +402,32 @@
 
           <div class="archive-card" data-modal="tpl-oven-oops" tabindex="0" role="button" aria-haspopup="dialog">
             <div class="archive-name">Oven Oops</div>
-            <div class="archive-desc">An Arduino-powered reminder device with countdown timer, NeoPixel gauge, and OLED screen.</div>
+            <div class="archive-desc">A semester-long physical computing project solving a real pet peeve: a roommate leaving the oven on.</div>
             <span class="archive-pill archive-pill-fab">Fabrication</span>
           </div>
 
           <div class="archive-card" data-modal="tpl-platypus" tabindex="0" role="button" aria-haspopup="dialog">
             <div class="archive-name">3D Slot Modeled Platypus</div>
-            <div class="archive-desc">A 3D modeling and fabrication project creating an interlocking slot-model platypus.</div>
+            <div class="archive-desc">A 3D-modeled platypus laser-cut as interlocking flat pieces that slot together into a freestanding 3D form.</div>
             <span class="archive-pill archive-pill-fab">Fabrication</span>
           </div>
 
           <div class="archive-card" data-modal="tpl-lamp-mania" tabindex="0" role="button" aria-haspopup="dialog">
             <div class="archive-name">Lamp-mania</div>
-            <div class="archive-desc">A material-driven lamp design series exploring form, light diffusion, and structural technique.</div>
+            <div class="archive-desc">A fabrication project demonstrating 3D modeling and production skills through lamp design.</div>
             <span class="archive-pill archive-pill-fab">Fabrication</span>
           </div>
 
           <div class="archive-card" data-modal="tpl-linoleum" tabindex="0" role="button" aria-haspopup="dialog">
             <div class="archive-name">Linoleum Carvings</div>
-            <div class="archive-desc">Hand-carved linoleum block prints exploring texture, negative space, and printmaking process.</div>
+            <div class="archive-desc">A hand-carving project using linoleum to mimic woodblock printing, tracing the history of graphic design</div>
             <span class="archive-pill archive-pill-fab">Fabrication</span>
           </div>
 
         </div>
       </div>
 
-      <!-- ── PERSONAL ── -->
+      <!-- ── PERSONAL ──
       <div class="archive-section">
         <span class="archive-cat-label">Personal</span>
         <div class="archive-grid">
@@ -412,7 +445,7 @@
           </div>
 
         </div>
-      </div>
+      </div> -->
 
       <!-- ── PROFESSIONAL ── -->
       <div class="archive-section">
@@ -488,112 +521,118 @@
 
   <!-- ═══ MODAL TEMPLATES ═══ -->
 
+  <!-- ── GitHub Code Templates ── -->
+
+  <template id="tpl-gh-usaco">
+    <div class="modal-gh-body">
+      <div class="modal-title" style="margin-bottom:0;">USA Computing Olympiad</div>
+      <p class="modal-gh-desc">In my freshman year at CU Boulder, Computational Foundations 2 introduced me to competitive programming through USA Computing Olympiad problems. Over the semester I worked through 25+ problems ranging from Bronze to Gold difficulty — covering graph traversal, dynamic programming, greedy algorithms, and geometric reasoning. It sharpened my analytical thinking and Python fluency under constraint.</p>
+      <a href="" target="_blank" rel="noopener" class="modal-gh-btn">View →</a>
+    </div>
+  </template>
+
+  <template id="tpl-gh-ledecky">
+    <div class="modal-gh-body">
+      <div class="modal-title" style="margin-bottom:0;">Katie Ledecky Wins Gold!</div>
+      <p class="modal-gh-desc">A web overlay project built with HTML and CSS — I've been a competitive swimmer most of my life, so I chose a photo of Katie Ledecky and layered an Olympic rings graphic and headline over it. The project focused on CSS positioning, layering, and typographic hierarchy within a live image context.</p>
+      <a href="https://lilydykstra.github.io/atls2200/wa/wa6.html" target="_blank" rel="noopener" class="modal-gh-btn">View →</a>
+    </div>
+  </template>
+
+  <template id="tpl-gh-silly">
+    <div class="modal-gh-body">
+      <div class="modal-title" style="margin-bottom:0;">Silly Story :)</div>
+      <p class="modal-gh-desc">A browser-based story generator built with HTML, CSS, and JavaScript that produces randomized silly stories in both US and UK terminology, and allows input of a custom name. The project introduced dynamic DOM manipulation and conditional logic in JS.</p>
+      <a href="https://lilydykstra.github.io/atls2200/wa/wa10.html" target="_blank" rel="noopener" class="modal-gh-btn">View →</a>
+    </div>
+  </template>
+
+  <template id="tpl-gh-phone">
+    <div class="modal-gh-body">
+      <div class="modal-title" style="margin-bottom:0;">Bad Phone Number</div>
+      <p class="modal-gh-desc">A deliberately terrible phone number input field — the challenge was to make entering a phone number as painful as possible using HTML, CSS, and JavaScript. Sliders, dropdowns, drag targets, and randomized field orders made simple data entry genuinely difficult. A fun exercise in understanding UX by intentionally breaking it.</p>
+      <a href="https://lilydykstra.github.io/atls2200/js-midterm/js-midterm.html" target="_blank" rel="noopener" class="modal-gh-btn">View →</a>
+    </div>
+  </template>
+
   <!-- ═══ VISUAL PROJECT TEMPLATES ═══ -->
 
   <template id="tpl-desert-botany">
     <div class="modal-title">Desert Botany</div>
-    <div class="modal-image-grid g3">
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Desert Botany — illustration 1" /> -->
-      <div class="modal-ph"></div>
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Desert Botany — illustration 2" /> -->
-      <div class="modal-ph"></div>
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Desert Botany — illustration 3" /> -->
-      <div class="modal-ph"></div>
+    <div class="modal-image-grid g1">
+      <img src="lilywebsite/design/desert.jpeg" alt="Desert Botany — illustration 1" />
     </div>
-    <p class="modal-desc">A graphic design project built around desert plant illustration and botanical visual language. Drawings of cacti, succulents, and native desert flora were rendered in a flat, graphic style — building a consistent visual vocabulary around arid landscapes. The final pieces balance scientific illustration reference with a warmer, poster-like sensibility.</p>
+    <p class="modal-desc">A VR world built using HTML and A-Frame/Glitch, populated with custom 3D objects, textures, and an equirectangular background image. The project explored immersive web-based environments and spatial design thinking without a traditional game engine.</p>
   </template>
 
   <template id="tpl-avenir">
     <div class="modal-title">Avenir</div>
-    <div class="modal-image-grid g3">
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Avenir — typographic specimen 1" /> -->
-      <div class="modal-ph"></div>
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Avenir — typographic specimen 2" /> -->
-      <div class="modal-ph"></div>
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Avenir — typographic specimen 3" /> -->
-      <div class="modal-ph"></div>
+    <div class="modal-image-grid g1">
+      <img src="lilywebsite/design/typespecimen.jpeg" alt="Avenir — typographic specimen 1" /> 
     </div>
-    <p class="modal-desc">A deep dive into Adrian Frutiger's Avenir — its geometric foundations, humanist corrections, and behavior across weights and sizes. The project produced typographic specimens and layout systems exploring how a single typeface family can carry vastly different tonal registers. As much a study in typeface anatomy as it was a design exercise.</p>
+    <p class="modal-desc">A type specimen poster for Avenir, designed in Adobe Illustrator. The project explored the typeface's geometric foundations and humanist corrections, producing specimens that demonstrate how a single family carries vastly different tonal registers across weights and sizes — from technical documentation to editorial warmth.</p>
   </template>
 
   <template id="tpl-dreams">
     <div class="modal-title">Dreams</div>
-    <div class="modal-image-grid g2">
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Dreams — image 1" /> -->
-      <div class="modal-ph"></div>
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Dreams — image 2" /> -->
-      <div class="modal-ph"></div>
+    <div class="modal-image-scroll">
+      <img src="lilywebsite/design/accordian1.jpeg" alt="Dreams — image 1" />
+      <img src="lilywebsite/design/accordian2.jpeg" alt="Dreams — image 2" />
+      <img src="lilywebsite/design/accordian3.jpeg" alt="Dreams — image 3" />
     </div>
-    <p class="modal-desc">A visual and graphic design exploration using layered imagery, soft palettes, and texture to evoke the feeling of dreaming. The work experimented with collage-like composition, faded photographic references, and hand-drawn marks layered in digital tools. A personal project with no fixed brief — just curiosity and process.</p>
+    <p class="modal-desc">A printed accordion booklet designed in Adobe Illustrator that typographically expresses a lyric from Dreams by Fleetwood Mac. The folded format guided compositional decisions — each panel had to work alone and in sequence, with type as the primary visual element carrying mood and rhythm.</p>
   </template>
 
   <template id="tpl-symphony">
     <div class="modal-title">Colorado Symphony Poster Mailer</div>
     <div class="modal-image-grid g2">
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Colorado Symphony — poster" /> -->
-      <div class="modal-ph"></div>
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Colorado Symphony — folded mailer" /> -->
-      <div class="modal-ph"></div>
+      <img src="lilywebsite/design/colsym.jpeg" alt="Colorado Symphony — poster" /> 
+      <img src="lilywebsite/design/colsym2.jpeg" alt="Colorado Symphony — folded mailer" />
     </div>
-    <p class="modal-desc">A designed poster and direct-mail piece for the Colorado Symphony, requiring the composition to hold together at two scales — as a full-bleed poster and as a folded mailer. Typography, hierarchy, and season imagery had to work both open and collapsed. The constraint of the fold became a design opportunity.</p>
+    <p class="modal-desc">An informational poster mailer for the Colorado Symphony concert schedule, designed using strict grid layout principles in Adobe Illustrator and InDesign. The project focused on hierarchy, information architecture, and print-ready layout — balancing dense scheduling data with visual clarity and brand consistency.</p>
   </template>
 
   <template id="tpl-oven-oops">
     <div class="modal-title">Oven Oops</div>
-    <div class="modal-image-grid g4">
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Oven Oops — final device" /> -->
-      <div class="modal-ph"></div>
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Oven Oops — OLED display close-up" /> -->
-      <div class="modal-ph"></div>
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Oven Oops — NeoPixel gauge" /> -->
-      <div class="modal-ph"></div>
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Oven Oops — breadboard iteration" /> -->
-      <div class="modal-ph"></div>
+    <div class="modal-image-scroll">
+      <img src="lilywebsite/prototyping/circuit.jpg" alt="Oven Oops — final device" />
+      <img src="lilywebsite/prototyping/iteration1.jpg" alt="Oven Oops — OLED display close-up" />
+      <img src="lilywebsite/prototyping/neopixels.jpg" alt="Oven Oops — NeoPixel gauge" />
+      <img src="lilywebsite/prototyping/room.jpg" alt="Oven Oops — breadboard iteration" />
     </div>
-    <p class="modal-desc">An Arduino-powered reminder device that monitors how long the oven has been on and alerts the user when it's been left on too long. The device features a countdown timer, a NeoPixel color-gradient gauge, and an OLED display — all housed in a custom-built enclosure. Built through two major iterations, from a breadboard proof-of-concept to a polished final product.</p>
+    <p class="modal-desc">A semester-long physical computing project solving a real pet peeve: a roommate leaving the oven on. Across two full iterations over 16 weeks, the device evolved from a basic countdown timer with buttons to a remote-controlled screen with custom messages, a countdown timer, and a NeoPixel temperature gauge. Each iteration followed a low-to-high fidelity prototyping process using Arduino Uno and hand-built enclosures.</p>
   </template>
 
   <template id="tpl-platypus">
     <div class="modal-title">3D Slot Modeled Platypus</div>
     <div class="modal-image-grid g3">
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Slot Platypus — assembled" /> -->
-      <div class="modal-ph"></div>
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Slot Platypus — parts laid out" /> -->
-      <div class="modal-ph"></div>
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Slot Platypus — detail" /> -->
-      <div class="modal-ph"></div>
+      <img src="lilywebsite/form/plat1.JPG" alt="Slot Platypus — assembled" />
+      <img src="lilywebsite/form/plat4.JPG" alt="Slot Platypus — parts laid out" />
+      <img src="lilywebsite/form/plat3.JPG" alt="Slot Platypus — detail" />
     </div>
-    <p class="modal-desc">A 3D slot model exploring how flat planar cuts can interlock to build a three-dimensional form without glue or fasteners. The platypus was modeled digitally and then cut from flat sheet material, fitting together through slot-and-tab joints. The project was a study in decomposing an organic shape into a series of cross-section profiles.</p>
+    <p class="modal-desc">A 3D-modeled platypus designed in SketchUp and laser-cut on an Epilog cutter as interlocking flat pieces that slot together into a freestanding 3D form. The project required thinking spatially in reverse — designing a 3D animal as a series of 2D cross-sections that assemble without fasteners</p>
   </template>
 
   <template id="tpl-lamp-mania">
     <div class="modal-title">Lamp-mania</div>
-    <div class="modal-image-grid g4">
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Lamp-mania — mushroom lamp" /> -->
-      <div class="modal-ph"></div>
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Lamp-mania — flower lamp" /> -->
-      <div class="modal-ph"></div>
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Lamp-mania — jellyfish lamp" /> -->
-      <div class="modal-ph"></div>
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Lamp-mania — expo display" /> -->
-      <div class="modal-ph"></div>
+    <div class="modal-image-scroll">
+      <img src="lilywebsite/form/mush1.JPG" alt="Lamp-mania — mushroom lamp" />
+      <img src="lilywebsite/form/flower1.JPG" alt="Lamp-mania — flower lamp" />
+      <img src="lilywebsite/form/jellyfish.JPG" alt="Lamp-mania — jellyfish lamp" />
+      <img src="portfolio/lamps/expo-lampsetup.JPG" alt="Lamp-mania — expo display" />
     </div>
-    <p class="modal-desc">A fabrication series using three distinct material approaches — 3D-printed PLA for the mushroom lamp, hand-bent wire wrapped in lace for the flower lamp, and ribbon-wrapped jellyfish forms from repurposed materials. Each lamp asked a different question about how material affects light diffusion and how structure creates silhouette. The series was shown at the ATLAS Expo.</p>
+    <p class="modal-desc">A fabrication project demonstrating 3D modeling and production skills through lamp design. Three distinct lamps were produced — a mushroom lamp 3D printed on a Prusa Mk-4, a jellyfish lamp using hand-sewn fabric and wire-working, and a flower lamp combining multiple techniques. Each explored a different material logic and method of diffusing light.</p>
   </template>
 
   <template id="tpl-linoleum">
     <div class="modal-title">Linoleum Carvings</div>
-    <div class="modal-image-grid g4">
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Linoleum Carvings — print 1" /> -->
-      <div class="modal-ph"></div>
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Linoleum Carvings — print 2" /> -->
-      <div class="modal-ph"></div>
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Linoleum Carvings — block detail" /> -->
-      <div class="modal-ph"></div>
-      <!-- SWAP IMAGE: replace this div with <img src="path/to/photo.jpg" alt="Linoleum Carvings — print 3" /> -->
-      <div class="modal-ph"></div>
+    <div class="modal-image-scroll">
+      <img src="lilywebsite/prints/prints.png" alt="Linoleum Carvings — print 1" />
+      <img src="lilywebsite/prints/prints4.png" alt="Linoleum Carvings — print 2" />
+      <img src="lilywebsite/prints/prints5.png" alt="Linoleum Carvings — print 3" />
+      <img src="lilywebsite/prints/prints6.png" alt="Linoleum Carvings — print 4" />
     </div>
-    <p class="modal-desc">Hand-carved linoleum block prints exploring texture, negative space, and the logic of the printmaking process. Carving in linoleum rewards thinking in reverse — removing material to leave the mark — which forces a fundamentally different relationship with form. The prints were pulled in small editions, each with subtle variation inherent to the block and the pull.</p>
+    <p class="modal-desc">A hand-carving project using linoleum to mimic woodblock printing, tracing the history of graphic design through posters representing illuminated manuscripts, Art Nouveau, industrial typefaces, and Cubism. Reference imagery was generated with AI tools and refined in Adobe Illustrator before being hand-carved and printed.</p>
   </template>
 
   <template id="tpl-sewing">
@@ -629,12 +668,15 @@
       const bodyEl    = document.getElementById('archiveModalBody');
       let lastFocused = null;
 
+      /* move to body root once at init so position:fixed is always viewport-relative */
+      document.body.appendChild(overlay);
+
       function openModal(templateId) {
         const tpl = document.getElementById(templateId);
         if (!tpl) return;
         bodyEl.innerHTML = '';
         bodyEl.appendChild(tpl.content.cloneNode(true));
-        document.body.appendChild(overlay); /* move to body root to escape any stacking context */
+        bodyEl.querySelectorAll('.modal-image-scroll').forEach(el => { el.scrollLeft = 0; });
         overlay.classList.add('is-open');
         document.body.style.overflow = 'hidden';
         closeBtn.focus();
@@ -648,7 +690,8 @@
 
       /* click / keyboard on modal-trigger cards */
       document.querySelectorAll('[data-modal]').forEach(function (card) {
-        card.addEventListener('click', function () {
+        card.addEventListener('click', function (e) {
+          e.preventDefault();
           lastFocused = this;
           openModal(this.dataset.modal);
         });
