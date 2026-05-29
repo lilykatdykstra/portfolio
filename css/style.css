@@ -287,8 +287,8 @@ p { max-width: 68ch; }
 
 /* ─── Footer ─── */
 #footer {
-  background: var(--navy);
-  color: rgba(253,250,245,0.80);
+  background: var(--white);
+  color: var(--navy);
   padding: 4rem 0 2rem;
 }
 
@@ -297,7 +297,7 @@ p { max-width: 68ch; }
   grid-template-columns: 1.5fr 1fr 1fr;
   gap: 3rem;
   padding-bottom: 2.5rem;
-  border-bottom: 1px solid rgba(253,250,245,0.10);
+  border-bottom: 1px solid var(--light-border);
   margin-bottom: 1.5rem;
 }
 
@@ -305,33 +305,34 @@ p { max-width: 68ch; }
   font-size: 1rem;
   display: inline-block;
   margin-bottom: 0.75rem;
-  color: var(--cream);
+  color: var(--navy);
   background: none;
   -webkit-text-fill-color: unset;
   letter-spacing: 0.08em;
 }
 
-.footer-brand p { font-size: 0.88rem; opacity: 0.6; max-width: 28ch; }
+.footer-brand p { font-size: 0.88rem; color: var(--mid); max-width: 28ch; }
 
 .footer-col h4 {
-  color: rgba(253,250,245,0.45);
+  color: var(--mid);
   font-family: var(--font-head);
   font-size: 0.72rem;
   letter-spacing: 0.07em;
   text-transform: uppercase;
   margin-bottom: 1rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 .footer-col ul { display: flex; flex-direction: column; gap: 0.5rem; }
-.footer-col ul li a { font-size: 0.87rem; opacity: 0.6; transition: opacity var(--transition), color var(--transition); }
-.footer-col ul li a:hover { opacity: 1; color: var(--blush); }
+.footer-col ul li a { font-size: 0.87rem; color: var(--navy); transition: color var(--transition); }
+.footer-col ul li a:hover { color: var(--blush); }
 
 .footer-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.78rem;
-  opacity: 0.35;
+  color: var(--mid);
+  padding-top: 0.5rem;
 }
 
 .social-links { display: flex; gap: 0.65rem; }
@@ -342,12 +343,13 @@ p { max-width: 68ch; }
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: rgba(253,250,245,0.08);
+  background: var(--white);
+  border: 1px solid var(--light-border);
   font-size: 0.85rem;
-  transition: background var(--transition);
-  color: rgba(253,250,245,0.75);
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+  color: var(--navy);
 }
-.social-link:hover { background: var(--blush); color: var(--navy); }
+.social-link:hover { background: var(--blush); border-color: var(--blush); color: var(--navy); }
 
 /* ─── Scroll Animations ─── */
 .fade-up {

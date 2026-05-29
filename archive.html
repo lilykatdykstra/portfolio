@@ -128,16 +128,19 @@
        MODAL
     ═══════════════════════════════════ */
     .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(44, 62, 80, 0.52);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 900;
-      padding: 1.5rem;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      background: rgba(0, 0, 0, 0.5) !important;
+      backdrop-filter: blur(4px) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      z-index: 9999 !important;
+      padding: 20px !important;
+      box-sizing: border-box !important;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.22s ease;
@@ -148,20 +151,15 @@
     }
 
     .modal-card {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 8px 40px rgba(44,62,80,0.18), 0 2px 8px rgba(44,62,80,0.08);
-      width: 100%;
-      max-width: 680px;
-      max-height: 88vh;
-      overflow-y: auto;
-      padding: 2rem 2rem 1.75rem;
-      position: relative;
-      transform: translateY(18px) scale(0.98);
-      transition: transform 0.22s ease;
-    }
-    .modal-overlay.is-open .modal-card {
-      transform: translateY(0) scale(1);
+      position: relative !important;
+      background: white !important;
+      border-radius: 16px !important;
+      padding: 2rem !important;
+      max-width: 640px !important;
+      width: 100% !important;
+      max-height: 85vh !important;
+      overflow-y: auto !important;
+      margin: auto !important;
     }
 
     .modal-close {
@@ -238,13 +236,19 @@
       line-height: 1.72;
     }
 
+    /* (GitHub popup styles removed) */
+    .modal-gh-unavailable {
+      display: none;
+    }
+
     /* ── Modal mobile: full screen ── */
     @media (max-width: 540px) {
-      .modal-overlay { padding: 0; align-items: flex-end; }
+      .modal-overlay { padding: 0 !important; align-items: flex-end !important; }
       .modal-card {
-        border-radius: 18px 18px 0 0;
-        max-height: 94vh;
+        border-radius: 18px 18px 0 0 !important;
+        max-height: 94vh !important;
         max-height: 94dvh;
+        margin: 0 !important;
       }
       .modal-image-grid.g3 { grid-template-columns: repeat(2, 1fr); }
     }
@@ -274,7 +278,7 @@
           </ul>
         </li>
         <li><a href="experience.html">Experience</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -298,33 +302,29 @@
         <span class="archive-cat-label">Code</span>
         <div class="archive-grid">
 
-          <!-- SWAP GITHUB LINK: replace href="#" with the actual GitHub repository URL -->
-          <a href="#" target="_blank" rel="noopener" class="archive-card">
+          <div class="archive-card">
             <div class="archive-name">USA Computing Olympiad</div>
             <div class="archive-desc">Competed in the USA Computing Olympiad, applying algorithmic problem-solving and programming under pressure.</div>
             <span class="archive-pill archive-pill-code">Code</span>
-          </a>
+          </div>
 
-          <!-- SWAP GITHUB LINK: replace href="#" with the actual GitHub repository URL -->
-          <a href="#" target="_blank" rel="noopener" class="archive-card">
+          <div class="archive-card">
             <div class="archive-name">Katie Ledecky Wins Gold!</div>
             <div class="archive-desc">A coding project built around the 2024 Olympics, celebrating Katie Ledecky's gold medal performance.</div>
             <span class="archive-pill archive-pill-code">Code</span>
-          </a>
+          </div>
 
-          <!-- SWAP GITHUB LINK: replace href="#" with the actual GitHub repository URL -->
-          <a href="#" target="_blank" rel="noopener" class="archive-card">
+          <div class="archive-card">
             <div class="archive-name">Silly Story :)</div>
             <div class="archive-desc">A fun small coding project generating silly, mad-lib-style stories with user input.</div>
             <span class="archive-pill archive-pill-code">Code</span>
-          </a>
+          </div>
 
-          <!-- SWAP GITHUB LINK: replace href="#" with the actual GitHub repository URL -->
-          <a href="#" target="_blank" rel="noopener" class="archive-card">
+          <div class="archive-card">
             <div class="archive-name">Bad Phone Number</div>
             <div class="archive-desc">A code-based project exploring phone number parsing, logic, and validation edge cases.</div>
             <span class="archive-pill archive-pill-code">Code</span>
-          </a>
+          </div>
 
         </div>
       </div>
@@ -452,8 +452,7 @@
           <a href="index.html" class="nav-logo">LILY DYKSTRA</a>
           <p>Creative Technology &amp; Design Engineer based in the US. Open to UX, product design, and creative technology roles.</p>
           <div class="social-links" style="margin-top:1rem;">
-            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-            <a href="#" class="social-link" aria-label="GitHub">GH</a>
+            <a href="https://www.linkedin.com/in/lily-dykstra" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">in</a>
             <a href="mailto:lilykatdykstra@gmail.com" class="social-link" aria-label="Email">✉</a>
           </div>
         </div>
@@ -464,6 +463,7 @@
             <li><a href="projects.html">All Projects</a></li>
             <li><a href="experience.html">Experience</a></li>
             <li><a href="archive.html">Archive</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -486,6 +486,8 @@
   </footer>
 
   <!-- ═══ MODAL TEMPLATES ═══ -->
+
+  <!-- ═══ VISUAL PROJECT TEMPLATES ═══ -->
 
   <template id="tpl-desert-botany">
     <div class="modal-title">Desert Botany</div>
@@ -631,6 +633,7 @@
         if (!tpl) return;
         bodyEl.innerHTML = '';
         bodyEl.appendChild(tpl.content.cloneNode(true));
+        document.body.appendChild(overlay); /* move to body root to escape any stacking context */
         overlay.classList.add('is-open');
         document.body.style.overflow = 'hidden';
         closeBtn.focus();
