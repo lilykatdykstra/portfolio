@@ -12,16 +12,33 @@
   const toggle = document.getElementById('navToggle');
   const links  = document.getElementById('navLinks');
   if (!toggle || !links) return;
+
+  function closeMobileMenu() {
+    links.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
   toggle.addEventListener('click', () => {
     const open = links.classList.toggle('open');
     toggle.classList.toggle('open', open);
-    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-expanded', String(open));
   });
+
+  // Close when any destination link is tapped (submenu items + top-level links)
+  // Does NOT close for the Projects toggle (handled by dropdown IIFE below)
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      const inDropdownMenu = a.closest('.dropdown-menu');
+      const isDropdownToggle = a.closest('.nav-dropdown') && !inDropdownMenu;
+      if (inDropdownMenu || !isDropdownToggle) closeMobileMenu();
+    });
+  });
+
   // Close on outside click
   document.addEventListener('click', (e) => {
     if (!toggle.contains(e.target) && !links.contains(e.target)) {
-      links.classList.remove('open');
-      toggle.classList.remove('open');
+      closeMobileMenu();
     }
   });
 })();
@@ -35,7 +52,6 @@
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const opening = !item.classList.contains('open');
-      // Close all first, then open the clicked one if it was closed
       dropdowns.forEach(d => d.classList.remove('open'));
       if (opening) item.classList.add('open');
     });

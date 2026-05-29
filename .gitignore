@@ -5,3 +5,4 @@ is:                                      cannot open `is' (No such file or direc
 MBecho:                                  cannot open `MBecho' (No such file or directory)
 *.MOV:                                   cannot open `*.MOV' (No such file or directory)
 *.mov
+*.pdf
