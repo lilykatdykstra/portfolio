@@ -225,6 +225,11 @@
         <!-- ── Main Content ── -->
         <main class="project-main">
 
+          <!-- SITE LINK -->
+          <div class="fade-up" style="margin-bottom:1.5rem; padding:0.75rem 1rem; background:var(--cream); border:1px solid var(--light-border); border-radius:8px; font-size:0.9rem; color:var(--mid);">
+            Find the project site here: <a href="https://measurely.co/" target="_blank" rel="noopener" style="color:var(--blush); font-weight:500;">measurely.co</a>
+          </div>
+
           <!-- OVERVIEW -->
           <section class="fade-up">
             <h2>Overview</h2>
@@ -248,11 +253,24 @@
               I grew up making tea rings and monster cookies with my grandmother. It was always a core memory: flour on the counter, the two of us in the kitchen together. She's had Parkinson's my whole life, and as we both got older, her shakiness and dexterity got worse. The tea rings got few and far between.
             </p>
             <p>
-              Baking is deeply personal. For many people it's how they show love, maintain tradition, and feel capable in their own home. But as mobility and coordination decline with age or illness, the kitchen becomes one of the first places that independence slips away — and not because someone can't bake, but because the tools weren't designed with them in mind.
+              Baking is deeply personal. For many people, it's how they show love, maintain tradition, and feel capable in their own home. But as mobility and coordination decline with age or illness, the kitchen becomes one of the first places that independence slips away, and not because someone can't bake, but because the tools weren't designed with them in mind.
             </p>
             <p>
-              Existing solutions didn't close that gap. Thermomix does everything but costs thousands and wasn't built for accessibility. Recipe apps are beautifully designed — for people who can tap a glass screen with floury hands. The Brava Oven is built for limited mobility, but it's an oven, not a measurement tool. None of them answered the question we kept coming back to: <em>how do you make measuring ingredients genuinely manageable for someone with limited hand strength or coordination?</em> That's what Measurely is built to answer.
+              We saw this play out in our research too. We talked to people across a range of abilities and kitchen experience levels, and heard the same thing consistently: precise measurement is hard for everyone, and significantly harder when mobility is limited. Measuring cups require steady hands and sharp eyes. Recipes live on phones with small text, far from the counter. Scales, spoons, and instructions are three separate things to juggle at once. This is an overwhelming amount of coordination for someone whose hands shake, or who can only use one arm, or who tires quickly.
             </p>
+            <p>
+              Existing solutions didn't close that gap. Our precedents research showed that Thermomix does everything but costs thousands and wasn't built for accessibility. Recipe apps are beautifully designed… for people who can tap a glass screen with floury hands. The Brava Oven is built for limited mobility, but it's an oven, not a measurement tool.
+            </p>
+            <p>
+              Existing solutions didn't close that gap. Our precedents research showed that Thermomix does everything but costs thousands and wasn't built for accessibility. Recipe apps are beautifully designed… for people who can tap a glass screen with floury hands. The Brava Oven is built for limited mobility, but it's an oven, not a measurement tool.
+            </p>
+            <p>
+              None of them answered the question we kept coming back to: how do you make measuring ingredients genuinely manageable for someone with limited hand strength or coordination?
+            </p>
+            <p>
+              That's what Measurely is built to answer.
+            </p>
+            
           </section>
 
           <!-- PART 1: RESEARCH -->
@@ -260,12 +278,14 @@
           <section class="fade-up">
             <h2>Part 1 — Research &amp; User Insight</h2>
             <p>
-              Before we built anything, we needed to understand who we were building for. We interviewed people across a range of ages, abilities, and kitchen experience levels — from confident home bakers to people who'd largely stopped cooking due to physical limitations. The pattern that emerged was consistent: precise measurement is a pain point for almost everyone, and it's compounded significantly by limited mobility or coordination.
+              Before we built anything, we needed to understand who we were building for. We interviewed people across a range of ages, abilities, and kitchen experience levels, from confident home bakers to people who'd largely stopped cooking due to physical limitations. The pattern that emerged was consistent: precise measurement is a pain point for almost everyone, and it's compounded significantly by limited mobility or coordination.
             </p>
             <p>
-              A usability survey pushed us toward a specific hardware decision. When we asked users how confident they were tapping a touchscreen with flour-covered hands, the answer was clear: not very. When given the choice between a screen-based button and a large physical button mounted on the device, users overwhelmingly preferred the physical control — both for confidence and for reaction speed. That single finding shaped the button and screen interface that became central to Measurely's design.
+              Holding a measuring cup steady while pouring. Leveling off a tablespoon of flour with one hand. Squinting at a recipe on a phone screen across the counter. These aren't edge cases, they're the core mechanics of baking, and they assume a level of dexterity that many people don't have.
             </p>
-
+            <p>
+              A later usability survey pushed us toward a specific hardware decision. When we asked users how confident they were tapping a touchscreen with flour-covered hands, the answer was clear: not very. When given a choice between a screen-based "dispense" button and a large physical button mounted on the device, users overwhelmingly preferred the physical control — both for confidence and for reaction speed. That single finding shaped the button and screen interface that became central to Measurely's design.
+            </p>
             <div class="pullquote">
               <p>"Baking is a fundamental act of care."</p>
               <cite>— Emily Fitzgerald, Strategic Designer</cite>
@@ -285,7 +305,7 @@
             <span class="attempt-label fail">Scrapped</span>
             <h3 style="margin:0 0 0.75rem; font-size:1.1rem;">Solenoid + Rotating Insert</h3>
             <p>
-              Our first mechanism was inspired by a gumball machine: a rotating wheel with a fixed cavity that would capture exactly one unit of dry ingredient and drop it through. We paired it with a solenoid to drive the rotation. In testing, it failed. The friction forces from fine dry ingredients like baking soda overwhelmed the spring return, the mechanism jammed, and we couldn't get consistent output. This wasn't a fixable tweak — it was a fundamental mismatch between the physics of the mechanism and the physics of fine powder. We scrapped it and started over.
+              Our first mechanism was inspired by a gumball machine: a rotating wheel with a fixed cavity that would capture exactly one unit of dry ingredient and drop it through. We paired it with a solenoid to drive the rotation. In testing, it failed. The friction forces from fine dry ingredients like baking soda overwhelmed the spring return, the mechanism jammed, and we couldn't get consistent output. This wasn't a fixable tweak. It was a fundamental mismatch between the physics of the mechanism and the physics of fine powder. We scrapped it and started over.
             </p>
             <div class="photo-grid-3">
               <figure>
@@ -323,10 +343,10 @@
             <span class="attempt-label pass">Final approach</span>
             <h3 style="margin:0 0 0.75rem; font-size:1.1rem;">Auger Screw</h3>
             <p>
-              We pivoted to an auger — a rotating screw that moves material along its thread, the same principle used in everything from meat grinders to industrial grain conveyors. Unlike the solenoid, it doesn't rely on springs or gravity alone. It moves material deliberately, at a controlled rate, which made it a fundamentally better fit for the precision we needed.
+              We pivoted to an auger. It is a rotating screw that moves material along its thread the same principle used in everything from meat grinders to industrial grain conveyors. Unlike the solenoid, it doesn't rely on springs or gravity alone. It moves material deliberately, at a controlled rate, which made it a better fit for the precision we needed.
             </p>
             <p>
-              The first prototype after the pivot came together in ten days. At that stage we weren't trying to be precise — we were trying to answer a simpler question first: does this even work? We started with an open-top design so we could watch how different ingredients moved through the screw. Salt behaved differently than baking soda. Baking powder clumped. Cinnamon packed. Each ingredient had its own personality, and watching them move — or fail to move — told us things we couldn't have predicted.
+              The first prototype after the pivot came together in ten days. At that stage we weren't trying to be precise, we were trying to answer a simpler question first: does this even work? We started with an open-top design so we could watch how different ingredients moved through the screw. Salt behaved differently than baking soda. Baking powder clumped. Cinnamon packed. Each ingredient had its own personality, and watching them move (or fail to move) told us things we couldn't have predicted.
             </p>
             <p>
               From there we iterated on the exit geometry: a tunnel exit that helped direct flow, an external ramp, and eventually a fully integrated ramp-funnel-tube system that directed ingredients cleanly into the bowl below.
@@ -393,7 +413,14 @@
                   <source src="../portfolio/measurely/attempt 2-auger/iteration1.2.MOV" type="video/mp4" />
                   Your browser does not support this video format.
                 </video>
-                <div class="video-caption">Iteration 1.2</div>
+                <div class="video-caption">Iteration 3</div>
+              </div>
+              <div class="video-wrap" style="margin-top:0;">
+                <video controls preload="none">
+                  <source src="../portfolio/measurely/attempt 2-auger/iteration3 2.mov" type="video/mp4" />
+                  Your browser does not support this video format.
+                </video>
+                <div class="video-caption">Iteration 4</div>
               </div>
               <div class="video-wrap" style="margin-top:0;">
                 <video controls preload="none">
@@ -413,15 +440,14 @@
               A working auger was only half the problem. The other half was time: specifically, how many milliseconds to run the motor to dispense exactly ¼ teaspoon of salt versus ¼ teaspoon of baking powder. Every ingredient behaves differently. Salt is dense and coarse. Baking soda is fine and consistent. Cinnamon is light and prone to clogging. There was no formula we could look up. We had to derive one ourselves.
             </p>
             <p>
-              The method was straightforward: run the motor for 10 seconds, weigh the output, divide by 10 to get a flow rate in grams per second. Then use that flow rate to calculate exactly how long the motor needed to run for each standard baking measurement — ¼ tsp, ½ tsp, 1 tsp, 1 tbsp.
+              The method was straightforward: run the motor for 10 seconds, weigh the output, divide by 10 to get a flow rate in grams per second. Then use that flow rate to calculate exactly how long the motor needed to run for each standard baking measurement: ¼ tsp, ½ tsp, 1 tsp, 1 tbsp.
             </p>
             <p>
-              In practice it was anything but simple. Early salt runs at 0.8mm tolerance produced outputs ranging from 18g to 26g over 12 trials — far too inconsistent. Switching to 0.9mm tolerance stabilized things. Baking powder required adding a small agitator to prevent clumping. Cinnamon needed its own tolerance entirely. Each ingredient got dozens of test runs at each measurement target before we locked in a time.
+              In practice it was anything but simple. Early salt runs at 0.8mm tolerance produced outputs ranging from 18g to 26g over 12 trials, far too inconsistent. Switching to 0.9mm tolerance stabilized things. Baking powder required adding a small agitator to prevent clumping. Cinnamon needed its own tolerance entirely. Each ingredient got dozens of test runs at each measurement target before we locked in a time.
             </p>
 
             <div class="formula-box">
               Salt: time = (800ms × x) + 200ms, where x = number of ¼ tsp units<br />
-              Baking soda/powder: same formula, different base rate — agitator running
             </div>
 
             <p>
@@ -460,7 +486,7 @@
           <section class="fade-up">
             <h2>Part 3 — Physical UX &amp; Enclosure</h2>
             <p>
-              A device for people with limited mobility has to earn trust before someone picks it up. That meant every physical decision — material, weight, height, layout, surface texture — needed to be intentional.
+              A device for people with limited mobility has to earn trust before someone picks it up. That meant every physical decision (material, weight, height, layout, surface texture) needed to be intentional.
             </p>
 
             <p class="section-eyebrow">Materials Testing</p>
@@ -494,15 +520,15 @@
               </figure>
             </div>
             <p>
-              Stainless steel cleaned completely and added structural stability. Wood required sealing but offered warmth and approachability — both important qualities for a device meant to feel like part of a kitchen, not a piece of medical equipment. We landed on a sealed plywood enclosure with stainless contact surfaces: light enough to move, grounded enough to feel stable in use.
+              Stainless steel cleaned completely and added structural stability. Wood would require sealing but offered warmth and approachability, which are both important qualities for a device meant to feel like part of a kitchen, not a piece of medical equipment. We landed on a sealed plywood enclosure with stainless contact surfaces: light enough to move, grounded enough to feel stable in use.
             </p>
 
             <p class="section-eyebrow">The Touchscreen Decision</p>
             <p>
-              Early prototypes explored a physical knob as the primary control — an appealing choice for users with limited hand precision, since it requires no fine grip and gives tactile feedback. In practice, we couldn't source electronics with sufficient documentation to implement it reliably within our timeline, so we committed fully to a touchscreen interface instead.
+              Early prototypes explored a physical knob as the primary control, an appealing choice for users with limited hand precision, since it requires no fine grip and gives tactile feedback. In practice, we couldn't source electronics with sufficient documentation to implement it reliably within our timeline, so we committed fully to a touchscreen interface instead.
             </p>
             <p>
-              That constraint pushed us to think harder about touchscreen accessibility. We designed large, high-contrast tap targets, kept each screen to a single action, and ensured no step required more than one interaction before advancing. The result is an interface that works with a knuckle, a single extended finger, or a light tap — and that tradeoff, while born from a practical limitation, reinforced something our user research had already suggested: clarity of interface matters more than modality.
+              That constraint pushed us to think harder about touchscreen accessibility. We designed large, high-contrast tap targets, kept each screen to a single action, and ensured no step required more than one interaction before advancing. The result is an interface that works with a knuckle, a single extended finger, or a light tap, and that tradeoff (while born from a practical limitation) reinforced something our user research had already suggested: clarity of interface matters more than modality.
             </p>
 
             <p class="section-eyebrow">Enclosure Build</p>
@@ -551,7 +577,7 @@
           <section class="fade-up">
             <h2>Final Prototype</h2>
             <p>
-              Measurely presented at the April 2026 ATLAS Expo as a functional prototype. A user can walk up to the device, select a recipe, and be guided through every measurement step — dry ingredients dispensed automatically, scale feedback in real time, instructions one step at a time on screen — without needing to read a separate recipe, handle a measuring cup, or manage more than one thing at a time. The dispensing mechanism supports dry ingredients at standard baking measurements from ¼ teaspoon to 1 tablespoon.
+              Measurely presented at the April 2026 ATLAS Expo as a functional prototype. A user can walk up to the device, select a recipe, and be guided through every measurement step: dry ingredients dispensed automatically, scale feedback in real time, instructions one step at a time on screen. All of this without needing to read a separate recipe, handle a measuring cup, or manage more than one thing at a time. The dispensing mechanism supports dry ingredients at standard baking measurements from ¼ teaspoon to 1 tablespoon.
             </p>
 
             <div class="video-wrap">
@@ -601,13 +627,13 @@
           <section class="fade-up">
             <h2>Reflection</h2>
             <p>
-              This project taught me that the hardest part of building something physical isn't any individual problem — it's the endlessness of the iteration. Something that works on Monday breaks on Wednesday when you change one variable. A mechanism that passes a test in isolation fails when it meets real flour. You develop a kind of tolerance for that, and then eventually a rhythm: test, observe, adjust, repeat. By the end of the semester that rhythm felt natural. At the beginning it felt like failure.
+              This project taught me that the hardest part of building something physical isn't any individual problem, it's the endlessness of the iteration. Something that works on Monday breaks on Wednesday when you change one variable. A mechanism that passes a test in isolation fails when it meets real flour. You develop a kind of tolerance for that, and then eventually a rhythm: test, observe, adjust, repeat. By the end  of the semester that rhythm felt natural. At the beginning it felt like failure.
             </p>
             <p>
               The pivot from solenoid to auger in week three was the moment that defined how I approached the rest of the project. We didn't abandon the solenoid because we gave up — we abandoned it because the testing told us something true, and we listened. Learning to treat a failed test as information rather than a setback was the most transferable thing I took out of this semester.
             </p>
             <p>
-              I also learned that physical UX is unforgiving in ways that screen UX isn't. A button on a screen can be moved in ten minutes. A hole in a wood enclosure cannot. Every spatial decision carries real consequence, and that pressure made me a more deliberate designer — more likely to sketch and model before committing, more likely to ask whether a decision serves the user or just solves an engineering problem.
+              I also learned that physical UX is unforgiving in ways that screen UX isn't. A button on a screen can be moved in ten minutes. A hole in a wood enclosure cannot. Every spatial decision carries real consequence, and that pressure made me a more deliberate designer: more likely to sketch and model before committing, more likely to ask whether a decision serves the user or just solves an engineering problem.
             </p>
             <p>
               Working across disciplines with Sophie and Sam reinforced something I already believed: the best outcomes happen at the edges between roles. The knob-vs-touchscreen debate, the bowl layout, the height of the dispensing outlet — none of those decisions belonged cleanly to mechanical, electrical, or UX. They required all three of us, and they were better for it.
@@ -621,15 +647,15 @@
               </li>
               <li>
                 <strong>Multi-ingredient rotation &amp; auger redesign</strong>
-                The current build demonstrates dispensing with a single loaded ingredient. True multi-ingredient rotation requires solving tolerance and friction differences across all four ingredients simultaneously — each behaves differently inside the auger, and those differences compound. A next version would redesign the auger geometry per ingredient type.
+                The current build demonstrates dispensing with a single loaded ingredient. True multi-ingredient rotation requires solving tolerance and friction differences across all four ingredients simultaneously. A next version would redesign the auger per ingredient type.
               </li>
               <li>
                 <strong>Motor force &amp; key connection</strong>
-                The universal key connecting the motor shaft to the auger broke during final testing — the clearest signal that the system needs more mechanical security. A next version would increase motor torque and redesign the key connection to engage and disengage reliably across hundreds of cycles.
+                The universal key connecting the motor shaft to the auger broke during final testing. It was the clearest signal that the system needs more mechanical security. A next version would increase motor torque and redesign the key connection to engage and disengage reliably across hundreds of cycles.
               </li>
               <li>
                 <strong>Smaller form factor</strong>
-                The current enclosure is large by necessity — proof of concept work requires room to test, adjust, and access components. The next pass would shrink the footprint significantly, and a more compact carousel design could expand the ingredient library from four to six or eight, meaningfully widening the recipe library.
+                The current enclosure is large by necessity due to the fact that proof of concept work requires room to test, adjust, and access components. The next pass would shrink the footprint significantly, and a more compact carousel design could expand the ingredient library from four to six or eight, meaningfully widening the recipe library.
               </li>
             </ul>
           </section>
