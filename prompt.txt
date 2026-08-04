@@ -1,0 +1,21 @@
+Update projects/library.html to use real photos from portfolio/libraryphotos/. Replace all placeholders with actual img tags. Use ../ prefix on all paths since the file is in projects/.
+
+HERO: ../portfolio/libraryphotos/frontviewfinalproject.JPG
+
+FINAL PRODUCT (2 images): ../portfolio/libraryphotos/frontviewfinalproject.JPG and ../portfolio/libraryphotos/sideviewfinalproject.JPG
+
+PROCESS GROUPS with 2-3 column grid layout, headings, and consistent image heights:
+
+Group 1 Planning: firstdraftmadew:obaseorfront.JPG, firstdraftrooffunkysides.JPG, planningoutwoodcuts.JPG
+
+Group 2 Laser Etching: etchingdesign.JPG, activelasercutterwithdesign.JPG, lasercutandstainingshinglesa.JPG, postetchingresultonwood.JPG
+
+Group 3 Assembly: almostfinalinwoodshop.JPG, assembledroof.JPG, inside.JPG, measuringinternalshelf.JPG, onceopened.JPG, backofalmostfinal.JPG
+
+Group 4 Shingles: pileofshingles.JPG, roof.JPG, shingles.JPG, shingleshalfwaydone.JPG, shinglesjig.JPG, shinglespartiallyuproof.JPG
+
+Group 5 Final Views: frontviewwithfronton.JPG, sideetchings.JPG, sideviewwithfronton.JPG, tophalfview:almostfinished.JPG
+
+INJURY CALLOUT BOX: injury.JPG with caption "The price of making 🤕"
+
+Make images clickable to open full size using the existing modal system.

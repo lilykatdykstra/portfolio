@@ -10,6 +10,15 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" /></noscript>
   <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script>
+  <script src="https://cdn.amplitude.com/libs/plugin-default-event-tracking-2.1.2-min.js.gz"></script>
+  <script>
+    window.amplitude.add(window.amplitudeDefaultEventTracking.plugin()).promise.then(function() {
+      window.amplitude.init('f8f27b21adb683e30cceac2bfc951a27', {
+        autocapture: true
+      });
+    });
+  </script>
 </head>
 <body>
 
@@ -32,6 +41,7 @@
             <li><a href="projects/lamps.html">Lamp-mania</a></li>
             <li><a href="projects/oven-oops.html">Oven Oops</a></li>
             <li><a href="projects/measurely.html">Measurely</a></li>
+            <li><a href="projects/library.html">Art Nouveau Little Library</a></li>
           </ul>
         </li>
         <li><a href="experience.html">Experience</a></li>

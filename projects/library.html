@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Art Nouveau Little Library — Lily Dykstra</title>
+  <meta name="description" content="A hand-built Art Nouveau neighborhood little library — laser-etched vines, shingled roof, and organic forms, by Lily Dykstra." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" /></noscript>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .photo-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    .photo-grid-2 figure { margin: 0; }
+    .photo-grid-2 figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      border: 1px solid #e8e0d4;
+      background: #f5f0e8;
+    }
+    .photo-grid-2 figcaption {
+      font-size: 0.72rem;
+      color: #8a7f72;
+      text-align: center;
+      margin-top: 0.35rem;
+      font-family: var(--font-body, 'Inter', sans-serif);
+    }
+    .aesthetic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .aesthetic-card {
+      background: #f5f0e8;
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+      border: 1px solid #e8e0d4;
+    }
+    .aesthetic-card h4 {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #8a7f72;
+      margin: 0 0 0.6rem;
+    }
+    .aesthetic-card p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #4a4035;
+      margin: 0;
+    }
+    .img-placeholder {
+      background: #e8e4dc;
+      border-radius: 8px;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a7f72;
+      font-size: 0.72rem;
+      font-family: var(--font-body, 'Inter', sans-serif);
+      text-align: center;
+      padding: 1rem;
+    }
+    @media (max-width: 600px) {
+      .aesthetic-grid { grid-template-columns: 1fr; }
+      .photo-grid-2 { grid-template-columns: 1fr; }
+    }
+
+    /* ── Process groups ── */
+    .process-group { margin-top: 1.75rem; }
+    .process-group + .process-group { margin-top: 1.5rem; }
+    .process-group-heading {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #8a7f72;
+      margin: 0 0 0.6rem;
+      font-family: var(--font-body, 'Inter', sans-serif);
+    }
+    .process-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.65rem;
+    }
+    .process-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.65rem;
+    }
+    .process-grid-2 img,
+    .process-grid-3 img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #e8e0d4;
+    }
+
+    /* ── Zoomable images ── */
+    .zoomable { cursor: zoom-in; transition: opacity 0.15s; }
+    .zoomable:hover { opacity: 0.88; }
+    .photo-grid-2 figure img { cursor: zoom-in; transition: opacity 0.15s; }
+    .photo-grid-2 figure img:hover { opacity: 0.88; }
+
+    /* ── Injury callout ── */
+    .injury-callout {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: #fdf5ee;
+      border: 1px solid #f0d9c4;
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+    }
+    .injury-callout figure { margin: 0; flex-shrink: 0; }
+    .injury-callout figure img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 6px;
+      display: block;
+    }
+    .injury-callout figcaption {
+      font-size: 0.82rem;
+      color: #8a7f72;
+      margin-top: 0.45rem;
+      font-family: var(--font-body, 'Inter', sans-serif);
+      text-align: center;
+    }
+
+    /* ── Lightbox ── */
+    #img-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #img-lightbox.open { display: flex; }
+    #img-lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+      cursor: default;
+    }
+    #img-lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.25rem;
+      color: #fff;
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      opacity: 0.8;
+    }
+    #img-lightbox-close:hover { opacity: 1; }
+
+    @media (max-width: 600px) {
+      .process-grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .injury-callout { flex-direction: column; }
+      .injury-callout figure img { width: 100%; height: auto; }
+    }
+  </style>
+  <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script>
+  <script src="https://cdn.amplitude.com/libs/plugin-default-event-tracking-2.1.2-min.js.gz"></script>
+  <script>
+    window.amplitude.add(window.amplitudeDefaultEventTracking.plugin()).promise.then(function() {
+      window.amplitude.init('f8f27b21adb683e30cceac2bfc951a27', {
+        autocapture: true
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">LILY DYKSTRA</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="../projects.html">Projects <span class="dropdown-arrow">▾</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../projects.html">All Projects</a></li>
+            <li><a href="zoo.html">Cheyenne Mountain Zoo Redesign</a></li>
+            <li><a href="shelf.html">Wood + Acrylic Shelf</a></li>
+            <li><a href="greenhouse.html">Automated Greenhouse</a></li>
+            <li><a href="lamps.html">Lamp-mania</a></li>
+            <li><a href="oven-oops.html">Oven Oops</a></li>
+            <li><a href="measurely.html">Measurely</a></li>
+            <li><a href="library.html">Art Nouveau Little Library</a></li>
+          </ul>
+        </li>
+        <li><a href="../experience.html">Experience</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO BANNER ═══ -->
+  <div class="project-hero-banner" style="background:#2a2520;">
+    <img src="../portfolio/libraryphotos/frontviewfinalproject.JPG" alt="Art Nouveau Little Library — front view" style="object-fit:cover;" />
+  </div>
+
+  <!-- ═══ PROJECT HEADER ═══ -->
+  <div class="container">
+    <div class="project-header fade-up">
+      <a href="../projects.html" class="back-link">← All Projects</a>
+      <div style="display:flex; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+        <span class="tag tag-fab">Fabrication</span>
+        <span class="tag tag-design">Design</span>
+      </div>
+      <h1>Art Nouveau Little Library</h1>
+    </div>
+  </div>
+
+  <!-- ═══ PROJECT BODY ═══ -->
+  <div class="project-body">
+    <div class="container">
+      <div class="project-layout">
+
+        <!-- ── Main Content ── -->
+        <main class="project-main">
+
+          <section class="fade-up">
+            <h2>Overview</h2>
+            <p>
+              A hand-built little library designed as a functional neighborhood community tool — a small house-shaped wooden cabinet with a hinged door, interior shelf, laser-etched Art Nouveau surface decoration, and a hand-built shingled roof. The project was an exercise in applying a historical aesthetic framework with precision — from the flowing vine etchings to the curved roof edges — served the unified whole.
+            </p>
+          </section>
+
+          <section class="fade-up">
+            <h2>Art Nouveau as a Design Framework</h2>
+            <p>
+              Art Nouveau is defined by organic and nature-inspired forms — flowing lines, botanical motifs, and the idea of Gesamtkunstwerk, or the total work of art. Applied here, that meant every element of the library worked together as a unified object rather than a box with decoration added on top.
+            </p>
+            <div class="aesthetic-grid">
+              <div class="aesthetic-card">
+                <h4>Organic Flow / Whiplash</h4>
+                <p>Continuous flowing vine and stem patterns laser-etched across surfaces, curving across the wood to create movement and rhythm.</p>
+              </div>
+              <div class="aesthetic-card">
+                <h4>Gesamtkunstwerk — Total Work of Art</h4>
+                <p>The etchings, curved roof edges, window cutout, and bracket details all contribute to a single unified object. Nothing is purely decorative — everything is part of the whole.</p>
+              </div>
+              <div class="aesthetic-card">
+                <h4>Nature Motifs</h4>
+                <p>Leaves, vines, and botanical forms appear across the tile, and the overall house silhouette.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="fade-up">
+            <h2>Making It</h2>
+            <p>
+              The build spanned the month of April and touched nearly every tool in the woodshop. The most time-intensive step was laser-etching the vine design into the wood — nearly four hours for the etching alone, but the result made it worth it.
+            </p>
+            <div class="process-groups">
+
+              <div class="process-group">
+                <p class="process-group-heading">Planning</p>
+                <div class="process-grid-3">
+                  <img src="../portfolio/libraryphotos/firstdraftmadew:obaseorfront.JPG" alt="First draft model — front without base" class="zoomable" />
+                  <img src="../portfolio/libraryphotos/firstdraftrooffunkysides.JPG" alt="First draft roof with funky sides" class="zoomable" />
+                  <img src="../portfolio/libraryphotos/planningoutwoodcuts.JPG" alt="Planning out the wood cuts" class="zoomable" />
+                </div>
+              </div>
+
+              <div class="process-group">
+                <p class="process-group-heading">Laser Etching</p>
+                <div class="process-grid-2">
+                  <img src="../portfolio/libraryphotos/etchingdesign.JPG" alt="Etching design in Illustrator" class="zoomable" />
+                  <img src="../portfolio/libraryphotos/activelasercutterwithdesign.JPG" alt="Active laser cutter with design" class="zoomable" />
+                  <img src="../portfolio/libraryphotos/lasercutandstainingshinglesa.JPG" alt="Laser cut and stained shingles" class="zoomable" />
+                  <img src="../portfolio/libraryphotos/postetchingresultonwood.JPG" alt="Post-etching result on wood" class="zoomable" />
+                </div>
+              </div>
+
+              <div class="process-group">
+                <p class="process-group-heading">Assembly</p>
+                <div class="process-grid-3">
+                  <img src="../portfolio/libraryphotos/almostfinalinwoodshop.JPG" alt="Almost-finished cabinet in the woodshop" class="zoomable" />
+                  <img src="../portfolio/libraryphotos/assembledroof.JPG" alt="Assembled roof structure" class="zoomable" />
+                  <img src="../portfolio/libraryphotos/inside.JPG" alt="Interior of the library" class="zoomable" />
+                  <img src="../portfolio/libraryphotos/measuringinternalshelf.JPG" alt="Measuring the internal shelf" class="zoomable" />
+                  <img src="../portfolio/libraryphotos/onceopened.JPG" alt="Library opened to show interior" class="zoomable" />
+                  <img src="../portfolio/libraryphotos/backofalmostfinal.JPG" alt="Back of the almost-finished library" class="zoomable" />
+                </div>
+              </div>
+
+              <div class="process-group">
+                <p class="process-group-heading">Shingles</p>
+                <div class="process-grid-3">
+                  <img src="../portfolio/libraryphotos/pileofshingles.JPG" alt="Pile of individual shingles" class="zoomable" />
+                  <img src="../portfolio/libraryphotos/roof.JPG" alt="Roof substrate" class="zoomable" />
+                  <img src="../portfolio/libraryphotos/shingles.JPG" alt="Shingles detail" class="zoomable" />
+                  <img src="../portfolio/libraryphotos/shingleshalfwaydone.JPG" alt="Shingles halfway installed" class="zoomable" />
+                  <img src="../portfolio/libraryphotos/shinglesjig.JPG" alt="Shingles cutting jig" class="zoomable" />
+                  <img src="../portfolio/libraryphotos/shinglespartiallyuproof.JPG" alt="Shingles partially up on roof" class="zoomable" />
+                </div>
+              </div>
+
+              <div class="process-group">
+                <p class="process-group-heading">Final Views</p>
+                <div class="process-grid-2">
+                  <img src="../portfolio/libraryphotos/frontviewwithfronton.JPG" alt="Front view with fronton" class="zoomable" />
+                  <img src="../portfolio/libraryphotos/sideetchings.JPG" alt="Side etchings detail" class="zoomable" />
+                  <img src="../portfolio/libraryphotos/sideviewwithfronton.JPG" alt="Side view with fronton" class="zoomable" />
+                  <img src="../portfolio/libraryphotos/tophalfview:almostfinished.JPG" alt="Top half view — almost finished" class="zoomable" />
+                </div>
+              </div>
+
+            </div>
+            <p style="margin-top:1.25rem;">
+              Early in the process: drilled pilot holes, curved the roof edges, and added shelf slots. The shelf placement led to the decision to add a small circular window instead, drilled with a large hole bit. The shingled roof was one of the most complex parts: flat shingles at an angle proved impossible, so each shingle level required building up the roof substrate below it. Miserable to execute, but the result was exactly right. Finished with period-appropriate hinges and a latch.
+            </p>
+            <div class="injury-callout">
+              <figure>
+                <img src="../portfolio/libraryphotos/injury.JPG" alt="Workshop injury" class="zoomable" />
+                <figcaption>The price of making 🤕</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section class="fade-up">
+            <h2>Result</h2>
+            <p>
+              A fully functional little library ready to be mounted on a post and placed in a neighborhood. The Art Nouveau framework gave every decision a clear direction — when in doubt, add organic flow. The project pushed fabrication skills across nearly the entire woodshop tool set and proved that aesthetic constraints make design decisions easier, not harder.
+            </p>
+            <div class="photo-grid-2" style="margin-top:1rem;">
+              <figure>
+                <img src="../portfolio/libraryphotos/frontviewfinalproject.JPG" alt="Final product — front view" class="zoomable" />
+              </figure>
+              <figure>
+                <img src="../portfolio/libraryphotos/sideviewfinalproject.JPG" alt="Final product — side view" class="zoomable" />
+              </figure>
+            </div>
+          </section>
+
+        </main>
+
+        <!-- ── Sidebar ── -->
+        <aside class="project-sidebar fade-in">
+          <div class="sidebar-card">
+            <h3>Project Details</h3>
+            <div class="sidebar-detail">
+              <div class="sidebar-row">
+                <span class="sidebar-label">Type</span>
+                <span class="sidebar-value">Fabrication &amp; Design</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Context</span>
+                <span class="sidebar-value">Class Project</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Class</span>
+                <span class="sidebar-value">ATLS 4279 — Aesthetics in Design</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Role</span>
+                <span class="sidebar-value">Sole Creator &amp; Maker</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Timeline</span>
+                <span class="sidebar-value">April 2026 · Spring 2026</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Year</span>
+                <span class="sidebar-value">2026</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Tools</span>
+                <div class="tools-list">
+                  <span class="tool-chip">Woodshop</span>
+                  <span class="tool-chip">Bandsaw</span>
+                  <span class="tool-chip">Chopsaw</span>
+                  <span class="tool-chip">Table Saw</span>
+                  <span class="tool-chip">Jigsaw</span>
+                  <span class="tool-chip">Sanding</span>
+                  <span class="tool-chip">Laser Cutter</span>
+                  <span class="tool-chip">Onshape</span>
+                  <span class="tool-chip">Adobe Illustrator</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ NEXT PROJECT ═══ -->
+  <div class="next-project-section">
+    <div class="container">
+      <a href="zoo.html" class="next-project-card">
+        <div>
+          <div class="next-project-label">Back to First Project</div>
+          <div class="next-project-title">Cheyenne Mountain Zoo Redesign →</div>
+        </div>
+        <div class="next-project-arrow">→</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="../index.html" class="nav-logo">LILY DYKSTRA</a>
+          <p>Creative Technology &amp; Design Engineer based in the US. Open to UX, product design, and creative technology roles.</p>
+          <div class="social-links" style="margin-top:1rem;">
+            <a href="https://www.linkedin.com/in/lily-dykstra" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="mailto:lilykatdykstra@gmail.com" class="social-link" aria-label="Email">✉</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../projects.html">All Projects</a></li>
+            <li><a href="../experience.html">Experience</a></li>
+            <li><a href="../archive.html">Archive</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Projects</h4>
+          <ul>
+            <li><a href="zoo.html">Zoo Redesign</a></li>
+            <li><a href="shelf.html">Wood + Acrylic Shelf</a></li>
+            <li><a href="greenhouse.html">Automated Greenhouse</a></li>
+            <li><a href="lamps.html">Lamp-mania</a></li>
+            <li><a href="oven-oops.html">Oven Oops</a></li>
+            <li><a href="measurely.html">Measurely</a></li>
+            <li><a href="library.html">Art Nouveau Little Library</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lily Dykstra. All rights reserved.</span>
+        <span>lilykatdykstra@gmail.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+
+  <!-- Lightbox -->
+  <div id="img-lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button id="img-lightbox-close" aria-label="Close">&times;</button>
+    <img id="img-lightbox-img" src="" alt="" />
+  </div>
+  <script>
+  (function () {
+    var lb = document.getElementById('img-lightbox');
+    var lbImg = document.getElementById('img-lightbox-img');
+    var lbClose = document.getElementById('img-lightbox-close');
+
+    function open(src, alt) {
+      lbImg.src = src;
+      lbImg.alt = alt || '';
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+
+    document.querySelectorAll('.zoomable').forEach(function (img) {
+      img.addEventListener('click', function () { open(img.src, img.alt); });
+    });
+    lbClose.addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  })();
+  </script>
+</body>
+</html>
