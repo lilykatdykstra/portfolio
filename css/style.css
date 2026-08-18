@@ -144,6 +144,7 @@ p { max-width: 68ch; }
 .tag-fab    { background: #D5E8D2; color: #2A5C30; }
 .tag-hw     { background: #FAF0CC; color: #7A6000; }
 .tag-design { background: #E8E0F0; color: #52447A; }
+.tag-prog   { background: #C8E4F8; color: #1A4C6E; }
 
 /* ─── Navigation ─── */
 .nav {

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ted's Tzatziki — Lily Dykstra</title>
+  <meta name="description" content="A full-stack client website for Ted's Tzatziki — built with Next.js, Sanity CMS, and Stripe. By Lily Dykstra." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" /></noscript>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .photo-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    .photo-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    .photo-grid-2 figure,
+    .photo-grid-3 figure { margin: 0; }
+    .photo-grid-2 figure img,
+    .photo-grid-3 figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      border: 1px solid #e8e0d4;
+      background: #f5f0e8;
+    }
+    .photo-grid-2 figcaption,
+    .photo-grid-3 figcaption {
+      font-size: 0.72rem;
+      color: #8a7f72;
+      text-align: center;
+      margin-top: 0.35rem;
+      font-family: var(--font-body, 'Inter', sans-serif);
+    }
+
+    /* Goal cards and stack decision cards */
+    .card-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .card-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .info-card {
+      background: #f5f0e8;
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+      border: 1px solid #e8e0d4;
+    }
+    .info-card h4 {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin: 0 0 0.5rem;
+      font-family: var(--font-head);
+    }
+    .info-card .card-eyebrow {
+      font-size: 0.67rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8a7f72;
+      margin: 0 0 0.35rem;
+      display: block;
+    }
+    .info-card p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #4a4035;
+      margin: 0;
+    }
+
+    /* Outcome stat chips */
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.65rem;
+      margin-top: 1.25rem;
+    }
+    .outcome-chip {
+      background: #f5f0e8;
+      border: 1px solid #e8e0d4;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.85rem;
+      color: var(--navy);
+      font-family: var(--font-head);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* Image placeholder */
+    .img-placeholder {
+      background: #e8e4dc;
+      border-radius: 8px;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a7f72;
+      font-size: 0.72rem;
+      font-family: var(--font-body, 'Inter', sans-serif);
+      text-align: center;
+      padding: 1rem;
+    }
+
+    /* Live site link in sidebar */
+    .sidebar-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.87rem;
+      color: var(--blush);
+      font-weight: 500;
+      font-family: var(--font-head);
+      transition: opacity 0.2s;
+      text-decoration: none;
+    }
+    .sidebar-link:hover { opacity: 0.75; }
+
+    @media (max-width: 700px) {
+      .card-grid-3 { grid-template-columns: 1fr; }
+      .card-grid-2 { grid-template-columns: 1fr; }
+      .outcome-grid { grid-template-columns: 1fr; }
+      .photo-grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .photo-grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script>
+  <script src="https://cdn.amplitude.com/libs/plugin-default-event-tracking-2.1.2-min.js.gz"></script>
+  <script>
+    window.amplitude.add(window.amplitudeDefaultEventTracking.plugin()).promise.then(function() {
+      window.amplitude.init('f8f27b21adb683e30cceac2bfc951a27', {
+        autocapture: true
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">LILY DYKSTRA</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="../projects.html">Projects <span class="dropdown-arrow">▾</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../projects.html">All Projects</a></li>
+            <li><a href="zoo.html">Cheyenne Mountain Zoo Redesign</a></li>
+            <li><a href="shelf.html">Wood + Acrylic Shelf</a></li>
+            <li><a href="greenhouse.html">Automated Greenhouse</a></li>
+            <li><a href="lamps.html">Lamp-mania</a></li>
+            <li><a href="oven-oops.html">Oven Oops</a></li>
+            <li><a href="measurely.html">Measurely</a></li>
+            <li><a href="library.html">Art Nouveau Little Library</a></li>
+            <li><a href="tzatziki.html">Ted's Tzatziki</a></li>
+          </ul>
+        </li>
+        <li><a href="../experience.html">Experience</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO BANNER ═══ -->
+  <div class="project-hero-banner" style="background:#2e4a3a;">
+    <!-- SWAP IMAGE: photos/tzatziki-hero.jpg -->
+    <div style="color:rgba(255,255,255,0.22); font-size:0.78rem; font-family:var(--font-body);">tzatziki-hero.jpg</div>
+  </div>
+
+  <!-- ═══ PROJECT HEADER ═══ -->
+  <div class="container">
+    <div class="project-header fade-up">
+      <a href="../projects.html" class="back-link">← All Projects</a>
+      <div style="display:flex; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+        <span class="tag tag-prog">Programming</span>
+        <span class="tag tag-design">Design</span>
+      </div>
+      <h1>Ted's Tzatziki — Client Website</h1>
+    </div>
+  </div>
+
+  <!-- ═══ PROJECT BODY ═══ -->
+  <div class="project-body">
+    <div class="container">
+      <div class="project-layout">
+
+        <!-- ── Main Content ── -->
+        <main class="project-main">
+
+          <section class="fade-up">
+            <h2>Overview</h2>
+            <p>
+              Ted's Tzatziki is a family-owned Greek tzatziki sauce brand based in Des Moines, Iowa — rooted in a story that starts in Sparta, Greece in 1935 and spans over 50 years of recipe refinement. I was brought on to design and build a full client website from scratch: brand-story-forward, easy for a non-technical client to manage, and built to grow as the business scales into wholesale distribution.
+            </p>
+          </section>
+
+          <section class="fade-up">
+            <h2>Client Brief &amp; Goals</h2>
+            <p>
+              Ted Velman needed a website that could do a few things at once: tell the brand story, showcase products, display retailer locations, and lay the groundwork for future online ordering once shipping logistics were resolved. The priority was brand identity over e-commerce — this wasn't a store launch, it was a brand introduction.
+            </p>
+            <div class="card-grid-3" style="margin-top:1.25rem;">
+              <div class="info-card">
+                <span class="card-eyebrow">Goal 1</span>
+                <h4>Brand Storytelling</h4>
+                <p>Turn a 90-year family history into a compelling narrative that builds trust with wholesale buyers and retail customers.</p>
+              </div>
+              <div class="info-card">
+                <span class="card-eyebrow">Goal 2</span>
+                <h4>Client Autonomy</h4>
+                <p>Give a non-technical client the ability to update content — products, story, recipes — without touching code.</p>
+              </div>
+              <div class="info-card">
+                <span class="card-eyebrow">Goal 3</span>
+                <h4>Future-Ready</h4>
+                <p>Build the infrastructure for online ordering (Stripe) even before shipping logistics were resolved, so the site could scale without a rebuild.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="fade-up">
+            <h2>Stack &amp; Why</h2>
+            <div class="card-grid-2">
+              <div class="info-card">
+                <h4>Next.js (App Router)</h4>
+                <p>Chose Next.js for its performance, routing flexibility, and seamless Vercel deployment. App Router gave clean page structure for a multi-section brand site.</p>
+              </div>
+              <div class="info-card">
+                <h4>Sanity CMS</h4>
+                <p>The client autonomy requirement drove the CMS choice entirely. Sanity's embedded studio at /studio gave Ted a clean interface to edit products, the brand story, and recipes — no developer needed after handoff.</p>
+              </div>
+              <div class="info-card">
+                <h4>Stripe</h4>
+                <p>Integrated Stripe for future payment processing even though online ordering wasn't live at launch — the infrastructure was in place so the site could scale without a rebuild when shipping was resolved.</p>
+              </div>
+              <div class="info-card">
+                <h4>Vercel + GoDaddy</h4>
+                <p>Deployed on Vercel for automatic redeployment on every git push. Connected the GoDaddy domain tedstzatziki.com via A record and CNAME.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="fade-up">
+            <h2>Design: Personality-Forward</h2>
+            <p>
+              The design was inspired by brands like Graza and Bitchin' Sauce — playful, story-driven, with strong visual personality rather than a generic e-commerce template. Key design decisions included a marquee ticker strip, wavy section dividers, hover animations, decorative cucumber accents, and alternating section colors in cream, sage green, and terracotta.
+            </p>
+            <div class="photo-grid-3" style="margin-top:1.25rem;">
+              <figure>
+                <!-- SWAP IMAGE: photos/tzatziki-design-1.jpg -->
+                <div class="img-placeholder">tzatziki-design-1.jpg</div>
+                <figcaption>Homepage — brand story hero</figcaption>
+              </figure>
+              <figure>
+                <!-- SWAP IMAGE: photos/tzatziki-design-2.jpg -->
+                <div class="img-placeholder">tzatziki-design-2.jpg</div>
+                <figcaption>Our Story page</figcaption>
+              </figure>
+              <figure>
+                <!-- SWAP IMAGE: photos/tzatziki-design-3.jpg -->
+                <div class="img-placeholder">tzatziki-design-3.jpg</div>
+                <figcaption>Product and retailer section</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section class="fade-up">
+            <h2>Turning a Timeline Into a Story</h2>
+            <p>
+              One of the most meaningful parts of the project was rewriting the client's family history — originally a bullet-point timeline — into a narrative. Born in the foothills of Sparta, Greece in 1935, Ted Velman grew up on a family farm where cucumbers were the largest crop and his grandmother's tzatziki recipe was always being quietly refined. That story became the emotional core of the site.
+            </p>
+          </section>
+
+          <section class="fade-up">
+            <h2>Client Handoff</h2>
+            <p>
+              After launch, Ted could log into /studio and update products, edit the brand story, add recipes, and manage retailer locations — with a CMS schema scoped around his actual workflow, not a generic template. The goal was that he'd never need to open a code editor or reach out for routine content changes.
+            </p>
+          </section>
+
+          <section class="fade-up">
+            <h2>Result</h2>
+            <p>
+              A live, deployed client website at tedstzatziki.com — brand-story-forward, fully manageable by a non-technical client, and built with the infrastructure to support online ordering when the business is ready. The project covered the full lifecycle of freelance web development: client discovery, content strategy, design, full-stack development, CMS configuration, deployment, domain setup, and client handoff.
+            </p>
+            <div class="outcome-grid">
+              <div class="outcome-chip">🛠️ Full stack — Next.js, Sanity, Stripe, Vercel</div>
+              <div class="outcome-chip">🌐 Live at tedstzatziki.com</div>
+              <div class="outcome-chip">📦 CMS-enabled for client self-management</div>
+              <div class="outcome-chip">🎨 Brand-story-forward design inspired by Graza</div>
+            </div>
+          </section>
+
+          <section class="fade-up">
+            <h2>Reflections</h2>
+            <p>
+              Working with a real client added constraints that school projects don't — unclear shipping logistics, content that arrived in pieces, and a scope that needed to serve the business's current reality while leaving room to grow. Learning to scope a CMS around a non-technical user's workflow, not just what was technically easiest, was one of the most valuable parts of the project.
+            </p>
+          </section>
+
+        </main>
+
+        <!-- ── Sidebar ── -->
+        <aside class="project-sidebar fade-in">
+          <div class="sidebar-card">
+            <h3>Project Details</h3>
+            <div class="sidebar-detail">
+              <div class="sidebar-row">
+                <span class="sidebar-label">Type</span>
+                <span class="sidebar-value">Web Development</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Context</span>
+                <span class="sidebar-value">Client Project</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Client</span>
+                <span class="sidebar-value">Ted's Tzatziki / Ted Velman</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Role</span>
+                <span class="sidebar-value">Sole Developer &amp; Designer</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Timeline</span>
+                <span class="sidebar-value">Spring 2026</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Year</span>
+                <span class="sidebar-value">2026</span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Live Site</span>
+                <span class="sidebar-value">
+                  <a href="https://tedstzatziki.com" class="sidebar-link" target="_blank" rel="noopener">tedstzatziki.com ↗</a>
+                </span>
+              </div>
+              <div class="sidebar-row">
+                <span class="sidebar-label">Tools</span>
+                <div class="tools-list">
+                  <span class="tool-chip">Next.js</span>
+                  <span class="tool-chip">Tailwind CSS</span>
+                  <span class="tool-chip">Sanity CMS</span>
+                  <span class="tool-chip">Stripe</span>
+                  <span class="tool-chip">Vercel</span>
+                  <span class="tool-chip">GoDaddy</span>
+                  <span class="tool-chip">Figma</span>
+                  <span class="tool-chip">Claude Code</span>
+                  <span class="tool-chip">Cursor</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ NEXT PROJECT ═══ -->
+  <div class="next-project-section">
+    <div class="container">
+      <a href="zoo.html" class="next-project-card">
+        <div>
+          <div class="next-project-label">Back to First Project</div>
+          <div class="next-project-title">Cheyenne Mountain Zoo Redesign →</div>
+        </div>
+        <div class="next-project-arrow">→</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="../index.html" class="nav-logo">LILY DYKSTRA</a>
+          <p>Creative Technology &amp; Design Engineer based in the US. Open to UX, product design, and creative technology roles.</p>
+          <div class="social-links" style="margin-top:1rem;">
+            <a href="https://www.linkedin.com/in/lily-dykstra" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="mailto:lilykatdykstra@gmail.com" class="social-link" aria-label="Email">✉</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../projects.html">All Projects</a></li>
+            <li><a href="../experience.html">Experience</a></li>
+            <li><a href="../archive.html">Archive</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Projects</h4>
+          <ul>
+            <li><a href="zoo.html">Zoo Redesign</a></li>
+            <li><a href="shelf.html">Wood + Acrylic Shelf</a></li>
+            <li><a href="greenhouse.html">Automated Greenhouse</a></li>
+            <li><a href="lamps.html">Lamp-mania</a></li>
+            <li><a href="oven-oops.html">Oven Oops</a></li>
+            <li><a href="measurely.html">Measurely</a></li>
+            <li><a href="library.html">Art Nouveau Little Library</a></li>
+            <li><a href="tzatziki.html">Ted's Tzatziki</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lily Dykstra. All rights reserved.</span>
+        <span>lilykatdykstra@gmail.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
